@@ -3,12 +3,12 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { detailsUser, updateUser } from '../actions/userActions';
+import { detailsUser, updateUser } from '../actionsReducers/auth/authActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import { USER_UPDATE_RESET } from '../constants/userConstants';
+import { USER_UPDATE_RESET } from '../actionsReducers/types';
 
 export default function UserEditScreen(props) {
   const navigate = useNavigate();

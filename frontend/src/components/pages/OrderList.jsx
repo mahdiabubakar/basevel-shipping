@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { deleteOrder, listOrders } from '../actions/orderActions';
+import {
+  deleteOrder,
+  listOrders,
+} from '../../actionsReducers/order/orderActions';
 
 // Imported Components
 import Spinner from '../layouts/Spinner';

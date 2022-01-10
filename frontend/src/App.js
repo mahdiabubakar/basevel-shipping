@@ -12,11 +12,8 @@ import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 import ProductScreen from './screens/ProductScreen';
-
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
-
 import ProductEditScreen from './screens/ProductEditScreen';
-import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
@@ -39,6 +36,7 @@ import Register from './components/pages/Register';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
 import ProductList from './components/pages/ProductList';
+import OrderList from './components/pages/OrderList';
 
 // Styles
 import './App.css';
@@ -136,7 +134,8 @@ const App = () => {
               path='/orderlist'
               element={
                 <AdminRoute>
-                  <OrderListScreen />
+                  {/* <OrderListScreen /> */}
+                  <OrderList />
                 </AdminRoute>
               }
             />
@@ -185,7 +184,8 @@ const App = () => {
               path='/orderlist/seller'
               element={
                 <SellerRoute>
-                  <OrderListScreen />
+                  {/* <OrderListScreen /> */}
+                  <OrderList />
                 </SellerRoute>
               }
             />

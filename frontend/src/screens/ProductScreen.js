@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { createReview, detailsProduct } from '../actions/productActions';
+
+// Actions
+import {
+  createReview,
+  detailsProduct,
+} from '../actionsReducers/product/productActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import Rating from '../components/Rating';
+import Rating from '../components/layouts/Rating';
 
-import { PRODUCT_REVIEW_CREATE_RESET } from '../constants/productConstants';
+import { PRODUCT_REVIEW_CREATE_RESET } from '../actionsReducers/types';
 
 export default function ProductScreen(props) {
   const navigate = useNavigate();

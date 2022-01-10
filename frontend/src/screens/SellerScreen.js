@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../actions/productActions';
-import { detailsUser } from '../actions/userActions';
+
+// actions
+import { listProducts } from '../actionsReducers/product/productActions';
+import { detailsUser } from '../actionsReducers/auth/authActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import Product from '../components/Product';
-import Rating from '../components/Rating';
+import Product from '../components/layouts/Product';
+import Rating from '../components/layouts/Rating';
 
 export default function SellerScreen(props) {
   const params = useParams();

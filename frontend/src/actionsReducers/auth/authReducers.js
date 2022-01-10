@@ -31,7 +31,7 @@ import {
   USER_UPDATE_SUCCESS,
 } from '../types';
 
-export const userRegisterReducer = (state = {}, action) => {
+export const userRegister = (state = {}, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:
       return { loading: true };
@@ -58,7 +58,7 @@ export const userLogin = (state = {}, action) => {
       return state;
   }
 };
-export const userDetailsReducer = (state = { loading: true }, action) => {
+export const userDetails = (state = { loading: true }, action) => {
   switch (action.type) {
     case USER_DETAILS_REQUEST:
       return { loading: true };
@@ -72,7 +72,7 @@ export const userDetailsReducer = (state = { loading: true }, action) => {
       return state;
   }
 };
-export const userUpdateProfileReducer = (state = {}, action) => {
+export const userUpdateProfile = (state = {}, action) => {
   switch (action.type) {
     case USER_UPDATE_PROFILE_REQUEST:
       return { loading: true };
@@ -86,7 +86,7 @@ export const userUpdateProfileReducer = (state = {}, action) => {
       return state;
   }
 };
-export const userUpdateReducer = (state = {}, action) => {
+export const userUpdate = (state = {}, action) => {
   switch (action.type) {
     case USER_UPDATE_REQUEST:
       return { loading: true };
@@ -100,7 +100,7 @@ export const userUpdateReducer = (state = {}, action) => {
       return state;
   }
 };
-export const userListReducer = (state = { loading: true }, action) => {
+export const userList = (state = { loading: true }, action) => {
   switch (action.type) {
     case USER_LIST_REQUEST:
       return { loading: true };
@@ -112,7 +112,7 @@ export const userListReducer = (state = { loading: true }, action) => {
       return state;
   }
 };
-export const userDeleteReducer = (state = {}, action) => {
+export const userDelete = (state = {}, action) => {
   switch (action.type) {
     case USER_DELETE_REQUEST:
       return { loading: true };
@@ -126,7 +126,7 @@ export const userDeleteReducer = (state = {}, action) => {
       return state;
   }
 };
-export const userTopSellerListReducer = (state = { loading: true }, action) => {
+export const userTopSellerList = (state = { loading: true }, action) => {
   switch (action.type) {
     case USER_TOPSELLERS_LIST_REQUEST:
       return { loading: true };
@@ -139,7 +139,7 @@ export const userTopSellerListReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const userAddressMapReducer = (state = {}, action) => {
+export const userAddressMap = (state = {}, action) => {
   switch (action.type) {
     case USER_ADDRESS_MAP_CONFIRM:
       return { address: action.payload };

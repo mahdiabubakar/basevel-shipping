@@ -20,7 +20,7 @@ const Product = props => {
           <div className='price'>${product.price}</div>
           <div>
             <Link to={`/seller/${product.seller._id}`}>
-              {/* {product.seller.seller.name} */}
+              {product.seller.name}
             </Link>
           </div>
         </div>

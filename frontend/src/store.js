@@ -2,36 +2,36 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducers';
 import {
-  orderCreateReducer,
-  orderDeleteReducer,
-  orderDeliverReducer,
-  orderDetailsReducer,
-  orderListReducer,
-  orderMineListReducer,
-  orderPayReducer,
-  orderSummaryReducer,
-} from './reducers/orderReducers';
+  orderCreate,
+  orderDelete,
+  orderDeliver,
+  orderDetails,
+  orderList,
+  orderMineList,
+  orderPay,
+  orderSummary,
+} from './actionsReducers/order/orderReducers';
 import {
-  productCreateReducer,
-  productDeleteReducer,
-  productDetailsReducer,
-  productListReducer,
-  productReviewCreateReducer,
-  productUpdateReducer,
-} from './reducers/productReducers';
-import {
-  userAddressMapReducer,
-  userDeleteReducer,
-  userDetailsReducer,
-  userListReducer,
-  userRegisterReducer,
-  userTopSellerListReducer,
-  userUpdateProfileReducer,
-  userUpdateReducer,
-} from './reducers/userReducers';
+  productCreate,
+  productDelete,
+  productDetails,
+  productList,
+  productReviewCreate,
+  productUpdate,
+} from './actionsReducers/product/productReducers';
 
 // Imported reducers
-import { userLogin } from './actionsReducers/auth/authReducers';
+import {
+  userLogin,
+  userAddressMap,
+  userDelete,
+  userDetails,
+  userList,
+  userRegister,
+  userTopSellerList,
+  userUpdateProfile,
+  userUpdate,
+} from './actionsReducers/auth/authReducers';
 import { productCategoryList } from './actionsReducers/product/productReducers';
 
 const initialState = {
@@ -51,31 +51,31 @@ const initialState = {
   },
 };
 const reducer = combineReducers({
-  productList: productListReducer,
-  productDetails: productDetailsReducer,
+  productList: productList,
+  productDetails: productDetails,
   cart: cartReducer,
   userLogin,
-  userRegister: userRegisterReducer,
-  orderCreate: orderCreateReducer,
-  orderDetails: orderDetailsReducer,
-  orderPay: orderPayReducer,
-  orderMineList: orderMineListReducer,
-  userDetails: userDetailsReducer,
-  userUpdateProfile: userUpdateProfileReducer,
-  userUpdate: userUpdateReducer,
-  productCreate: productCreateReducer,
-  productUpdate: productUpdateReducer,
-  productDelete: productDeleteReducer,
-  orderList: orderListReducer,
-  orderDelete: orderDeleteReducer,
-  orderDeliver: orderDeliverReducer,
-  userList: userListReducer,
-  userDelete: userDeleteReducer,
-  userTopSellersList: userTopSellerListReducer,
+  userRegister: userRegister,
+  orderCreate: orderCreate,
+  orderDetails: orderDetails,
+  orderPay: orderPay,
+  orderMineList: orderMineList,
+  userDetails: userDetails,
+  userUpdateProfile: userUpdateProfile,
+  userUpdate: userUpdate,
+  productCreate: productCreate,
+  productUpdate: productUpdate,
+  productDelete: productDelete,
+  orderList: orderList,
+  orderDelete: orderDelete,
+  orderDeliver: orderDeliver,
+  userList: userList,
+  userDelete: userDelete,
+  userTopSellersList: userTopSellerList,
   productCategoryList: productCategoryList,
-  productReviewCreate: productReviewCreateReducer,
-  userAddressMap: userAddressMapReducer,
-  orderSummary: orderSummaryReducer,
+  productReviewCreate: productReviewCreate,
+  userAddressMap: userAddressMap,
+  orderSummary: orderSummary,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

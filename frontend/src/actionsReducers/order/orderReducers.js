@@ -27,9 +27,9 @@ import {
   ORDER_SUMMARY_REQUEST,
   ORDER_SUMMARY_SUCCESS,
   ORDER_SUMMARY_FAIL,
-} from '../constants/orderConstants';
+} from '../types';
 
-export const orderCreateReducer = (state = {}, action) => {
+export const orderCreate = (state = {}, action) => {
   switch (action.type) {
     case ORDER_CREATE_REQUEST:
       return { loading: true };
@@ -44,7 +44,7 @@ export const orderCreateReducer = (state = {}, action) => {
   }
 };
 
-export const orderDetailsReducer = (state = { loading: true }, action) => {
+export const orderDetails = (state = { loading: true }, action) => {
   switch (action.type) {
     case ORDER_DETAILS_REQUEST:
       return { loading: true };
@@ -57,7 +57,7 @@ export const orderDetailsReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const orderPayReducer = (state = {}, action) => {
+export const orderPay = (state = {}, action) => {
   switch (action.type) {
     case ORDER_PAY_REQUEST:
       return { loading: true };
@@ -71,7 +71,7 @@ export const orderPayReducer = (state = {}, action) => {
       return state;
   }
 };
-export const orderMineListReducer = (state = { orders: [] }, action) => {
+export const orderMineList = (state = { orders: [] }, action) => {
   switch (action.type) {
     case ORDER_MINE_LIST_REQUEST:
       return { loading: true };
@@ -83,7 +83,7 @@ export const orderMineListReducer = (state = { orders: [] }, action) => {
       return state;
   }
 };
-export const orderListReducer = (state = { orders: [] }, action) => {
+export const orderList = (state = { orders: [] }, action) => {
   switch (action.type) {
     case ORDER_LIST_REQUEST:
       return { loading: true };
@@ -95,7 +95,7 @@ export const orderListReducer = (state = { orders: [] }, action) => {
       return state;
   }
 };
-export const orderDeleteReducer = (state = {}, action) => {
+export const orderDelete = (state = {}, action) => {
   switch (action.type) {
     case ORDER_DELETE_REQUEST:
       return { loading: true };
@@ -110,7 +110,7 @@ export const orderDeleteReducer = (state = {}, action) => {
   }
 };
 
-export const orderDeliverReducer = (state = {}, action) => {
+export const orderDeliver = (state = {}, action) => {
   switch (action.type) {
     case ORDER_DELIVER_REQUEST:
       return { loading: true };
@@ -125,9 +125,9 @@ export const orderDeliverReducer = (state = {}, action) => {
   }
 };
 
-export const orderSummaryReducer = (
+export const orderSummary = (
   state = { loading: true, summary: {} },
-  action
+  action,
 ) => {
   switch (action.type) {
     case ORDER_SUMMARY_REQUEST:

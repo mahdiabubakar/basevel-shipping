@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-import Product from '../Product';
+import Product from '../layouts/Product';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../../actionsReducers/product/productActions';

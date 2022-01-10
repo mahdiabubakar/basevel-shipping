@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { detailsProduct, updateProduct } from '../actions/productActions';
+
+// Actions
+import {
+  detailsProduct,
+  updateProduct,
+} from '../actionsReducers/product/productActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import { PRODUCT_UPDATE_RESET } from '../actionsReducers/types';
 
 export default function ProductEditScreen(props) {
   const navigate = useNavigate();

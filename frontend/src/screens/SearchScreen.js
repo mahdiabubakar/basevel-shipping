@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { listProducts } from '../actions/productActions';
+
+// Actions
+import { listProducts } from '../actionsReducers/product/productActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import Product from '../components/Product';
-import Rating from '../components/Rating';
+import Product from '../components/layouts/Product';
+import Rating from '../components/layouts/Rating';
 
 import { prices, ratings } from '../utils';
 
-export default function SearchScreen(props) {
+const SearchScreen = props => {
   const navigate = useNavigate();
   const {
     name = 'all',
@@ -169,4 +171,6 @@ export default function SearchScreen(props) {
       </div>
     </div>
   );
-}
+};
+
+export default SearchScreen;

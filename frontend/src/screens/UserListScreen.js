@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteUser, listUsers } from '../actions/userActions';
+import { deleteUser, listUsers } from '../actionsReducers/auth/authActions';
 
 // components
 import Spinner from '../components/layouts/Spinner';
 import Alert from '../components/layouts/Alert';
-import { USER_DETAILS_RESET } from '../constants/userConstants';
+import { USER_DETAILS_RESET } from '../actionsReducers/types';
 
 export default function UserListScreen(props) {
   const navigate = useNavigate();
