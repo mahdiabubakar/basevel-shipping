@@ -4,8 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import AdminRoute from './components/admin/AdminRoute';
 
-import OrderHistoryScreen from './screens/OrderHistoryScreen';
-import OrderScreen from './screens/OrderScreen';
+import OrderHistory from './components/pages/OrderHistory';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
@@ -16,11 +15,11 @@ import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 
-import SearchScreen from './screens/SearchScreen';
+import Search from './components/layouts/Search';
 
 import { listProductCategories } from './actionsReducers/product/productActions';
 
-import MapScreen from './screens/MapScreen';
+import Map from './components/maps/Map';
 import SupportScreen from './components/pages/Support';
 
 // Components
@@ -36,6 +35,7 @@ import ProductList from './components/pages/ProductList';
 import OrderList from './components/pages/OrderList';
 import Product from './components/pages/Product';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Order from './components/pages/Order';
 
 // Styles
 import './App.css';
@@ -67,26 +67,21 @@ const App = () => {
             <Route path='/shipping' element={<ShippingAddressScreen />}></Route>
             <Route path='/payment' element={<PaymentMethodScreen />}></Route>
             <Route path='/placeorder' element={<PlaceOrderScreen />}></Route>
-            <Route path='/order/:id' element={<OrderScreen />}></Route>
-            <Route
-              path='/orderhistory'
-              element={<OrderHistoryScreen />}></Route>
-            <Route path='/search/name' element={<SearchScreen />} exact></Route>
-            <Route
-              path='/search/name/:name'
-              element={<SearchScreen />}
-              exact></Route>
+            <Route path='/order/:id' element={<Order />}></Route>
+            <Route path='/orderhistory' element={<OrderHistory />}></Route>
+            <Route path='/search/name' element={<Search />} exact></Route>
+            <Route path='/search/name/:name' element={<Search />} exact></Route>
             <Route
               path='/search/category/:category'
-              element={<SearchScreen />}
+              element={<Search />}
               exact></Route>
             <Route
               path='/search/category/:category/name/:name'
-              element={<SearchScreen />}
+              element={<Search />}
               exact></Route>
             <Route
               path='/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber'
-              element={<SearchScreen />}
+              element={<Search />}
               exact></Route>
 
             <Route
@@ -101,7 +96,7 @@ const App = () => {
               path='/map'
               element={
                 <PrivateRoute>
-                  <MapScreen />
+                  <Map />
                 </PrivateRoute>
               }
             />

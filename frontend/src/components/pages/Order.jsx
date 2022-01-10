@@ -4,25 +4,31 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import {
+  deliverOrder,
+  detailsOrder,
+  payOrder,
+} from '../../actionsReducers/order/orderActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+
+// types
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
-} from '../constants/orderConstants';
+} from '../../constants/orderConstants';
 
-const OrderScreen = props => {
+const Order = () => {
   const params = useParams();
   const { id: orderId } = params;
 
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   const orderPay = useSelector(state => state.orderPay);
   const {
@@ -220,4 +226,4 @@ const OrderScreen = props => {
   );
 };
 
-export default OrderScreen;
+export default Order;

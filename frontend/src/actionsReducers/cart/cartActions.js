@@ -5,10 +5,10 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
   CART_ADD_ITEM_FAIL,
-} from '../actionsReducers/types';
+} from '../types';
 
 export const addToCart = (productId, qty) => async (dispatch, getState) => {
-  const { data } = await Axios.get(`/api/products/${productId}`);
+  const { data } = await Axios.get(`/products/${productId}`);
   const {
     cart: { cartItems },
   } = getState();

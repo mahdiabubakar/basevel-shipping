@@ -212,7 +212,7 @@ const Product = () => {
                   </form>
                 ) : (
                   <Alert>
-                    Please <Link to='/signin'>Sign In</Link> to write a review
+                    Please <Link to='/login'>Sign In</Link> to write a review
                   </Alert>
                 )}
               </li>

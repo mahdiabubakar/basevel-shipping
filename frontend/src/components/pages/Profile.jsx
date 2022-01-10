@@ -18,8 +18,8 @@ const Profile = () => {
   const [sellerLogo, setSellerLogo] = useState('');
   const [sellerDescription, setSellerDescription] = useState('');
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
   const userDetails = useSelector(state => state.userDetails);
   const { loading, error, user } = userDetails;
   const userUpdateProfile = useSelector(state => state.userUpdateProfile);

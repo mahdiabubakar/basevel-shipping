@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveShippingAddress } from '../actions/cartActions';
+import { saveShippingAddress } from '../actionsReducers/cart/cartActions';
 import CheckoutSteps from '../components/layouts/CheckoutSteps';
 
 const ShippingAddressScreen = () => {
   const navigate = useNavigate();
-  const userSignin = useSelector(state => state.userSignin);
+  const userLogin = useSelector(state => state.userLogin);
 
-  const { userInfo } = userSignin;
+  const { userInfo } = userLogin;
   const cart = useSelector(state => state.cart);
   const { shippingAddress } = cart;
   const [lat, setLat] = useState(shippingAddress.lat);

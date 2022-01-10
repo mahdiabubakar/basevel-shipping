@@ -6,16 +6,16 @@ import {
   Marker,
 } from '@react-google-maps/api';
 
-import Spinner from '../components/layouts/Spinner';
+import Spinner from '../layouts/Spinner';
 import Axios from 'axios';
-import { USER_ADDRESS_MAP_CONFIRM } from '../actionsReducers/types';
+import { USER_ADDRESS_MAP_CONFIRM } from '../../actionsReducers/types';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const libs = ['places'];
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 
-const MapScreen = () => {
+const Map = () => {
   const navigate = useNavigate();
   const [googleApiKey, setGoogleApiKey] = useState('');
   const [center, setCenter] = useState(defaultLocation);
@@ -124,4 +124,4 @@ const MapScreen = () => {
   );
 };
 
-export default MapScreen;
+export default Map;

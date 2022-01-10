@@ -1,6 +1,7 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { cartReducer } from './reducers/cartReducers';
+import { cartReducer } from './actionsReducers/cart/cartReducers';
+
 import {
   orderCreate,
   orderDelete,
@@ -11,6 +12,7 @@ import {
   orderPay,
   orderSummary,
 } from './actionsReducers/order/orderReducers';
+
 import {
   productCreate,
   productDelete,

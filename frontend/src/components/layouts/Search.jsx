@@ -3,17 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 
 // Actions
-import { listProducts } from '../actionsReducers/product/productActions';
+import { listProducts } from '../../actionsReducers/product/productActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import Product from '../components/layouts/Product';
-import Rating from '../components/layouts/Rating';
+import Spinner from './Spinner';
+import Alert from './Alert';
+import Product from './Product';
+import Rating from './Rating';
 
-import { prices, ratings } from '../utils';
+import { prices, ratings } from '../../utils';
 
-const SearchScreen = props => {
+const Search = () => {
   const navigate = useNavigate();
   const {
     name = 'all',
@@ -173,4 +173,4 @@ const SearchScreen = props => {
   );
 };
 
-export default SearchScreen;
+export default Search;

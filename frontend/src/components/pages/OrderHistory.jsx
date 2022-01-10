@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { listOrderMine } from '../actions/orderActions';
+import { listOrderMine } from '../../actionsReducers/order/orderActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
 
-export default function OrderHistoryScreen(props) {
+const OrderHistory = () => {
   const navigate = useNavigate();
   const orderMineList = useSelector(state => state.orderMineList);
   const { loading, error, orders } = orderMineList;
@@ -63,4 +63,6 @@ export default function OrderHistoryScreen(props) {
       )}
     </div>
   );
-}
+};
+
+export default OrderHistory;

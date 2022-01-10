@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-google-charts';
-import { summaryOrder } from '../../actions/orderActions';
+import { summaryOrder } from '../../actionsReducers/order/orderActions';
 
 import Spinner from '../layouts/Spinner';
 import Alert from '../layouts/Alert';
@@ -50,7 +50,7 @@ export default function DashboardScreen() {
                 </span>
               </div>
               <div className='summary-body'>
-                $
+                N
                 {summary.orders[0]
                   ? summary.orders[0].totalSales.toFixed(2)
                   : 0}

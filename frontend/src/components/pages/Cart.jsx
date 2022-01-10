@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../../actions/cartActions';
+import {
+  addToCart,
+  removeFromCart,
+} from '../../actionsReducers/cart/cartActions';
 
 // components
 import Alert from '../layouts/Alert';
@@ -30,7 +33,7 @@ const Cart = () => {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping');
+    navigate('/login?redirect=/shipping');
   };
   return (
     <div className='row top'>

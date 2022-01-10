@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { savePaymentMethod } from '../actions/cartActions';
+import { savePaymentMethod } from '../actionsReducers/cart/cartActions';
 import CheckoutSteps from '../components/layouts/CheckoutSteps';
 
 export default function PaymentMethodScreen(props) {
