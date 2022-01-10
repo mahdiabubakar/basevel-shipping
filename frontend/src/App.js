@@ -13,15 +13,17 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import RegisterScreen from './screens/RegisterScreen';
+
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
-import SigninScreen from './screens/SigninScreen';
+
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
+
+import Login from './components/pages/Login';
 
 import SearchScreen from './screens/SearchScreen';
 import { listProductCategories } from './actions/productActions';
@@ -31,11 +33,14 @@ import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
 import ChatBox from './components/ChatBox';
 
+// Components
+import Navbar from './components/layouts/Navbar';
+import Register from './components/pages/Register';
+
 // Styles
 import './App.css';
-import Navbar from './components/layouts/Navbar';
 
-function App() {
+const App = () => {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
@@ -60,8 +65,8 @@ function App() {
               path='/product/:id/edit'
               element={ProductEditScreen}
               exact></Route>
-            <Route path='/signin' element={<SigninScreen />}></Route>
-            <Route path='/register' element={<RegisterScreen />}></Route>
+            <Route path='/login' element={<Login />}></Route>
+            <Route path='/register' element={<Register />}></Route>
             <Route path='/shipping' element={<ShippingAddressScreen />}></Route>
             <Route path='/payment' element={<PaymentMethodScreen />}></Route>
             <Route path='/placeorder' element={<PlaceOrderScreen />}></Route>
@@ -188,6 +193,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

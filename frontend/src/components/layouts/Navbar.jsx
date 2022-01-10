@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Actions
-import { signout } from '../../actions/userActions';
+import { logout } from '../../actionsReducers/auth/authActions';
 import { listProductCategories } from '../../actions/productActions';
 
 // Components
@@ -14,6 +14,7 @@ import Alert from './Alert';
 const Navbar = () => {
   // States
   const cart = useSelector(state => state.cart);
+
   // Actions
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
@@ -32,8 +33,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   // Event Handlers
-  const signoutHandler = () => {
-    dispatch(signout());
+  const onClick = () => {
+    dispatch(logout());
   };
 
   useEffect(() => {
@@ -77,14 +78,14 @@ const Navbar = () => {
                   <Link to='/orderhistory'>Order History</Link>
                 </li>
                 <li>
-                  <Link to='#signout' onClick={signoutHandler}>
-                    Sign Out
+                  <Link to='#signout' onClick={onClick}>
+                    Log out
                   </Link>
                 </li>
               </ul>
             </div>
           ) : (
-            <Link to='/signin'>Sign In</Link>
+            <Link to='/login'>Sign In</Link>
           )}
           {userInfo && userInfo.isSeller && (
             <div className='dropdown'>

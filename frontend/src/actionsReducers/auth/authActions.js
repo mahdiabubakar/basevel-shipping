@@ -24,12 +24,12 @@ import {
   USER_TOPSELLERS_LIST_REQUEST,
   USER_TOPSELLERS_LIST_SUCCESS,
   USER_TOPSELLERS_LIST_FAIL,
-} from '../constants/userConstants';
+} from '../types';
 
 export const register = (name, email, password) => async dispatch => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post('/api/users/register', {
+    const { data } = await Axios.post('/users/register', {
       name,
       email,
       password,
@@ -48,10 +48,10 @@ export const register = (name, email, password) => async dispatch => {
   }
 };
 
-export const signin = (email, password) => async dispatch => {
+export const login = (email, password) => async dispatch => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
-    const { data } = await Axios.post('/api/users/signin', { email, password });
+    const { data } = await Axios.post('/users/login', { email, password });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {

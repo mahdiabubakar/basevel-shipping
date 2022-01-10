@@ -14,7 +14,7 @@ userRouter.get(
       .sort({ 'seller.rating': -1 })
       .limit(3);
     res.send(topSellers);
-  })
+  }),
 );
 
 userRouter.get(
@@ -23,11 +23,11 @@ userRouter.get(
     // await User.remove({});
     const createdUsers = await User.insertMany(data.users);
     res.send({ createdUsers });
-  })
+  }),
 );
 
 userRouter.post(
-  '/signin',
+  '/login',
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
@@ -44,7 +44,7 @@ userRouter.post(
       }
     }
     res.status(401).send({ message: 'Invalid email or password' });
-  })
+  }),
 );
 
 userRouter.post(
@@ -64,7 +64,7 @@ userRouter.post(
       isSeller: user.isSeller,
       token: generateToken(createdUser),
     });
-  })
+  }),
 );
 
 userRouter.get(
@@ -76,7 +76,7 @@ userRouter.get(
     } else {
       res.status(404).send({ message: 'User Not Found' });
     }
-  })
+  }),
 );
 userRouter.put(
   '/profile',
@@ -105,7 +105,7 @@ userRouter.put(
         token: generateToken(updatedUser),
       });
     }
-  })
+  }),
 );
 
 userRouter.get(
@@ -115,7 +115,7 @@ userRouter.get(
   expressAsyncHandler(async (req, res) => {
     const users = await User.find({});
     res.send(users);
-  })
+  }),
 );
 
 userRouter.delete(
@@ -134,7 +134,7 @@ userRouter.delete(
     } else {
       res.status(404).send({ message: 'User Not Found' });
     }
-  })
+  }),
 );
 
 userRouter.put(
@@ -154,7 +154,7 @@ userRouter.put(
     } else {
       res.status(404).send({ message: 'User Not Found' });
     }
-  })
+  }),
 );
 
 export default userRouter;

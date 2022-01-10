@@ -19,7 +19,7 @@ mongoose.connect(
   process.env.MONGODB_URL || 'mongodb://localhost/basevel-shipping',
 );
 app.use('/api/uploads', uploadRouter);
-app.use('/api/users', userRouter);
+app.use('/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 app.get('/api/config/paypal', (req, res) => {
