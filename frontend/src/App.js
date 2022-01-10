@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
-import CartScreen from './screens/CartScreen';
+import Cart from './components/pages/Cart';
 
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
@@ -56,8 +56,8 @@ const App = () => {
         <main>
           <Routes>
             <Route path='/seller/:id' element={<SellerScreen />}></Route>
-            <Route path='/cart' element={<CartScreen />}></Route>
-            <Route path='/cart/:id' element={<CartScreen />}></Route>
+            <Route path='/cart' element={<Cart />}></Route>
+            <Route path='/cart/:id' element={<Cart />}></Route>
             <Route
               path='/product/:id'
               element={<ProductScreen />}

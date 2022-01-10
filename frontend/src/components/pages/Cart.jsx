@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams, useLocation } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartActions';
-// components
-import Alert from '../components/layouts/Alert';
+import { addToCart, removeFromCart } from '../../actions/cartActions';
 
-export default function CartScreen(props) {
+// components
+import Alert from '../layouts/Alert';
+
+const Cart = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
@@ -106,4 +107,6 @@ export default function CartScreen(props) {
       </div>
     </div>
   );
-}
+};
+
+export default Cart;
