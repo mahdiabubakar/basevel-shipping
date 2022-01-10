@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
-import HomeScreen from './screens/HomeScreen';
+
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
@@ -36,6 +36,7 @@ import ChatBox from './components/ChatBox';
 // Components
 import Navbar from './components/layouts/Navbar';
 import Register from './components/pages/Register';
+import Home from './components/pages/Home';
 
 // Styles
 import './App.css';
@@ -183,7 +184,7 @@ const App = () => {
               }
             />
 
-            <Route path='/' element={<HomeScreen />} exact></Route>
+            <Route path='/' element={<Home />} exact></Route>
           </Routes>
         </main>
         <footer className='row center'>
