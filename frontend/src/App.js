@@ -34,9 +34,8 @@ import ChatBox from './components/ChatBox';
 
 // Styles
 import './App.css';
-import './assets/main.css';
 
-const App = () => {
+function App() {
   const cart = useSelector(state => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
@@ -67,7 +66,7 @@ const App = () => {
               onClick={() => setSidebarIsOpen(true)}>
               <i className='fa fa-bars'></i>
             </button>
-            <Link className='brand text-blue-400' to='/'>
+            <Link className='brand capitalize' to='/'>
               amazona
             </Link>
           </div>
@@ -313,6 +312,6 @@ const App = () => {
       </div>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
