@@ -2,16 +2,18 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteUser, listUsers } from '../actions/userActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+
+// components
+import Spinner from '../components/layouts/Spinner';
+import Alert from '../components/layouts/Alert';
 import { USER_DETAILS_RESET } from '../constants/userConstants';
 
 export default function UserListScreen(props) {
   const navigate = useNavigate();
-  const userList = useSelector((state) => state.userList);
+  const userList = useSelector(state => state.userList);
   const { loading, error, users } = userList;
 
-  const userDelete = useSelector((state) => state.userDelete);
+  const userDelete = useSelector(state => state.userDelete);
   const {
     loading: loadingDelete,
     error: errorDelete,
@@ -25,7 +27,7 @@ export default function UserListScreen(props) {
       type: USER_DETAILS_RESET,
     });
   }, [dispatch, successDelete]);
-  const deleteHandler = (user) => {
+  const deleteHandler = user => {
     if (window.confirm('Are you sure?')) {
       dispatch(deleteUser(user._id));
     }
@@ -33,17 +35,17 @@ export default function UserListScreen(props) {
   return (
     <div>
       <h1>Users</h1>
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
+      {loadingDelete && <Spinner />}
+      {errorDelete && <Alert variant='danger'>{errorDelete}</Alert>}
       {successDelete && (
-        <MessageBox variant="success">User Deleted Successfully</MessageBox>
+        <Alert variant='success'>User Deleted Successfully</Alert>
       )}
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <Spinner />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <Alert variant='danger'>{error}</Alert>
       ) : (
-        <table className="table">
+        <table className='table'>
           <thead>
             <tr>
               <th>ID</th>
@@ -55,7 +57,7 @@ export default function UserListScreen(props) {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
+            {users.map(user => (
               <tr key={user._id}>
                 <td>{user._id}</td>
                 <td>{user.name}</td>
@@ -64,17 +66,15 @@ export default function UserListScreen(props) {
                 <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
                   <button
-                    type="button"
-                    className="small"
-                    onClick={() => navigate(`/user/${user._id}/edit`)}
-                  >
+                    type='button'
+                    className='small'
+                    onClick={() => navigate(`/user/${user._id}/edit`)}>
                     Edit
                   </button>
                   <button
-                    type="button"
-                    className="small"
-                    onClick={() => deleteHandler(user)}
-                  >
+                    type='button'
+                    className='small'
+                    onClick={() => deleteHandler(user)}>
                     Delete
                   </button>
                 </td>

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 const SellerRoute = ({ children }) => {
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  return userInfo && userInfo.isSeller ? children : <Navigate to="/signin" />;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
+  return userInfo && userInfo.isSeller ? children : <Navigate to='/signin' />;
 };
 
 export default SellerRoute;

@@ -5,7 +5,8 @@ import {
   StandaloneSearchBox,
   Marker,
 } from '@react-google-maps/api';
-import LoadingBox from '../components/LoadingBox';
+
+import Spinner from '../components/layouts/Spinner';
 import Axios from 'axios';
 import { USER_ADDRESS_MAP_CONFIRM } from '../constants/userConstants';
 import { useDispatch } from 'react-redux';
@@ -33,14 +34,14 @@ export default function MapScreen(props) {
     fetch();
   }, []);
 
-  const onLoad = (map) => {
+  const onLoad = map => {
     mapRef.current = map;
   };
 
-  const onMarkerLoad = (marker) => {
+  const onMarkerLoad = marker => {
     markerRef.current = marker;
   };
-  const onLoadPlaces = (place) => {
+  const onLoadPlaces = place => {
     placeRef.current = place;
   };
   const onIdle = () => {
@@ -81,7 +82,7 @@ export default function MapScreen(props) {
     if (!navigator.geolocation) {
       alert('Geolocation os not supported by this browser');
     } else {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(position => {
         setCenter({
           lat: position.coords.latitude,
           lng: position.coords.longitude,
@@ -95,23 +96,21 @@ export default function MapScreen(props) {
   };
 
   return googleApiKey ? (
-    <div className="full-container">
+    <div className='full-container'>
       <LoadScript libraries={libs} googleMapsApiKey={googleApiKey}>
         <GoogleMap
-          id="smaple-map"
+          id='smaple-map'
           mapContainerStyle={{ height: '100%', width: '100%' }}
           center={center}
           zoom={15}
           onLoad={onLoad}
-          onIdle={onIdle}
-        >
+          onIdle={onIdle}>
           <StandaloneSearchBox
             onLoad={onLoadPlaces}
-            onPlacesChanged={onPlacesChanged}
-          >
-            <div className="map-input-box">
-              <input type="text" placeholder="Enter your address"></input>
-              <button type="button" className="primary" onClick={onConfirm}>
+            onPlacesChanged={onPlacesChanged}>
+            <div className='map-input-box'>
+              <input type='text' placeholder='Enter your address'></input>
+              <button type='button' className='primary' onClick={onConfirm}>
                 Confirm
               </button>
             </div>
@@ -121,6 +120,6 @@ export default function MapScreen(props) {
       </LoadScript>
     </div>
   ) : (
-    <LoadingBox></LoadingBox>
+    <Spinner />
   );
 }

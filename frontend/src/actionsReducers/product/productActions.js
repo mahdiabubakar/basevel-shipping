@@ -23,6 +23,7 @@ import {
   PRODUCT_REVIEW_CREATE_FAIL,
 } from '../types';
 
+// List Products
 export const listProducts =
   ({
     pageNumber = '',
@@ -48,18 +49,21 @@ export const listProducts =
     }
   };
 
+//   Get categories list
 export const listProductCategories = () => async dispatch => {
   dispatch({
     type: PRODUCT_CATEGORY_LIST_REQUEST,
   });
   try {
     const { data } = await Axios.get(`/products/categories`);
+
     dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: error.message });
   }
 };
 
+//   Get product details
 export const detailsProduct = productId => async dispatch => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });
   try {
@@ -75,14 +79,16 @@ export const detailsProduct = productId => async dispatch => {
     });
   }
 };
+
+// Create Products
 export const createProduct = () => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_CREATE_REQUEST });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.post(
-      '/api/products',
+      '/products',
       {},
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -100,10 +106,12 @@ export const createProduct = () => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_CREATE_FAIL, payload: message });
   }
 };
+
+// Update products
 export const updateProduct = product => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_UPDATE_REQUEST, payload: product });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.put(`/products/${product._id}`, product, {
@@ -118,10 +126,12 @@ export const updateProduct = product => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_UPDATE_FAIL, error: message });
   }
 };
+
+// Delete Product
 export const deleteProduct = productId => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     await Axios.delete(`/products/${productId}`, {
@@ -136,11 +146,13 @@ export const deleteProduct = productId => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_DELETE_FAIL, payload: message });
   }
 };
+
+// Create Views
 export const createReview =
   (productId, review) => async (dispatch, getState) => {
     dispatch({ type: PRODUCT_REVIEW_CREATE_REQUEST });
     const {
-      userSignin: { userInfo },
+      userLogin: { userInfo },
     } = getState();
     try {
       const { data } = await Axios.post(

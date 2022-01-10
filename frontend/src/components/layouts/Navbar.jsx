@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 // Actions
 import { logout } from '../../actionsReducers/auth/authActions';
-import { listProductCategories } from '../../actions/productActions';
+import { listProductCategories } from '../../actionsReducers/product/productActions';
 
 // Components
 import SearchBox from '../SearchBox';
@@ -19,8 +19,8 @@ const Navbar = () => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const { cartItems } = cart;
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   const productCategoryList = useSelector(state => state.productCategoryList);
   const {
@@ -144,12 +144,12 @@ const Navbar = () => {
           ) : errorCategories ? (
             <Alert variant='danger'>{errorCategories}</Alert>
           ) : (
-            categories.map(c => (
-              <li key={c}>
+            categories.map(category => (
+              <li key={category}>
                 <Link
-                  to={`/search/category/${c}`}
+                  to={`/search/category/${category}`}
                   onClick={() => setSidebarIsOpen(false)}>
-                  {c}
+                  {category}
                 </Link>
               </li>
             ))

@@ -75,7 +75,7 @@ export const logout = () => dispatch => {
 export const detailsUser = userId => async (dispatch, getState) => {
   dispatch({ type: USER_DETAILS_REQUEST, payload: userId });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.get(`/users/${userId}`, {
@@ -93,7 +93,7 @@ export const detailsUser = userId => async (dispatch, getState) => {
 export const updateUserProfile = user => async (dispatch, getState) => {
   dispatch({ type: USER_UPDATE_PROFILE_REQUEST, payload: user });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.put(`/users/profile`, user, {
@@ -113,7 +113,7 @@ export const updateUserProfile = user => async (dispatch, getState) => {
 export const updateUser = user => async (dispatch, getState) => {
   dispatch({ type: USER_UPDATE_PROFILE_REQUEST, payload: user });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.put(`/users/${user._id}`, user, {
@@ -132,7 +132,7 @@ export const listUsers = () => async (dispatch, getState) => {
   dispatch({ type: USER_LIST_REQUEST });
   try {
     const {
-      userSignin: { userInfo },
+      userLogin: { userInfo },
     } = getState();
     const { data } = await Axios.get('/users', {
       headers: {
@@ -151,7 +151,7 @@ export const listUsers = () => async (dispatch, getState) => {
 export const deleteUser = userId => async (dispatch, getState) => {
   dispatch({ type: USER_DELETE_REQUEST, payload: userId });
   const {
-    userSignin: { userInfo },
+    userLogin: { userInfo },
   } = getState();
   try {
     const { data } = await Axios.delete(`/users/${userId}`, {

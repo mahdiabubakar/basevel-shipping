@@ -18,8 +18,8 @@ const Login = () => {
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo, loading, error } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo, loading, error } = userLogin;
 
   const dispatch = useDispatch();
   const submitHandler = e => {

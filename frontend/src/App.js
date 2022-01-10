@@ -10,9 +10,8 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import ProductListScreen from './screens/ProductListScreen';
+
 import ProductScreen from './screens/ProductScreen';
-import ProfileScreen from './screens/ProfileScreen';
 
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 
@@ -26,7 +25,8 @@ import SellerScreen from './screens/SellerScreen';
 import Login from './components/pages/Login';
 
 import SearchScreen from './screens/SearchScreen';
-import { listProductCategories } from './actions/productActions';
+
+import { listProductCategories } from './actionsReducers/product/productActions';
 
 import MapScreen from './screens/MapScreen';
 import DashboardScreen from './screens/DashboardScreen';
@@ -37,13 +37,15 @@ import ChatBox from './components/ChatBox';
 import Navbar from './components/layouts/Navbar';
 import Register from './components/pages/Register';
 import Home from './components/pages/Home';
+import Profile from './components/pages/Profile';
+import ProductList from './components/pages/ProductList';
 
 // Styles
 import './App.css';
 
 const App = () => {
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -97,7 +99,8 @@ const App = () => {
               path='/profile'
               element={
                 <PrivateRoute>
-                  <ProfileScreen />
+                  {/* <ProfileScreen /> */}
+                  <Profile />
                 </PrivateRoute>
               }
             />
@@ -114,7 +117,8 @@ const App = () => {
               path='/productlist'
               element={
                 <AdminRoute>
-                  <ProductListScreen />
+                  {/* <ProductListScreen /> */}
+                  <ProductList />
                 </AdminRoute>
               }
             />
@@ -123,7 +127,8 @@ const App = () => {
               path='/productlist/pageNumber/:pageNumber'
               element={
                 <AdminRoute>
-                  <ProductListScreen />
+                  {/* <ProductListScreen /> */}
+                  <ProductList />
                 </AdminRoute>
               }
             />
@@ -171,7 +176,8 @@ const App = () => {
               path='/productlist/seller'
               element={
                 <SellerRoute>
-                  <ProductListScreen />
+                  {/* <ProductListScreen /> */}
+                  <ProductList />
                 </SellerRoute>
               }
             />

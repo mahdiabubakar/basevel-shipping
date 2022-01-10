@@ -25,7 +25,8 @@ import {
   PRODUCT_REVIEW_CREATE_FAIL,
   PRODUCT_REVIEW_CREATE_RESET,
 } from '../types';
-export const productListReducer = (
+
+export const productList = (
   state = { loading: true, products: [] },
   action,
 ) => {
@@ -46,7 +47,7 @@ export const productListReducer = (
   }
 };
 
-export const productCategoryListReducer = (
+export const productCategoryList = (
   state = { loading: true, products: [] },
   action,
 ) => {
@@ -62,7 +63,7 @@ export const productCategoryListReducer = (
   }
 };
 
-export const productDetailsReducer = (state = { loading: true }, action) => {
+export const productDetails = (state = { loading: true }, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return { loading: true };
@@ -74,7 +75,7 @@ export const productDetailsReducer = (state = { loading: true }, action) => {
       return state;
   }
 };
-export const productCreateReducer = (state = {}, action) => {
+export const productCreate = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
       return { loading: true };
@@ -88,7 +89,7 @@ export const productCreateReducer = (state = {}, action) => {
       return state;
   }
 };
-export const productUpdateReducer = (state = {}, action) => {
+export const productUpdate = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_UPDATE_REQUEST:
       return { loading: true };
@@ -102,7 +103,7 @@ export const productUpdateReducer = (state = {}, action) => {
       return state;
   }
 };
-export const productDeleteReducer = (state = {}, action) => {
+export const productDelete = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_DELETE_REQUEST:
       return { loading: true };
@@ -116,7 +117,7 @@ export const productDeleteReducer = (state = {}, action) => {
       return state;
   }
 };
-export const productReviewCreateReducer = (state = {}, action) => {
+export const productReviewCreate = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_REVIEW_CREATE_REQUEST:
       return { loading: true };

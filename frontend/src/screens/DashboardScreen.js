@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-google-charts';
 import { summaryOrder } from '../actions/orderActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+
+import Spinner from '../components/layouts/Spinner';
+import Alert from '../components/layouts/Alert';
 
 export default function DashboardScreen() {
-  const orderSummary = useSelector((state) => state.orderSummary);
+  const orderSummary = useSelector(state => state.orderSummary);
   const { loading, summary, error } = orderSummary;
   const dispatch = useDispatch();
   useEffect(() => {
@@ -14,41 +15,41 @@ export default function DashboardScreen() {
   }, [dispatch]);
   return (
     <div>
-      <div className="row">
+      <div className='row'>
         <h1>Dashboard</h1>
       </div>
       {loading ? (
-        <LoadingBox />
+        <Spinner />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <Alert variant='danger'>{error}</Alert>
       ) : (
         <>
-          <ul className="row summary">
+          <ul className='row summary'>
             <li>
-              <div className="summary-title color1">
+              <div className='summary-title color1'>
                 <span>
-                  <i className="fa fa-users" /> Users
+                  <i className='fa fa-users' /> Users
                 </span>
               </div>
-              <div className="summary-body">{summary.users[0].numUsers}</div>
+              <div className='summary-body'>{summary.users[0].numUsers}</div>
             </li>
             <li>
-              <div className="summary-title color2">
+              <div className='summary-title color2'>
                 <span>
-                  <i className="fa fa-shopping-cart" /> Orders
+                  <i className='fa fa-shopping-cart' /> Orders
                 </span>
               </div>
-              <div className="summary-body">
+              <div className='summary-body'>
                 {summary.orders[0] ? summary.orders[0].numOrders : 0}
               </div>
             </li>
             <li>
-              <div className="summary-title color3">
+              <div className='summary-title color3'>
                 <span>
-                  <i className="fa fa-money" /> Sales
+                  <i className='fa fa-money' /> Sales
                 </span>
               </div>
-              <div className="summary-body">
+              <div className='summary-body'>
                 $
                 {summary.orders[0]
                   ? summary.orders[0].totalSales.toFixed(2)
@@ -60,34 +61,33 @@ export default function DashboardScreen() {
             <div>
               <h2>Sales</h2>
               {summary.dailyOrders.length === 0 ? (
-                <MessageBox>No Sale</MessageBox>
+                <Alert>No Sale</Alert>
               ) : (
                 <Chart
-                  width="100%"
-                  height="400px"
-                  chartType="AreaChart"
+                  width='100%'
+                  height='400px'
+                  chartType='AreaChart'
                   loader={<div>Loading Chart</div>}
                   data={[
                     ['Date', 'Sales'],
-                    ...summary.dailyOrders.map((x) => [x._id, x.sales]),
-                  ]}
-                ></Chart>
+                    ...summary.dailyOrders.map(x => [x._id, x.sales]),
+                  ]}></Chart>
               )}
             </div>
           </div>
           <div>
             <h2>Categories</h2>
             {summary.productCategories.length === 0 ? (
-              <MessageBox>No Category</MessageBox>
+              <Alert>No Category</Alert>
             ) : (
               <Chart
-                width="100%"
-                height="400px"
-                chartType="PieChart"
+                width='100%'
+                height='400px'
+                chartType='PieChart'
                 loader={<div>Loading Chart</div>}
                 data={[
                   ['Category', 'Products'],
-                  ...summary.productCategories.map((x) => [x._id, x.count]),
+                  ...summary.productCategories.map(x => [x._id, x.count]),
                 ]}
               />
             )}

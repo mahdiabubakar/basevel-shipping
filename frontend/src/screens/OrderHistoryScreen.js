@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { listOrderMine } from '../actions/orderActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+
+// components
+import Spinner from '../components/layouts/Spinner';
+import Alert from '../components/layouts/Alert';
 
 export default function OrderHistoryScreen(props) {
   const navigate = useNavigate();
-  const orderMineList = useSelector((state) => state.orderMineList);
+  const orderMineList = useSelector(state => state.orderMineList);
   const { loading, error, orders } = orderMineList;
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,11 +19,11 @@ export default function OrderHistoryScreen(props) {
     <div>
       <h1>Order History</h1>
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <Spinner />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <Alert variant='danger'>{error}</Alert>
       ) : (
-        <table className="table">
+        <table className='table'>
           <thead>
             <tr>
               <th>ID</th>
@@ -33,7 +35,7 @@ export default function OrderHistoryScreen(props) {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map(order => (
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
@@ -46,12 +48,11 @@ export default function OrderHistoryScreen(props) {
                 </td>
                 <td>
                   <button
-                    type="button"
-                    className="small"
+                    type='button'
+                    className='small'
                     onClick={() => {
                       navigate(`/order/${order._id}`);
-                    }}
-                  >
+                    }}>
                     Details
                   </button>
                 </td>

@@ -5,30 +5,32 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+
+// components
+import Spinner from '../components/layouts/Spinner';
+import Alert from '../components/layouts/Alert';
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../constants/orderConstants';
 
-export default function OrderScreen(props) {
+const OrderScreen = props => {
   const params = useParams();
   const { id: orderId } = params;
 
   const [sdkReady, setSdkReady] = useState(false);
-  const orderDetails = useSelector((state) => state.orderDetails);
+  const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;
-  const userSignin = useSelector((state) => state.userSignin);
+  const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
-  const orderPay = useSelector((state) => state.orderPay);
+  const orderPay = useSelector(state => state.orderPay);
   const {
     loading: loadingPay,
     error: errorPay,
     success: successPay,
   } = orderPay;
-  const orderDeliver = useSelector((state) => state.orderDeliver);
+  const orderDeliver = useSelector(state => state.orderDeliver);
   const {
     loading: loadingDeliver,
     error: errorDeliver,
@@ -67,7 +69,7 @@ export default function OrderScreen(props) {
     }
   }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
 
-  const successPaymentHandler = (paymentResult) => {
+  const successPaymentHandler = paymentResult => {
     dispatch(payOrder(order, paymentResult));
   };
   const deliverHandler = () => {
@@ -75,17 +77,17 @@ export default function OrderScreen(props) {
   };
 
   return loading ? (
-    <LoadingBox></LoadingBox>
+    <Spinner />
   ) : error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
+    <Alert variant='danger'>{error}</Alert>
   ) : (
     <div>
       <h1>Order {order._id}</h1>
-      <div className="row top">
-        <div className="col-2">
+      <div className='row top'>
+        <div className='col-2'>
           <ul>
             <li>
-              <div className="card card-body">
+              <div className='card card-body'>
                 <h2>Shippring</h2>
                 <p>
                   <strong>Name:</strong> {order.shippingAddress.fullName} <br />
@@ -95,44 +97,41 @@ export default function OrderScreen(props) {
                   {order.shippingAddress.country}
                 </p>
                 {order.isDelivered ? (
-                  <MessageBox variant="success">
+                  <Alert variant='success'>
                     Delivered at {order.deliveredAt}
-                  </MessageBox>
+                  </Alert>
                 ) : (
-                  <MessageBox variant="danger">Not Delivered</MessageBox>
+                  <Alert variant='danger'>Not Delivered</Alert>
                 )}
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className='card card-body'>
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
                 </p>
                 {order.isPaid ? (
-                  <MessageBox variant="success">
-                    Paid at {order.paidAt}
-                  </MessageBox>
+                  <Alert variant='success'>Paid at {order.paidAt}</Alert>
                 ) : (
-                  <MessageBox variant="danger">Not Paid</MessageBox>
+                  <Alert variant='danger'>Not Paid</Alert>
                 )}
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className='card card-body'>
                 <h2>Order Items</h2>
                 <ul>
-                  {order.orderItems.map((item) => (
+                  {order.orderItems.map(item => (
                     <li key={item.product}>
-                      <div className="row">
+                      <div className='row'>
                         <div>
                           <img
                             src={item.image}
                             alt={item.name}
-                            className="small"
-                          ></img>
+                            className='small'></img>
                         </div>
-                        <div className="min-30">
+                        <div className='min-30'>
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
@@ -149,32 +148,32 @@ export default function OrderScreen(props) {
             </li>
           </ul>
         </div>
-        <div className="col-1">
-          <div className="card card-body">
+        <div className='col-1'>
+          <div className='card card-body'>
             <ul>
               <li>
                 <h2>Order Summary</h2>
               </li>
               <li>
-                <div className="row">
+                <div className='row'>
                   <div>Items</div>
                   <div>${order.itemsPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div className='row'>
                   <div>Shipping</div>
                   <div>${order.shippingPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div className='row'>
                   <div>Tax</div>
                   <div>${order.taxPrice.toFixed(2)}</div>
                 </div>
               </li>
               <li>
-                <div className="row">
+                <div className='row'>
                   <div>
                     <strong> Order Total</strong>
                   </div>
@@ -186,33 +185,29 @@ export default function OrderScreen(props) {
               {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
-                    <LoadingBox></LoadingBox>
+                    <Spinner />
                   ) : (
                     <>
-                      {errorPay && (
-                        <MessageBox variant="danger">{errorPay}</MessageBox>
-                      )}
-                      {loadingPay && <LoadingBox></LoadingBox>}
+                      {errorPay && <Alert variant='danger'>{errorPay}</Alert>}
+                      {loadingPay && <Spinner />}
 
                       <PayPalButton
                         amount={order.totalPrice}
-                        onSuccess={successPaymentHandler}
-                      ></PayPalButton>
+                        onSuccess={successPaymentHandler}></PayPalButton>
                     </>
                   )}
                 </li>
               )}
               {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                 <li>
-                  {loadingDeliver && <LoadingBox></LoadingBox>}
+                  {loadingDeliver && <Spinner />}
                   {errorDeliver && (
-                    <MessageBox variant="danger">{errorDeliver}</MessageBox>
+                    <Alert variant='danger'>{errorDeliver}</Alert>
                   )}
                   <button
-                    type="button"
-                    className="primary block"
-                    onClick={deliverHandler}
-                  >
+                    type='button'
+                    className='primary block'
+                    onClick={deliverHandler}>
                     Deliver Order
                   </button>
                 </li>
@@ -223,4 +218,6 @@ export default function OrderScreen(props) {
       </div>
     </div>
   );
-}
+};
+
+export default OrderScreen;

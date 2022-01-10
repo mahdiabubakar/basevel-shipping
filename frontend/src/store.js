@@ -12,7 +12,6 @@ import {
   orderSummaryReducer,
 } from './reducers/orderReducers';
 import {
-  productCategoryListReducer,
   productCreateReducer,
   productDeleteReducer,
   productDetailsReducer,
@@ -26,14 +25,17 @@ import {
   userDetailsReducer,
   userListReducer,
   userRegisterReducer,
-  userSigninReducer,
   userTopSellerListReducer,
   userUpdateProfileReducer,
   userUpdateReducer,
 } from './reducers/userReducers';
 
+// Imported reducers
+import { userLogin } from './actionsReducers/auth/authReducers';
+import { productCategoryList } from './actionsReducers/product/productReducers';
+
 const initialState = {
-  userSignin: {
+  userLogin: {
     userInfo: localStorage.getItem('userInfo')
       ? JSON.parse(localStorage.getItem('userInfo'))
       : null,
@@ -52,7 +54,7 @@ const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
-  userSignin: userSigninReducer,
+  userLogin,
   userRegister: userRegisterReducer,
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
@@ -70,7 +72,7 @@ const reducer = combineReducers({
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userTopSellersList: userTopSellerListReducer,
-  productCategoryList: productCategoryListReducer,
+  productCategoryList: productCategoryList,
   productReviewCreate: productReviewCreateReducer,
   userAddressMap: userAddressMapReducer,
   orderSummary: orderSummaryReducer,
@@ -79,7 +81,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducer,
   initialState,
-  composeEnhancer(applyMiddleware(thunk))
+  composeEnhancer(applyMiddleware(thunk)),
 );
 
 export default store;

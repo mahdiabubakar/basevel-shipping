@@ -1,27 +1,32 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
+
 import {
   createProduct,
   deleteProduct,
   listProducts,
-} from '../actions/productActions';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+} from '../../actionsReducers/product/productActions';
+
+// Components
+import Alert from '../layouts/Alert';
+import Spinner from '../layouts/Spinner';
+
+// Types
 import {
   PRODUCT_CREATE_RESET,
   PRODUCT_DELETE_RESET,
-} from '../constants/productConstants';
+} from '../../actionsReducers/types';
 
-export default function ProductListScreen(props) {
+const ProductList = () => {
   const navigate = useNavigate();
   const { pageNumber = 1 } = useParams();
   const { pathname } = useLocation();
   const sellerMode = pathname.indexOf('/seller') >= 0;
-  const productList = useSelector((state) => state.productList);
+  const productList = useSelector(state => state.productList);
   const { loading, error, products, page, pages } = productList;
 
-  const productCreate = useSelector((state) => state.productCreate);
+  const productCreate = useSelector(state => state.productCreate);
   const {
     loading: loadingCreate,
     error: errorCreate,
@@ -29,14 +34,14 @@ export default function ProductListScreen(props) {
     product: createdProduct,
   } = productCreate;
 
-  const productDelete = useSelector((state) => state.productDelete);
+  const productDelete = useSelector(state => state.productDelete);
   const {
     loading: loadingDelete,
     error: errorDelete,
     success: successDelete,
   } = productDelete;
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
@@ -47,7 +52,7 @@ export default function ProductListScreen(props) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
     dispatch(
-      listProducts({ seller: sellerMode ? userInfo._id : '', pageNumber })
+      listProducts({ seller: sellerMode ? userInfo._id : '', pageNumber }),
     );
   }, [
     createdProduct,
@@ -60,7 +65,7 @@ export default function ProductListScreen(props) {
     pageNumber,
   ]);
 
-  const deleteHandler = (product) => {
+  const deleteHandler = product => {
     if (window.confirm('Are you sure to delete?')) {
       dispatch(deleteProduct(product._id));
     }
@@ -70,25 +75,25 @@ export default function ProductListScreen(props) {
   };
   return (
     <div>
-      <div className="row">
+      <div className='row'>
         <h1>Products</h1>
-        <button type="button" className="primary" onClick={createHandler}>
+        <button type='button' className='primary' onClick={createHandler}>
           Create Product
         </button>
       </div>
 
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
+      {loadingDelete && <Spinner />}
+      {errorDelete && <Alert variant='danger'>{errorDelete}</Alert>}
 
-      {loadingCreate && <LoadingBox></LoadingBox>}
-      {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
+      {loadingCreate && <Spinner />}
+      {errorCreate && <Alert variant='danger'>{errorCreate}</Alert>}
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <Spinner />
       ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
+        <Alert variant='danger'>{error}</Alert>
       ) : (
         <>
-          <table className="table">
+          <table className='table'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -100,7 +105,7 @@ export default function ProductListScreen(props) {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {products.map(product => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
@@ -109,17 +114,15 @@ export default function ProductListScreen(props) {
                   <td>{product.brand}</td>
                   <td>
                     <button
-                      type="button"
-                      className="small"
-                      onClick={() => navigate(`/product/${product._id}/edit`)}
-                    >
+                      type='button'
+                      className='small'
+                      onClick={() => navigate(`/product/${product._id}/edit`)}>
                       Edit
                     </button>
                     <button
-                      type="button"
-                      className="small"
-                      onClick={() => deleteHandler(product)}
-                    >
+                      type='button'
+                      className='small'
+                      onClick={() => deleteHandler(product)}>
                       Delete
                     </button>
                   </td>
@@ -127,13 +130,12 @@ export default function ProductListScreen(props) {
               ))}
             </tbody>
           </table>
-          <div className="row center pagination">
-            {[...Array(pages).keys()].map((x) => (
+          <div className='row center pagination'>
+            {[...Array(pages).keys()].map(x => (
               <Link
                 className={x + 1 === page ? 'active' : ''}
                 key={x + 1}
-                to={`/productlist/pageNumber/${x + 1}`}
-              >
+                to={`/productlist/pageNumber/${x + 1}`}>
                 {x + 1}
               </Link>
             ))}
@@ -142,4 +144,6 @@ export default function ProductListScreen(props) {
       )}
     </div>
   );
-}
+};
+
+export default ProductList;

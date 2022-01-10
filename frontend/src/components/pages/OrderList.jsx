@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { deleteOrder, listOrders } from '../actions/orderActions';
 
-// Components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import { ORDER_DELETE_RESET } from '../constants/orderConstants';
+// Imported Components
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+import { ORDER_DELETE_RESET } from '../../actionsReducers/types';
 
-const OrderListScreen = props => {
+const OrderList = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const sellerMode = pathname.indexOf('/seller') >= 0;
@@ -21,8 +21,8 @@ const OrderListScreen = props => {
     success: successDelete,
   } = orderDelete;
 
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({ type: ORDER_DELETE_RESET });
@@ -93,4 +93,4 @@ const OrderListScreen = props => {
   );
 };
 
-export default OrderListScreen;
+export default OrderList;
