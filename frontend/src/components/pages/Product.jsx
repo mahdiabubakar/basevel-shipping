@@ -6,16 +6,16 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import {
   createReview,
   detailsProduct,
-} from '../actionsReducers/product/productActions';
+} from '../../actionsReducers/product/productActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import Rating from '../components/layouts/Rating';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+import Rating from '../layouts/Rating';
 
-import { PRODUCT_REVIEW_CREATE_RESET } from '../actionsReducers/types';
+import { PRODUCT_REVIEW_CREATE_RESET } from '../../actionsReducers/types';
 
-export default function ProductScreen(props) {
+const Product = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,8 +25,8 @@ export default function ProductScreen(props) {
   const [qty, setQty] = useState(1);
   const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   const productReviewCreate = useSelector(state => state.productReviewCreate);
   const {
@@ -222,4 +222,6 @@ export default function ProductScreen(props) {
       )}
     </div>
   );
-}
+};
+
+export default Product;

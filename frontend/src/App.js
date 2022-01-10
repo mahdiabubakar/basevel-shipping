@@ -3,14 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import AdminRoute from './components/admin/AdminRoute';
-import PrivateRoute from './components/routing/PrivateRoute';
 
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
-import ProductScreen from './screens/ProductScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import UserListScreen from './screens/UserListScreen';
@@ -18,17 +16,16 @@ import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
 import SellerScreen from './screens/SellerScreen';
 
-import Login from './components/pages/Login';
-
 import SearchScreen from './screens/SearchScreen';
 
 import { listProductCategories } from './actionsReducers/product/productActions';
 
 import MapScreen from './screens/MapScreen';
 import SupportScreen from './components/pages/Support';
-import ChatBox from './components/chatbox/ChatBox';
 
 // Components
+import ChatBox from './components/chatbox/ChatBox';
+import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import Cart from './components/pages/Cart';
 import Navbar from './components/layouts/Navbar';
@@ -37,6 +34,8 @@ import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
 import ProductList from './components/pages/ProductList';
 import OrderList from './components/pages/OrderList';
+import Product from './components/pages/Product';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 // Styles
 import './App.css';
@@ -58,10 +57,7 @@ const App = () => {
             <Route path='/seller/:id' element={<SellerScreen />}></Route>
             <Route path='/cart' element={<Cart />}></Route>
             <Route path='/cart/:id' element={<Cart />}></Route>
-            <Route
-              path='/product/:id'
-              element={<ProductScreen />}
-              exact></Route>
+            <Route path='/product/:id' element={<Product />} exact></Route>
             <Route
               path='/product/:id/edit'
               element={ProductEditScreen}
