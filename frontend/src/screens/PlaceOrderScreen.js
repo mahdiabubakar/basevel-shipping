@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { createOrder } from '../actions/orderActions';
-import CheckoutSteps from '../components/CheckoutSteps';
+import CheckoutSteps from '../components/layouts/CheckoutSteps';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 
 // components

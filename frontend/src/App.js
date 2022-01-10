@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import AdminRoute from './components/AdminRoute';
-import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/admin/AdminRoute';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
@@ -25,8 +25,8 @@ import SearchScreen from './screens/SearchScreen';
 import { listProductCategories } from './actionsReducers/product/productActions';
 
 import MapScreen from './screens/MapScreen';
-import SupportScreen from './screens/SupportScreen';
-import ChatBox from './components/ChatBox';
+import SupportScreen from './components/pages/Support';
+import ChatBox from './components/chatbox/ChatBox';
 
 // Components
 import Dashboard from './components/pages/Dashboard';
@@ -97,7 +97,6 @@ const App = () => {
               path='/profile'
               element={
                 <PrivateRoute>
-                  {/* <ProfileScreen /> */}
                   <Profile />
                 </PrivateRoute>
               }
@@ -115,7 +114,6 @@ const App = () => {
               path='/productlist'
               element={
                 <AdminRoute>
-                  {/* <ProductListScreen /> */}
                   <ProductList />
                 </AdminRoute>
               }
@@ -125,7 +123,6 @@ const App = () => {
               path='/productlist/pageNumber/:pageNumber'
               element={
                 <AdminRoute>
-                  {/* <ProductListScreen /> */}
                   <ProductList />
                 </AdminRoute>
               }
@@ -134,7 +131,6 @@ const App = () => {
               path='/orderlist'
               element={
                 <AdminRoute>
-                  {/* <OrderListScreen /> */}
                   <OrderList />
                 </AdminRoute>
               }
@@ -175,7 +171,6 @@ const App = () => {
               path='/productlist/seller'
               element={
                 <SellerRoute>
-                  {/* <ProductListScreen /> */}
                   <ProductList />
                 </SellerRoute>
               }
@@ -184,7 +179,6 @@ const App = () => {
               path='/orderlist/seller'
               element={
                 <SellerRoute>
-                  {/* <OrderListScreen /> */}
                   <OrderList />
                 </SellerRoute>
               }

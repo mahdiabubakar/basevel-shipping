@@ -3,7 +3,7 @@ import socketIOClient from 'socket.io-client';
 import { useSelector } from 'react-redux';
 
 // components
-import Alert from '../components/layouts/Alert';
+import Alert from '../layouts/Alert';
 
 let allUsers = [];
 let allMessages = [];
@@ -20,8 +20,8 @@ export default function SupportScreen() {
   const [messageBody, setMessageBody] = useState('');
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
-  const userSignin = useSelector(state => state.userSignin);
-  const { userInfo } = userSignin;
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   useEffect(() => {
     if (uiMessagesRef.current) {

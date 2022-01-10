@@ -6,7 +6,7 @@ const ENDPOINT =
     ? 'http://127.0.0.1:5000'
     : window.location.host;
 
-export default function ChatBox(props) {
+const ChatBox = props => {
   const { userInfo } = props;
   const [socket, setSocket] = useState(null);
   const uiMessagesRef = useRef(null);
@@ -30,7 +30,7 @@ export default function ChatBox(props) {
         name: userInfo.name,
         isAdmin: userInfo.isAdmin,
       });
-      socket.on('message', (data) => {
+      socket.on('message', data => {
         setMessages([...messages, { body: data.body, name: data.name }]);
       });
     }
@@ -42,7 +42,7 @@ export default function ChatBox(props) {
     const sk = socketIOClient(ENDPOINT);
     setSocket(sk);
   };
-  const submitHandler = (e) => {
+  const submitHandler = e => {
     e.preventDefault();
     if (!messageBody.trim()) {
       alert('Error. Please type message.');
@@ -63,17 +63,17 @@ export default function ChatBox(props) {
     setIsOpen(false);
   };
   return (
-    <div className="chatbox">
+    <div className='chatbox'>
       {!isOpen ? (
-        <button type="button" onClick={supportHandler}>
-          <i className="fa fa-support" />
+        <button type='button' onClick={supportHandler}>
+          <i className='fa fa-support' />
         </button>
       ) : (
-        <div className="card card-body">
-          <div className="row">
+        <div className='card card-body'>
+          <div className='row'>
             <strong>Support </strong>
-            <button type="button" onClick={closeHandler}>
-              <i className="fa fa-close" />
+            <button type='button' onClick={closeHandler}>
+              <i className='fa fa-close' />
             </button>
           </div>
           <ul ref={uiMessagesRef}>
@@ -84,18 +84,20 @@ export default function ChatBox(props) {
             ))}
           </ul>
           <div>
-            <form onSubmit={submitHandler} className="row">
+            <form onSubmit={submitHandler} className='row'>
               <input
                 value={messageBody}
-                onChange={(e) => setMessageBody(e.target.value)}
-                type="text"
-                placeholder="type message"
+                onChange={e => setMessageBody(e.target.value)}
+                type='text'
+                placeholder='type message'
               />
-              <button type="submit">Send</button>
+              <button type='submit'>Send</button>
             </form>
           </div>
         </div>
       )}
     </div>
   );
-}
+};
+
+export default ChatBox;
