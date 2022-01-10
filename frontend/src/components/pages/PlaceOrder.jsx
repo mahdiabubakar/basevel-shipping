@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { createOrder } from '../actionsReducers/order/orderActions';
-import CheckoutSteps from '../components/layouts/CheckoutSteps';
-import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import { createOrder } from '../../actionsReducers/order/orderActions';
+import CheckoutSteps from '../layouts/CheckoutSteps';
+import { ORDER_CREATE_RESET } from '../../actionsReducers/types';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
 
-const PlaceOrderScreen = props => {
+const PlaceOrder = () => {
   const navigate = useNavigate();
   const cart = useSelector(state => state.cart);
   if (!cart.paymentMethod) {
@@ -142,4 +142,4 @@ const PlaceOrderScreen = props => {
   );
 };
 
-export default PlaceOrderScreen;
+export default PlaceOrder;

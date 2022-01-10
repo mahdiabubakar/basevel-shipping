@@ -2,28 +2,21 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+// Admin Route
 import AdminRoute from './components/admin/AdminRoute';
 
-import OrderHistory from './components/pages/OrderHistory';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
-import ProductEditScreen from './screens/ProductEditScreen';
-import UserListScreen from './screens/UserListScreen';
-import UserEditScreen from './screens/UserEditScreen';
-import SellerRoute from './components/SellerRoute';
-import SellerScreen from './screens/SellerScreen';
-
-import Search from './components/layouts/Search';
-
-import { listProductCategories } from './actionsReducers/product/productActions';
-
-import Map from './components/maps/Map';
-import SupportScreen from './components/pages/Support';
-
 // Components
-import ChatBox from './components/chatbox/ChatBox';
+import UserList from './components/pages/UserList';
+import UserEdit from './components/pages/UserEdit';
+import ShippingAddress from './components/pages/ShippingAddress';
+import ProductEdit from './components/pages/ProductEdit';
+import PaymentMethod from './components/pages/PaymentMethod';
+import Search from './components/layouts/Search';
+import OrderHistory from './components/pages/OrderHistory';
+import PlaceOrder from './components/pages/PlaceOrder';
+import Seller from './components/pages/Seller';
+import Map from './components/maps/Map';
+import ChatBox from './components/layouts/ChatBox';
 import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import Cart from './components/pages/Cart';
@@ -36,6 +29,12 @@ import OrderList from './components/pages/OrderList';
 import Product from './components/pages/Product';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Order from './components/pages/Order';
+import Support from './components/pages/Support';
+
+import SellerRoute from './components/layouts/SellerRoute';
+
+// ACTIONS
+import { listProductCategories } from './actionsReducers/product/productActions';
 
 // Styles
 import './App.css';
@@ -48,25 +47,23 @@ const App = () => {
   useEffect(() => {
     dispatch(listProductCategories());
   }, [dispatch]);
+
   return (
     <BrowserRouter>
       <div className='grid-container'>
         <Navbar />
         <main>
           <Routes>
-            <Route path='/seller/:id' element={<SellerScreen />}></Route>
+            <Route path='/seller/:id' element={<Seller />}></Route>
             <Route path='/cart' element={<Cart />}></Route>
             <Route path='/cart/:id' element={<Cart />}></Route>
             <Route path='/product/:id' element={<Product />} exact></Route>
-            <Route
-              path='/product/:id/edit'
-              element={ProductEditScreen}
-              exact></Route>
+            <Route path='/product/:id/edit' element={ProductEdit} exact></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/register' element={<Register />}></Route>
-            <Route path='/shipping' element={<ShippingAddressScreen />}></Route>
-            <Route path='/payment' element={<PaymentMethodScreen />}></Route>
-            <Route path='/placeorder' element={<PlaceOrderScreen />}></Route>
+            <Route path='/shipping' element={<ShippingAddress />}></Route>
+            <Route path='/payment' element={<PaymentMethod />}></Route>
+            <Route path='/placeorder' element={<PlaceOrder />}></Route>
             <Route path='/order/:id' element={<Order />}></Route>
             <Route path='/orderhistory' element={<OrderHistory />}></Route>
             <Route path='/search/name' element={<Search />} exact></Route>
@@ -130,7 +127,7 @@ const App = () => {
               path='/userlist'
               element={
                 <AdminRoute>
-                  <UserListScreen />
+                  <UserList />
                 </AdminRoute>
               }
             />
@@ -138,7 +135,7 @@ const App = () => {
               path='/user/:id/edit'
               element={
                 <AdminRoute>
-                  <UserEditScreen />
+                  <UserEdit />
                 </AdminRoute>
               }
             />
@@ -154,7 +151,7 @@ const App = () => {
               path='/support'
               element={
                 <AdminRoute>
-                  <SupportScreen />
+                  <Support />
                 </AdminRoute>
               }
             />

@@ -7,7 +7,7 @@ import { logout } from '../../actionsReducers/auth/authActions';
 import { listProductCategories } from '../../actionsReducers/product/productActions';
 
 // Components
-import SearchBox from '../SearchBox';
+import SearchBox from './SearchBox';
 import Spinner from './Spinner';
 import Alert from './Alert';
 

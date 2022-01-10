@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { deleteUser, listUsers } from '../actionsReducers/auth/authActions';
+import { deleteUser, listUsers } from '../../actionsReducers/auth/authActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import { USER_DETAILS_RESET } from '../actionsReducers/types';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+import { USER_DETAILS_RESET } from '../../actionsReducers/types';
 
-export default function UserListScreen(props) {
+const UserList = () => {
   const navigate = useNavigate();
   const userList = useSelector(state => state.userList);
   const { loading, error, users } = userList;
@@ -85,4 +85,6 @@ export default function UserListScreen(props) {
       )}
     </div>
   );
-}
+};
+
+export default UserList;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { saveShippingAddress } from '../actionsReducers/cart/cartActions';
-import CheckoutSteps from '../components/layouts/CheckoutSteps';
+import { saveShippingAddress } from '../../actionsReducers/cart/cartActions';
+import CheckoutSteps from '../layouts/CheckoutSteps';
 
-const ShippingAddressScreen = () => {
+const ShippingAddress = () => {
   const navigate = useNavigate();
   const userLogin = useSelector(state => state.userLogin);
 
@@ -144,4 +144,4 @@ const ShippingAddressScreen = () => {
   );
 };
 
-export default ShippingAddressScreen;
+export default ShippingAddress;

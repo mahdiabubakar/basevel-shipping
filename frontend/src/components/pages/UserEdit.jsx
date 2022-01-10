@@ -3,14 +3,17 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { detailsUser, updateUser } from '../actionsReducers/auth/authActions';
+import {
+  detailsUser,
+  updateUser,
+} from '../../actionsReducers/auth/authActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import { USER_UPDATE_RESET } from '../actionsReducers/types';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+import { USER_UPDATE_RESET } from '../../actionsReducers/types';
 
-export default function UserEditScreen(props) {
+const UserEdit = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { id: userId } = params;
@@ -109,4 +112,6 @@ export default function UserEditScreen(props) {
       </form>
     </div>
   );
-}
+};
+
+export default UserEdit;

@@ -7,14 +7,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
   detailsProduct,
   updateProduct,
-} from '../actionsReducers/product/productActions';
+} from '../../actionsReducers/product/productActions';
 
 // components
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
-import { PRODUCT_UPDATE_RESET } from '../actionsReducers/types';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
+import { PRODUCT_UPDATE_RESET } from '../../actionsReducers/types';
 
-export default function ProductEditScreen(props) {
+const ProductEdit = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
@@ -194,4 +194,6 @@ export default function ProductEditScreen(props) {
       </form>
     </div>
   );
-}
+};
+
+export default ProductEdit;

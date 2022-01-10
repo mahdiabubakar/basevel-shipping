@@ -13,7 +13,7 @@ const ENDPOINT =
     ? 'http://127.0.0.1:5000'
     : window.location.host;
 
-export default function SupportScreen() {
+const Support = () => {
   const [selectedUser, setSelectedUser] = useState({});
   const [socket, setSocket] = useState(null);
   const uiMessagesRef = useRef(null);
@@ -172,4 +172,6 @@ export default function SupportScreen() {
       </div>
     </div>
   );
-}
+};
+
+export default Support;

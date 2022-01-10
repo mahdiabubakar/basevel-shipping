@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { savePaymentMethod } from '../actionsReducers/cart/cartActions';
-import CheckoutSteps from '../components/layouts/CheckoutSteps';
+import { savePaymentMethod } from '../../actionsReducers/cart/cartActions';
+import CheckoutSteps from '../layouts/CheckoutSteps';
 
-export default function PaymentMethodScreen(props) {
+const PaymentMethod = () => {
   const navigate = useNavigate();
   const cart = useSelector(state => state.cart);
   const { shippingAddress } = cart;
@@ -59,4 +59,6 @@ export default function PaymentMethodScreen(props) {
       </form>
     </div>
   );
-}
+};
+
+export default PaymentMethod;
