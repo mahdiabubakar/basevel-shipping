@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // Import components
 import SearchBox from '../SearchBox';
+import LoadingBox from '../LoadingBox';
+import MessageBox from '../MessageBox';
 
 // Pulling actions
 import { signout } from '../../actions/userActions';
@@ -20,7 +22,15 @@ const Navbar = () => {
   //   Destructuring
   const { userInfo } = userSignin;
 
-  //   Side bar
+  const productCategoryList = useSelector(state => state.productCategoryList);
+
+  const {
+    loading: loadingCategories,
+    error: errorCategories,
+    categories,
+  } = productCategoryList;
+
+  //   Side bar state
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
   // dispatch initialization
