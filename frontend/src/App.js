@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
-import Cart from './components/pages/Cart';
 
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
@@ -26,11 +25,12 @@ import SearchScreen from './screens/SearchScreen';
 import { listProductCategories } from './actionsReducers/product/productActions';
 
 import MapScreen from './screens/MapScreen';
-import DashboardScreen from './screens/DashboardScreen';
 import SupportScreen from './screens/SupportScreen';
 import ChatBox from './components/ChatBox';
 
 // Components
+import Dashboard from './components/pages/Dashboard';
+import Cart from './components/pages/Cart';
 import Navbar from './components/layouts/Navbar';
 import Register from './components/pages/Register';
 import Home from './components/pages/Home';
@@ -159,7 +159,7 @@ const App = () => {
               path='/dashboard'
               element={
                 <AdminRoute>
-                  <DashboardScreen />
+                  <Dashboard />
                 </AdminRoute>
               }
             />

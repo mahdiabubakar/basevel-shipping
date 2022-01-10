@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-google-charts';
-import { summaryOrder } from '../actions/orderActions';
+import { summaryOrder } from '../../actions/orderActions';
 
-import Spinner from '../components/layouts/Spinner';
-import Alert from '../components/layouts/Alert';
+import Spinner from '../layouts/Spinner';
+import Alert from '../layouts/Alert';
 
 export default function DashboardScreen() {
   const orderSummary = useSelector(state => state.orderSummary);
