@@ -1,3 +1,12 @@
+/* varibales */
+:root {
+  --primary-color: #6c63ff;
+  --secondary-color: #3f3d56;
+  --light-color: #f4f4f4;
+  --success-color: #60be87;
+  --error-color: #d66969;
+}
+
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
@@ -35,8 +44,6 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
-  color: #ffffff;
 }
 /* Common */
 h1 {
@@ -80,13 +87,13 @@ button {
 }
 input:hover,
 select:hover,
-textarea:hover,
-button:hover {
+textarea:hover {
   border: 0.1rem #404040 solid;
 }
-button.primary {
+/* button.primary {
   background-color: #f0c040;
-}
+} */
+
 button.block {
   width: 100%;
 }
@@ -247,10 +254,10 @@ img.large {
 }
 /* Form */
 .form {
-  max-width: 60rem;
-  margin: 0 auto;
+  /* max-width: 60rem; */
+  /* margin: 0 auto; */
 }
-.form > div {
+.form > div > div {
   display: flex;
   flex-direction: column;
   margin: 1rem;

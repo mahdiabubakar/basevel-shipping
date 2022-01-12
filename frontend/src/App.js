@@ -44,6 +44,8 @@ const App = () => {
   const { userInfo } = userLogin;
   const dispatch = useDispatch();
 
+  const date = new Date().getFullYear();
+
   useEffect(() => {
     dispatch(listProductCategories());
   }, [dispatch]);
@@ -175,9 +177,9 @@ const App = () => {
             <Route path='/' element={<Home />} exact></Route>
           </Routes>
         </main>
-        <footer className='row center'>
+        <footer className='row center bg-secondary text-light'>
           {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved</div>{' '}
+          <div> {date} &copy; All right reserved</div>{' '}
         </footer>
       </div>
     </BrowserRouter>
