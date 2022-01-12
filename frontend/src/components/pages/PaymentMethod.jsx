@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { savePaymentMethod } from '../../actionsReducers/cart/cartActions';
+import paymentSelection from '../../img/payment-selection.svg';
 import CheckoutSteps from '../layouts/CheckoutSteps';
 
 const PaymentMethod = () => {
@@ -11,53 +12,78 @@ const PaymentMethod = () => {
   if (!shippingAddress.address) {
     navigate('/shipping');
   }
-  const [paymentMethod, setPaymentMethod] = useState('PayPal');
+
+  // FORM STATES
+  const [paymentMethod, setPaymentMethod] = useState({
+    paypal: 'paypal',
+    stripe: '',
+  });
+
+  const { paypal, stripe } = paymentMethod;
+
+  // On Chenge
+  const onChange = e => {
+    setPaymentMethod({ ...paymentMethod, [e.target.name]: e.target.value });
+  };
+
   const dispatch = useDispatch();
-  const submitHandler = e => {
+  const onSubmit = e => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
     navigate('/placeorder');
   };
   return (
-    <div>
+    <Fragment>
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
-      <form className='form' onSubmit={submitHandler}>
-        <div>
-          <h1>Payment Method</h1>
+      <div className='flex justify-center items-center w-full h-full'>
+        <div className='text-red-400 hidden lg:block lg:w-full'>
+          <img
+            src={paymentSelection}
+            className='lg:w-1/2 m-auto'
+            alt='Payment Selection'
+          />
         </div>
-        <div>
-          <div>
-            <input
-              type='radio'
-              id='paypal'
-              value='PayPal'
-              name='paymentMethod'
-              required
-              checked
-              onChange={e => setPaymentMethod(e.target.value)}></input>
-            <label htmlFor='paypal'>PayPal</label>
+        <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
+          <div className='w-full m-auto'>
+            <div className='-mb-5'>
+              <h1>Payment Method</h1>
+            </div>
+            <div className='flex py-4'>
+              <div>
+                <input
+                  type='radio'
+                  value={paypal}
+                  name='paypal'
+                  required
+                  checked
+                  onChange={onChange}
+                />
+                <label className='px-3'>PayPal</label>
+              </div>
+              <div>
+                <input
+                  type='radio'
+                  value={stripe}
+                  name='stripe'
+                  required
+                  disabled
+                  onChange={onChange}
+                />
+                <label className='px-3'>Stripe</label>
+              </div>
+            </div>
+            <div>
+              <label />
+              <button
+                className='bg-secondary lg:w-1/2 text-light hover:outline-0'
+                type='submit'>
+                Continue
+              </button>
+            </div>
           </div>
-        </div>
-        <div>
-          <div>
-            <input
-              type='radio'
-              id='stripe'
-              value='Stripe'
-              name='paymentMethod'
-              required
-              onChange={e => setPaymentMethod(e.target.value)}></input>
-            <label htmlFor='stripe'>Stripe</label>
-          </div>
-        </div>
-        <div>
-          <label />
-          <button className='primary' type='submit'>
-            Continue
-          </button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </Fragment>
   );
 };
 

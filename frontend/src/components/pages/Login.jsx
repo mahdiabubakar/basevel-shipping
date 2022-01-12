@@ -57,7 +57,7 @@ const Login = () => {
           {loading && <Spinner />}
           {error && <Alert variant='danger'>{error}</Alert>}
           <div>
-            <label htmlFor='email'>Email address</label>
+            <label>Email address</label>
             <input
               type='email'
               required
@@ -69,7 +69,7 @@ const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor='password'>Password</label>
+            <label>Password</label>
             <input
               type='password'
               placeholder='Password'
