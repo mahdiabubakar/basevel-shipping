@@ -9,6 +9,9 @@ import {
 // components
 import Alert from '../layouts/Alert';
 
+// Methods
+import formatter from '../../utils/formatter';
+
 const Cart = () => {
   const navigate = useNavigate();
   const params = useParams();
@@ -73,7 +76,7 @@ const Cart = () => {
                       ))}
                     </select>
                   </div>
-                  <div>${item.price}</div>
+                  <div>{formatter.format(item.price)}</div>
                   <div>
                     <button
                       type='button'
@@ -92,8 +95,10 @@ const Cart = () => {
           <ul>
             <li>
               <h2>
-                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+                Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) :
+                {formatter.format(
+                  cartItems.reduce((a, c) => a + c.price * c.qty, 0),
+                )}
               </h2>
             </li>
             <li>

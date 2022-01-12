@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Chart from 'react-google-charts';
 import { summaryOrder } from '../../actionsReducers/order/orderActions';
 
+// components
 import Spinner from '../layouts/Spinner';
 import Alert from '../layouts/Alert';
+
+// methods
+import formatter from '../../utils/formatter';
 
 export default function DashboardScreen() {
   const orderSummary = useSelector(state => state.orderSummary);
@@ -50,9 +54,8 @@ export default function DashboardScreen() {
                 </span>
               </div>
               <div className='summary-body'>
-                N
                 {summary.orders[0]
-                  ? summary.orders[0].totalSales.toFixed(2)
+                  ? formatter.format(summary.orders[0].totalSales.toFixed(2))
                   : 0}
               </div>
             </li>

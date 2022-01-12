@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <header className='row'>
+      <header className='row p-4 bg-pink-400'>
         <div>
           <button
             type='button'

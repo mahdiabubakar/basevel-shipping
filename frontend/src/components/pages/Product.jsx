@@ -14,6 +14,7 @@ import Alert from '../layouts/Alert';
 import Rating from '../layouts/Rating';
 
 import { PRODUCT_REVIEW_CREATE_RESET } from '../../actionsReducers/types';
+import formatter from '../../utils/formatter';
 
 const Product = () => {
   const navigate = useNavigate();
@@ -86,7 +87,7 @@ const Product = () => {
                     rating={product.rating}
                     numReviews={product.numReviews}></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
+                <li>Pirce : {formatter.format(product.price)}</li>
                 <li>
                   Description:
                   <p>{product.description}</p>
@@ -110,7 +111,9 @@ const Product = () => {
                   <li>
                     <div className='row'>
                       <div>Price</div>
-                      <div className='price'>${product.price}</div>
+                      <div className='price'>
+                        {formatter.format(product.price)}
+                      </div>
                     </div>
                   </li>
                   <li>
