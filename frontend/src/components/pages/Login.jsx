@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-import loginSvg from '../../img/login-svg.svg';
+import loginSvg from '../../img/forget-login.svg';
 
 // Actions
 import { login } from '../../actionsReducers/auth/authActions';
@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <div className='flex justify-center items-center w-full h-full'>
       <div className='text-red-400 hidden lg:block lg:w-full'>
-        <img src={loginSvg} alt='' />
+        <img src={loginSvg} className='lg:w-1/2 m-auto' alt='Login' />
       </div>
       <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
         <div className='w-full m-auto'>
@@ -64,6 +64,7 @@ const Login = () => {
               placeholder='Email'
               name='email'
               value={email}
+              className='lg:w-1/2'
               onChange={onChange}
             />
           </div>
@@ -75,13 +76,14 @@ const Login = () => {
               name='password'
               value={password}
               required
+              className='lg:w-1/2'
               onChange={onChange}
             />
           </div>
           <div>
             <label />
             <button
-              className='bg-secondary text-light hover:outline-0'
+              className='bg-secondary lg:w-1/2 text-light hover:outline-0'
               type='submit'>
               Log In
             </button>

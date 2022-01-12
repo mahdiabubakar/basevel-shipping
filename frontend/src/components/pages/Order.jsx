@@ -18,7 +18,7 @@ import Alert from '../layouts/Alert';
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
-} from '../../constants/orderConstants';
+} from '../../actionsReducers/types';
 
 const Order = () => {
   const params = useParams();
