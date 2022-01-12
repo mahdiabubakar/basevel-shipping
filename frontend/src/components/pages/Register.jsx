@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-import loginSvg from '../../img/login-svg.svg';
+import registerSvg from '../../img/login-svg.svg';
 
 // Actions
 import { register } from '../../actionsReducers/auth/authActions';
@@ -51,7 +51,7 @@ const Register = () => {
   return (
     <div className='flex justify-center items-center w-full h-full'>
       <div className='text-red-400 hidden lg:block lg:w-full'>
-        <img src={loginSvg} className='lg:w-1/2 m-auto' alt='' />
+        <img src={registerSvg} className='lg:w-1/2 m-auto' alt='' />
       </div>
       <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
         <div className='w-full m-auto'>
@@ -64,26 +64,24 @@ const Register = () => {
             <label>Name</label>
             <input
               type='text'
-              id='name'
-              placeholder='Enter name'
-              required
               name='name'
               value={name}
-              className='lg:w-1/2'
+              placeholder='Enter name'
               onChange={onChange}
+              className='lg:w-1/2'
+              required
             />
           </div>
           <div>
             <label>Email address</label>
             <input
               type='email'
-              id='email'
-              required
-              placeholder='Email'
               name='email'
               value={email}
-              className='lg:w-1/2'
+              placeholder='Email'
               onChange={onChange}
+              className='lg:w-1/2'
+              required
             />
           </div>
           <div>
@@ -92,10 +90,10 @@ const Register = () => {
               type='password'
               name='password'
               value={password}
-              placeholder='Enter password'
-              required
-              className='lg:w-1/2'
               onChange={onChange}
+              placeholder='Enter password'
+              className='lg:w-1/2'
+              required
             />
           </div>
           <div>
@@ -104,10 +102,10 @@ const Register = () => {
               type='password'
               name='confirmPassword'
               value={confirmPassword}
-              placeholder='Confirm password'
-              required
-              className='lg:w-1/2'
               onChange={onChange}
+              placeholder='Confirm password'
+              className='lg:w-1/2'
+              required
             />
           </div>
           <div>
