@@ -69,7 +69,7 @@ const PaymentMethod = () => {
                   disabled
                   onChange={onChange}
                 />
-                <label className='px-3'>Stripe</label>
+                <label className='px-3 disa'>Stripe</label>
               </div>
             </div>
             <div>

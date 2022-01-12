@@ -59,7 +59,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: var(--secondary-color);
 }
 ul {
   padding: 0;
@@ -203,7 +203,7 @@ img.large {
 
 /* Card */
 .card {
-  border: 0.1rem #c0c0c0 solid;
+  border: 0.1rem var(--secondary-color) solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
   margin: 1rem;
