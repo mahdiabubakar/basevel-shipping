@@ -58,7 +58,9 @@ const PaymentMethod = () => {
                   checked
                   onChange={onChange}
                 />
-                <label className='px-3'>PayPal</label>
+                <label className='px-3 text-secondary cursor-pointer'>
+                  PayPal
+                </label>
               </div>
               <div>
                 <input
@@ -69,13 +71,15 @@ const PaymentMethod = () => {
                   disabled
                   onChange={onChange}
                 />
-                <label className='px-3 disa'>Stripe</label>
+                <label className='px-3 text-secondary cursor-pointer'>
+                  Stripe
+                </label>
               </div>
             </div>
             <div>
               <label />
               <button
-                className='bg-secondary lg:w-1/2 text-light hover:outline-0'
+                className='bg-primary transition hover:bg-secondary lg:w-1/2 text-light hover:outline-0'
                 type='submit'>
                 Continue
               </button>

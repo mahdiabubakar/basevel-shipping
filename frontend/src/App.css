@@ -475,3 +475,8 @@ img.large {
 .support-users .unread {
   background-color: #f02020;
 }
+
+input[type='radio'] {
+  padding: 10px;
+  cursor: pointer;
+}

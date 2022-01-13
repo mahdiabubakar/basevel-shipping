@@ -104,7 +104,7 @@ const ShippingAddress = () => {
                 value={fullName}
                 placeholder='Enter full name'
                 onChange={onChange}
-                className='lg:w-1/2'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
               />
             </div>
@@ -116,7 +116,7 @@ const ShippingAddress = () => {
                 name='address'
                 value={address}
                 onChange={onChange}
-                className='lg:w-1/2'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 required
               />
             </div>
@@ -128,19 +128,19 @@ const ShippingAddress = () => {
                 value={city}
                 placeholder='Enter city'
                 onChange={onChange}
-                className='lg:w-1/2'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
               />
             </div>
             <div>
               <label>Postal Code</label>
               <input
-                type='text'
+                type='number'
                 placeholder='Enter postal code'
                 value={postalCode}
                 name='postalCode'
                 onChange={onChange}
-                className='lg:w-1/2'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 required
               />
             </div>
@@ -152,7 +152,7 @@ const ShippingAddress = () => {
                 value={country}
                 placeholder='Enter country'
                 onChange={onChange}
-                className='lg:w-1/2'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
               />
             </div>

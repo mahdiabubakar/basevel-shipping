@@ -75,19 +75,22 @@ const PlaceOrder = () => {
                             <img
                               src={item.image}
                               alt={item.name}
-                              className='max-w-sm'></img>
+                              className='w-full lg:max-w-sm'></img>
                           </div>
-                          <div className='min-30'>
-                            <Link
-                              to={`/product/${item.product}`}
-                              className='text-primary hover:text-secondary'>
-                              {item.name}
-                            </Link>
-                          </div>
+                          <div className='flex flex-col justify-center content-center'>
+                            <div className=''>
+                              <Link
+                                to={`/product/${item.product}`}
+                                className='text-primary hover:text-secondary transition'>
+                                {item.name}
+                              </Link>
+                            </div>
 
-                          <div>
-                            {item.qty} x {formatter.format(item.price)} = {'  '}
-                            {formatter.format(item.qty * item.price)}
+                            <div>
+                              {item.qty} x {formatter.format(item.price)} ={' '}
+                              {'  '}
+                              {formatter.format(item.qty * item.price)}
+                            </div>
                           </div>
                         </div>
                       </li>
