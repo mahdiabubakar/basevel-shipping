@@ -64,7 +64,7 @@ const Login = () => {
               placeholder='Email'
               name='email'
               value={email}
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               onChange={onChange}
             />
           </div>
@@ -76,7 +76,7 @@ const Login = () => {
               name='password'
               value={password}
               required
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               onChange={onChange}
             />
           </div>
@@ -95,6 +95,13 @@ const Login = () => {
                 to={`/register?redirect=${redirect}`}
                 className='bg-primary p-3 rounded text-white hover:text-white transition hover:bg-secondary'>
                 Create your account
+              </Link>{' '}
+              here.
+            </span>
+            <span className='inline mt-2'>
+              Back to{' '}
+              <Link className='py-2 px-1 border-b-2' to='/'>
+                Shopping
               </Link>
             </span>
           </div>

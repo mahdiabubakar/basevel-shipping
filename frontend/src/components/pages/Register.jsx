@@ -68,7 +68,7 @@ const Register = () => {
               value={name}
               placeholder='Enter name'
               onChange={onChange}
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
               required
             />
           </div>
@@ -80,7 +80,7 @@ const Register = () => {
               value={email}
               placeholder='Email'
               onChange={onChange}
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
           </div>
@@ -92,7 +92,7 @@ const Register = () => {
               value={password}
               onChange={onChange}
               placeholder='Enter password'
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
           </div>
@@ -104,7 +104,7 @@ const Register = () => {
               value={confirmPassword}
               onChange={onChange}
               placeholder='Confirm password'
-              className='lg:w-1/2'
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
           </div>
@@ -123,7 +123,8 @@ const Register = () => {
                 to={`/login?redirect=${redirect}`}
                 className='bg-primary p-3 rounded text-white hover:text-white transition hover:bg-secondary'>
                 Login
-              </Link>
+              </Link>{' '}
+              here.
             </span>
           </div>
         </div>

@@ -75,7 +75,7 @@ const PlaceOrder = () => {
                             <img
                               src={item.image}
                               alt={item.name}
-                              className='small'></img>
+                              className='max-w-sm'></img>
                           </div>
                           <div className='min-30'>
                             <Link
