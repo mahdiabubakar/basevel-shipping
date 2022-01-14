@@ -8,6 +8,12 @@
   --rating-color: #ff9529;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;
@@ -404,10 +410,11 @@ img.large {
 
 /* Chatbox */
 .chatbox {
-  color: #000000;
+  color: var(--secondary-color);
   position: fixed;
   right: 1rem;
   bottom: 1rem;
+  z-index: 3;
 }
 .chatbox ul {
   overflow: scroll;

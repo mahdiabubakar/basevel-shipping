@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import socketIOClient from 'socket.io-client';
 
 const ENDPOINT =
@@ -65,16 +66,22 @@ const ChatBox = props => {
   return (
     <div className='chatbox'>
       {!isOpen ? (
-        <button type='button' onClick={supportHandler}>
-          <i className='fa fa-support' />
-        </button>
+        <Link
+          to='#'
+          className='bg-light p-4 text-primary hover:text-light hover:bg-primary transition-all rounded'
+          onClick={supportHandler}>
+          <i class='fas fa-question-circle' />
+        </Link>
       ) : (
         <div className='card card-body'>
           <div className='row'>
             <strong>Support </strong>
-            <button type='button' onClick={closeHandler}>
+            <Link
+              to='#'
+              className='bg-primary p-4 text-light hover:text-white hover:bg-secondary transition-all rounded'
+              onClick={closeHandler}>
               <i className='fa fa-close' />
-            </button>
+            </Link>
           </div>
           <ul ref={uiMessagesRef}>
             {messages.map((msg, index) => (
@@ -90,8 +97,13 @@ const ChatBox = props => {
                 onChange={e => setMessageBody(e.target.value)}
                 type='text'
                 placeholder='type message'
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-3 px-2 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               />
-              <button type='submit'>Send</button>
+              <button
+                type='submit'
+                className='bg-primary p-3 rounded text-white hover:text-white transition hover:bg-secondary'>
+                Send
+              </button>
             </form>
           </div>
         </div>
