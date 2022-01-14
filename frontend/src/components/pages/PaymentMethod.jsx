@@ -14,22 +14,23 @@ const PaymentMethod = () => {
   }
 
   // FORM STATES
-  const [paymentMethod, setPaymentMethod] = useState({
-    paypal: 'paypal',
-    stripe: '',
-  });
+  const [paymentMethodData, setPaymentMethodData] = useState('paypal');
 
-  const { paypal, stripe } = paymentMethod;
+  const { paypal, stripe } = paymentMethodData;
 
   // On Chenge
   const onChange = e => {
-    setPaymentMethod({ ...paymentMethod, [e.target.name]: e.target.value });
+    setPaymentMethodData({
+      ...paymentMethodData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const dispatch = useDispatch();
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(savePaymentMethod(paymentMethod));
+    dispatch(savePaymentMethod(paymentMethodData));
+    console.log(paymentMethodData);
     navigate('/placeorder');
   };
   return (

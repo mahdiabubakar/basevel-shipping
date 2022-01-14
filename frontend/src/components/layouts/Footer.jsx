@@ -31,12 +31,12 @@ const Footer = () => {
                     <Link
                       to='#'
                       className='font-normal text-xl hover:text-white'>
-                      Landingpages
+                      Home
                     </Link>
                   </li>
                   <li>
                     <Link
-                      to='#'
+                      to='/'
                       className='font-normal text-xl hover:text-white'>
                       Features
                     </Link>

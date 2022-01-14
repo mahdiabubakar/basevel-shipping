@@ -58,11 +58,10 @@ const Home = () => {
         <Alert variant='danger'>{error}</Alert>
       ) : (
         <>
-          <h1>Hello Word</h1>
           {products.length === 0 && <Alert>No Product Found</Alert>}
-          <div className='row center'>
+          <div className='flex flex-wrap my-2 w-full content-center'>
             {products.map(product => (
-              <Product key={product._id} product={product}></Product>
+              <Product key={product._id} product={product} />
             ))}
           </div>
         </>

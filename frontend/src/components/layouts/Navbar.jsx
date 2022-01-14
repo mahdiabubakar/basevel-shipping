@@ -18,6 +18,7 @@ const Navbar = () => {
 
   // Actions
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+  console.log(sidebarIsOpen);
   const { cartItems } = cart;
 
   const userLogin = useSelector(state => state.userLogin);
@@ -50,8 +51,8 @@ const Navbar = () => {
             <button
               type='button'
               className='open-sidebar'
-              onClick={() => setSidebarIsOpen(true)}>
-              <i className='fa fa-bars'></i>
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              <i className='fa fa-bars' />
             </button>
             <Link className='brand capitalize' to='/'>
               basevel
@@ -70,7 +71,7 @@ const Navbar = () => {
             {userInfo ? (
               <div className='dropdown'>
                 <Link to='#'>
-                  {userInfo.name} <i className='fa fa-caret-down'></i>{' '}
+                  {userInfo.name} <i className='fa fa-caret-down' />{' '}
                 </Link>
                 <ul className='dropdown-content'>
                   <li>
@@ -92,7 +93,7 @@ const Navbar = () => {
             {userInfo && userInfo.isSeller && (
               <div className='dropdown'>
                 <Link to='#admin'>
-                  Seller <i className='fa fa-caret-down'></i>
+                  Seller <i className='fa fa-caret-down' />
                 </Link>
                 <ul className='dropdown-content'>
                   <li>
@@ -107,7 +108,7 @@ const Navbar = () => {
             {userInfo && userInfo.isAdmin && (
               <div className='dropdown'>
                 <Link to='#admin'>
-                  Admin <i className='fa fa-caret-down'></i>
+                  Admin <i className='fa fa-caret-down' />
                 </Link>
                 <ul className='dropdown-content'>
                   <li>
@@ -138,7 +139,7 @@ const Navbar = () => {
                 onClick={() => setSidebarIsOpen(false)}
                 className='close-sidebar'
                 type='button'>
-                <i className='fa fa-close'></i>
+                <i className='fa fa-close' />
               </button>
             </li>
             {loadingCategories ? (
@@ -159,27 +160,23 @@ const Navbar = () => {
           </ul>
         </aside>
       </div> */}
-
-      <nav className='nav flex flex-wrap items-center justify-between px-4 bg-secondary'>
+      <header className='flex flex-wrap items-center justify-between px-4 bg-secondary h-24 fixed top-0 right-0 left-0'>
         <div className='flex flex-no-shrink items-center mr-6 py-3 text-light'>
-          <svg
-            className='fill-current h-8 mr-2 w-8'
-            xmlns='http://www.w3.org/2000/svg'
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-miterlimit='1.5'
-            clip-rule='evenodd'
-            viewBox='0 0 716 895'>
-            <path d='M357.776 0l357.77 178.885v536.657l-357.77 178.89L0 715.542V178.885'></path>
-            <path
-              className='text-light fill-current'
-              d='M357.776 804.982l268.32-134.16v-178.89l-89.44-44.72 89.44-44.72V223.606L357.776 89.442v626.1l-178.89-89.44V178.885l-89.443 44.721v447.216l268.333 134.16z'></path>
-            <path d='M447.216 670.822l89.44-44.72v-89.45l-89.44-44.72v178.89zM447.216 402.492l89.44-44.721v-89.443l-89.44-44.722'></path>
-          </svg>
-          <span className='font-semibold text-xl tracking-tight'>
-            Luke Bennett
+          <span className='mr-2'>
+            <Link
+              to='#'
+              className='open-sidebar'
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              <i className='fa fa-bars text-3xl cursor-pointer text-light hover:text-white transition' />
+            </Link>
           </span>
+          <Link to='/' className='flex content-center justify-center'>
+            <span className='font-semibold tracking-tight text-light capitalize hover:text-white transition md:text-xl'>
+              Basevel
+            </span>
+          </Link>
         </div>
+        <div>{/* <SearchBox /> */}</div>
 
         <input className='menu-btn hidden' type='checkbox' id='menu-btn' />
         <label
@@ -188,32 +185,145 @@ const Navbar = () => {
           <span className='navicon bg-light flex items-center relative'></span>
         </label>
 
-        <ul className='menu border-b md:border-none flex justify-end list-reset m-0 w-full md:w-auto'>
-          <li className='md:border-none'>
+        <ul className='menu border-b md:border-none flex justify-end list-reset m-0  w-full md:w-auto'>
+          <li className='md:border-none pb-2'>
             <Link
               to='/'
-              className='block md:inline-block px-4 py-3 no-underline text-light hover:text-white transition font-bold'>
+              className='block md:inline-block px-4 no-underline text-2xl text-light hover:text-white transition font-normal'>
               Home
             </Link>
           </li>
 
           <li className='md:border-none'>
             <Link
-              to='/about/'
-              className='block md:inline-block px-4 py-3 no-underline text-light hover:text-white transition font-bold'>
-              About
+              to='/cart'
+              className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+              Cart
+              {cartItems.length > 0 && (
+                <span className='badge'>{cartItems.length}</span>
+              )}
             </Link>
           </li>
-
           <li className='md:border-none'>
-            <Link
-              to='/blog/'
-              className='block md:inline-block px-4 py-3 no-underline text-light hover:text-white transition font-bold'>
-              Blog
-            </Link>
+            {userInfo ? (
+              <div className='dropdown'>
+                <Link
+                  to='#'
+                  className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
+                  {userInfo.name} <i className='fa fa-caret-down' />{' '}
+                </Link>
+                <ul className='dropdown-content bg-secondary'>
+                  <li>
+                    <Link
+                      to='/profile'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      User Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to='/orderhistory'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Order History
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to='#signout'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'
+                      onClick={onClick}>
+                      Log out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to='/login'>Sign In</Link>
+            )}
+          </li>
+          <li>
+            {userInfo && userInfo.isSeller && (
+              <div className='dropdown'>
+                <Link
+                  to='#admin'
+                  className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                  Seller <i className='fa fa-caret-down' />
+                </Link>
+                <ul className='dropdown-content'>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/productlist/seller'>Products</Link>
+                  </li>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/orderlist/seller'>Orders</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </li>
+          <li>
+            {userInfo && userInfo.isAdmin && (
+              <div className='dropdown'>
+                <Link
+                  to='#admin'
+                  className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                  Admin <i className='fa fa-caret-down' />
+                </Link>
+                <ul className='dropdown-content'>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/dashboard'>Dashboard</Link>
+                  </li>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/productlist'>Products</Link>
+                  </li>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/orderlist'>Orders</Link>
+                  </li>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/userlist'>Users</Link>
+                  </li>
+                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                    <Link to='/support'>Support</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </li>
         </ul>
-      </nav>
+      </header>
+      <aside
+        className={
+          sidebarIsOpen
+            ? 'open bg-secondary text-3xl transition'
+            : 'bg-secondary text-3xl'
+        }>
+        <ul className='categories '>
+          <li>
+            <strong>Categories</strong>
+            <Link
+              to='#'
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+              className='close-sidebar bg-light py-2 px-3 text-primary hover:text-light hover:bg-primary transition-all rounded'>
+              <i className='fa fa-close' />
+            </Link>
+          </li>
+          {loadingCategories ? (
+            <Spinner />
+          ) : errorCategories ? (
+            <Alert variant='danger'>{errorCategories}</Alert>
+          ) : (
+            categories.map(category => (
+              <li key={category}>
+                <Link
+                  className='font-normal text-xl hover:text-light'
+                  to={`/search/category/${category}`}
+                  onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                  {category}
+                </Link>
+              </li>
+            ))
+          )}
+        </ul>
+      </aside>
     </Fragment>
   );
 };
