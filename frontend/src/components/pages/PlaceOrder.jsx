@@ -75,7 +75,8 @@ const PlaceOrder = () => {
                             <img
                               src={item.image}
                               alt={item.name}
-                              className='w-full lg:max-w-sm'></img>
+                              className='w-full lg:max-w-sm'
+                            />
                           </div>
                           <div className='flex flex-col justify-center content-center'>
                             <div className=''>

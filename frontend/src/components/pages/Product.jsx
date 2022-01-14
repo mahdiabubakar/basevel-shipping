@@ -121,9 +121,9 @@ const Product = () => {
                       <div>Status</div>
                       <div>
                         {product.countInStock > 0 ? (
-                          <span className='success'>In Stock</span>
+                          <span className='text-success'>In Stock</span>
                         ) : (
-                          <span className='danger'>Unavailable</span>
+                          <span className='text-danger'>Unavailable</span>
                         )}
                       </div>
                     </div>
@@ -151,7 +151,7 @@ const Product = () => {
                       <li>
                         <button
                           onClick={addToCartHandler}
-                          className='primary block'>
+                          className='bg-primary text-light transition hover:bg-secondary block'>
                           Add to Cart
                         </button>
                       </li>
@@ -179,30 +179,35 @@ const Product = () => {
                     <div>
                       <h2>Write a customer review</h2>
                     </div>
-                    <div>
-                      <label htmlFor='rating'>Rating</label>
-                      <select
-                        id='rating'
-                        value={rating}
-                        onChange={e => setRating(e.target.value)}>
-                        <option value=''>Select...</option>
-                        <option value='1'>1- Poor</option>
-                        <option value='2'>2- Fair</option>
-                        <option value='3'>3- Good</option>
-                        <option value='4'>4- Very good</option>
-                        <option value='5'>5- Excelent</option>
-                      </select>
+                    <div className='lg:flex'>
+                      <div className='lg:w-1/2'>
+                        <label htmlFor='rating'>Rating</label>
+                        <select
+                          id='rating'
+                          value={rating}
+                          className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                          onChange={e => setRating(e.target.value)}>
+                          <option value=''>Select...</option>
+                          <option value='1'>1- Poor</option>
+                          <option value='2'>2- Fair</option>
+                          <option value='3'>3- Good</option>
+                          <option value='4'>4- Very good</option>
+                          <option value='5'>5- Excelent</option>
+                        </select>
+                      </div>
+                      <div className='lg:w-1/2'>
+                        <label htmlFor='comment'>Comment</label>
+                        <textarea
+                          id='comment'
+                          value={comment}
+                          className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary h-80'
+                          onChange={e => setComment(e.target.value)}></textarea>
+                      </div>
                     </div>
-                    <div>
-                      <label htmlFor='comment'>Comment</label>
-                      <textarea
-                        id='comment'
-                        value={comment}
-                        onChange={e => setComment(e.target.value)}></textarea>
-                    </div>
-                    <div>
-                      <label />
-                      <button className='primary' type='submit'>
+                    <div className='w-full'>
+                      <button
+                        className='bg-primary w-full lg:w-1/5 hover:bg-secondary transition text-light'
+                        type='submit'>
                         Submit
                       </button>
                     </div>
@@ -214,9 +219,15 @@ const Product = () => {
                     </div>
                   </form>
                 ) : (
-                  <Alert>
-                    Please <Link to='/login'>Sign In</Link> to write a review
-                  </Alert>
+                  <p className='py-3'>
+                    Please{' '}
+                    <Link
+                      to='/login'
+                      className='bg-primary p-3 rounded text-white hover:text-white transition hover:bg-secondary'>
+                      Sign In
+                    </Link>{' '}
+                    to write a review
+                  </p>
                 )}
               </li>
             </ul>

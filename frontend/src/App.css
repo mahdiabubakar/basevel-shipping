@@ -5,6 +5,7 @@
   --light-color: #f4f4f4;
   --success-color: #60be87;
   --error-color: #d66969;
+  --rating-color: #ff9529;
 }
 
 html {
@@ -220,21 +221,21 @@ img.large {
 }
 /* Rating */
 .rating span {
-  color: #f0c040;
+  color: #ff9529;
   margin: 0.1rem;
 }
 .rating span:last-child {
-  color: #404040;
+  color: #3f3d56;
 }
 /* Alert */
 .loading {
   display: block !important;
 }
 .success {
-  color: #20a020;
+  color: #60be87;
 }
 .danger {
-  color: #a02020;
+  color: #d66969;
 }
 .alert {
   padding: 1rem;

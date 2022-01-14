@@ -141,15 +141,16 @@ const Profile = () => {
                     type='text'
                     placeholder='Enter Seller Description'
                     value={sellerDescription}
-                    onChange={e =>
-                      setSellerDescription(e.target.value)
-                    }></input>
+                    onChange={e => setSellerDescription(e.target.value)}
+                  />
                 </div>
               </>
             )}
             <div>
               <label />
-              <button className='primary' type='submit'>
+              <button
+                className='bg-primary hover:bg-secondary transition text-light'
+                type='submit'>
                 Update
               </button>
             </div>

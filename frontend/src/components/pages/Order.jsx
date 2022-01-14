@@ -19,6 +19,7 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../../actionsReducers/types';
+import formatter from '../../utils/formatter';
 
 const Order = () => {
   const params = useParams();
@@ -135,16 +136,22 @@ const Order = () => {
                           <img
                             src={item.image}
                             alt={item.name}
-                            className='small'></img>
+                            className='w-full lg:max-w-sm'
+                          />
                         </div>
-                        <div className='min-30'>
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </div>
+                        <div className='flex flex-col justify-center content-center'>
+                          <div className='min-30'>
+                            <Link
+                              to={`/product/${item.product}`}
+                              className='text-primary hover:text-secondary transition'>
+                              {item.name}
+                            </Link>
+                          </div>
 
-                        <div>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          <div>
+                            {item.qty} x {formatter.format(item.price)} ={' '}
+                            {formatter.format(item.qty * item.price)}
+                          </div>
                         </div>
                       </div>
                     </li>
@@ -163,19 +170,19 @@ const Order = () => {
               <li>
                 <div className='row'>
                   <div>Items</div>
-                  <div>${order.itemsPrice.toFixed(2)}</div>
+                  <div>{formatter.format(order.itemsPrice.toFixed(2))}</div>
                 </div>
               </li>
               <li>
                 <div className='row'>
                   <div>Shipping</div>
-                  <div>${order.shippingPrice.toFixed(2)}</div>
+                  <div>{formatter.format(order.shippingPrice.toFixed(2))}</div>
                 </div>
               </li>
               <li>
                 <div className='row'>
                   <div>Tax</div>
-                  <div>${order.taxPrice.toFixed(2)}</div>
+                  <div>{formatter.format(order.taxPrice.toFixed(2))}</div>
                 </div>
               </li>
               <li>
@@ -184,7 +191,9 @@ const Order = () => {
                     <strong> Order Total</strong>
                   </div>
                   <div>
-                    <strong>${order.totalPrice.toFixed(2)}</strong>
+                    <strong>
+                      {formatter.format(order.totalPrice.toFixed(2))}
+                    </strong>
                   </div>
                 </div>
               </li>
@@ -212,7 +221,7 @@ const Order = () => {
                   )}
                   <button
                     type='button'
-                    className='primary block'
+                    className='bg-primary hover:bg-secondary text-light block'
                     onClick={deliverHandler}>
                     Deliver Order
                   </button>
