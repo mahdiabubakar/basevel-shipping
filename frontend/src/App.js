@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Admin Route
@@ -16,7 +16,6 @@ import OrderHistory from './components/pages/OrderHistory';
 import PlaceOrder from './components/pages/PlaceOrder';
 import Seller from './components/pages/Seller';
 import Map from './components/maps/Map';
-import ChatBox from './components/layouts/ChatBox';
 import Login from './components/pages/Login';
 import Dashboard from './components/pages/Dashboard';
 import Cart from './components/pages/Cart';
@@ -30,8 +29,8 @@ import Product from './components/pages/Product';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Order from './components/pages/Order';
 import Support from './components/pages/Support';
-
 import SellerRoute from './components/layouts/SellerRoute';
+import Footer from './components/layouts/Footer';
 
 // ACTIONS
 import { listProductCategories } from './actionsReducers/product/productActions';
@@ -40,11 +39,7 @@ import { listProductCategories } from './actionsReducers/product/productActions'
 import './App.css';
 
 const App = () => {
-  const userLogin = useSelector(state => state.userLogin);
-  const { userInfo } = userLogin;
   const dispatch = useDispatch();
-
-  const date = new Date().getFullYear();
 
   useEffect(() => {
     dispatch(listProductCategories());
@@ -56,32 +51,35 @@ const App = () => {
         <Navbar />
         <main>
           <Routes>
-            <Route path='/seller/:id' element={<Seller />}></Route>
-            <Route path='/cart' element={<Cart />}></Route>
-            <Route path='/cart/:id' element={<Cart />}></Route>
-            <Route path='/product/:id' element={<Product />} exact></Route>
-            <Route path='/product/:id/edit' element={ProductEdit} exact></Route>
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/register' element={<Register />}></Route>
-            <Route path='/shipping' element={<ShippingAddress />}></Route>
-            <Route path='/payment' element={<PaymentMethod />}></Route>
-            <Route path='/placeorder' element={<PlaceOrder />}></Route>
-            <Route path='/order/:id' element={<Order />}></Route>
-            <Route path='/orderhistory' element={<OrderHistory />}></Route>
-            <Route path='/search/name' element={<Search />} exact></Route>
-            <Route path='/search/name/:name' element={<Search />} exact></Route>
+            <Route path='/seller/:id' element={<Seller />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/cart/:id' element={<Cart />} />
+            <Route exact path='/product/:id' element={<Product />} />
+            <Route exact path='/product/:id/edit' element={ProductEdit} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/shipping' element={<ShippingAddress />} />
+            <Route path='/payment' element={<PaymentMethod />} />
+            <Route path='/placeorder' element={<PlaceOrder />} />
+            <Route path='/order/:id' element={<Order />} />
+            <Route path='/orderhistory' element={<OrderHistory />} />
+            <Route exact path='/search/name' element={<Search />} />
+            <Route exact path='/search/name/:name' element={<Search />} />
             <Route
+              exact
               path='/search/category/:category'
               element={<Search />}
-              exact></Route>
+            />
             <Route
+              exact
               path='/search/category/:category/name/:name'
               element={<Search />}
-              exact></Route>
+            />
             <Route
+              exact
               path='/search/category/:category/name/:name/min/:min/max/:max/rating/:rating/order/:order/pageNumber/:pageNumber'
               element={<Search />}
-              exact></Route>
+            />
 
             <Route
               path='/profile'
@@ -174,12 +172,11 @@ const App = () => {
               }
             />
 
-            <Route path='/' element={<Home />} exact />
+            <Route exact path='/' element={<Home />} />
           </Routes>
         </main>
-        <footer className='row center bg-secondary text-light'>
-          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div> {date} &copy; All right reserved</div>{' '}
+        <footer>
+          <Footer />
         </footer>
       </div>
     </BrowserRouter>

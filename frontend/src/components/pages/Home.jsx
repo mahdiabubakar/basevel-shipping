@@ -58,6 +58,7 @@ const Home = () => {
         <Alert variant='danger'>{error}</Alert>
       ) : (
         <>
+          <h1>Hello Word</h1>
           {products.length === 0 && <Alert>No Product Found</Alert>}
           <div className='row center'>
             {products.map(product => (
