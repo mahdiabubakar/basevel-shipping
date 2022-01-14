@@ -174,7 +174,7 @@ const App = () => {
               }
             />
 
-            <Route path='/' element={<Home />} exact></Route>
+            <Route path='/' element={<Home />} exact />
           </Routes>
         </main>
         <footer className='row center bg-secondary text-light'>

@@ -51,7 +51,11 @@ const Register = () => {
   return (
     <div className='flex justify-center items-center w-full h-full'>
       <div className='text-red-400 hidden lg:block lg:w-full'>
-        <img src={registerSvg} className='lg:w-1/2 m-auto' alt='' />
+        <img
+          src={registerSvg}
+          className='lg:w-1/2 m-auto'
+          alt='Register User'
+        />
       </div>
       <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
         <div className='w-full m-auto'>

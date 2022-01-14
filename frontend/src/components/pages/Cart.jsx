@@ -94,7 +94,7 @@ const Cart = () => {
         )}
       </div>
       <div className='col-1'>
-        <div className='card card-body'>
+        <div className='card card-body md:mt-20 lg:mt-10'>
           <ul>
             <li>
               <h2>

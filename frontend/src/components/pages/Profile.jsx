@@ -5,18 +5,38 @@ import {
   updateUserProfile,
 } from '../../actionsReducers/auth/authActions';
 
+import profileSvg from '../../img/profile-svg.svg';
+
 import Spinner from '../../components/layouts/Spinner';
 import Alert from '../../components/layouts/Alert';
 import { USER_UPDATE_PROFILE_RESET } from '../../actionsReducers/types';
 
 const Profile = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [sellerName, setSellerName] = useState('');
-  const [sellerLogo, setSellerLogo] = useState('');
-  const [sellerDescription, setSellerDescription] = useState('');
+  // user profile STATE
+  const [userProfile, setUserProfile] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    sellerName: '',
+    sellerLogo: '',
+    sellerDescription: '',
+  });
+
+  const {
+    name,
+    email,
+    password,
+    confirmPassword,
+    sellerDescription,
+    sellerLogo,
+    sellerName,
+  } = userProfile;
+
+  // On Chenge
+  const onChange = e => {
+    setUserProfile({ ...userProfile, [e.target.name]: e.target.value });
+  };
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
@@ -34,17 +54,21 @@ const Profile = () => {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
       dispatch(detailsUser(userInfo._id));
     } else {
-      setName(user.name);
-      setEmail(user.email);
+      setUserProfile({ ...userProfile, name: user.name, email: user.email });
       if (user.seller) {
-        setSellerName(user.seller.name);
-        setSellerLogo(user.seller.logo);
-        setSellerDescription(user.seller.description);
+        setUserProfile({
+          ...userProfile,
+          sellerName: user.seller.name,
+          sellerLogo: user.seller.logo,
+          sellerDescription: user.seller.description,
+        });
       }
     }
+    // eslint-disable-next-line
   }, [dispatch, userInfo._id, user]);
-  const submitHandler = e => {
+  const onSubmit = e => {
     e.preventDefault();
+
     // dispatch update profile
     if (password !== confirmPassword) {
       alert('Password and Confirm Password Are Not Matched');
@@ -63,99 +87,119 @@ const Profile = () => {
     }
   };
   return (
-    <div>
-      <form className='form' onSubmit={submitHandler}>
-        <div>
-          <h1>User Profile</h1>
+    <div className='flex justify-center items-center w-full h-full'>
+      <div className='text-red-400 hidden lg:block lg:w-full'>
+        <img src={profileSvg} className='lg:w-1/2 m-auto' alt='User Profile' />
+      </div>
+      <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
+        <div className='w-full m-auto'>
+          <div>
+            <h1>User Profile</h1>
+          </div>
+          {loading ? (
+            <Spinner />
+          ) : error ? (
+            <Alert variant='danger'>{error}</Alert>
+          ) : (
+            <>
+              {loadingUpdate && <Alert />}
+              {errorUpdate && <Alert variant='danger'>{errorUpdate}</Alert>}
+              {successUpdate && (
+                <Alert variant='success'>Profile Updated Successfully</Alert>
+              )}
+              <div>
+                <label>Name</label>
+                <input
+                  type='text'
+                  name='name'
+                  value={name}
+                  placeholder='Enter name'
+                  onChange={onChange}
+                  className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
+                />
+              </div>
+              <div>
+                <label>Email</label>
+                <input
+                  type='email'
+                  name='email'
+                  value={email}
+                  placeholder='Enter email'
+                  onChange={onChange}
+                  className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                />
+              </div>
+              <div>
+                <label>Password</label>
+                <input
+                  ype='password'
+                  name='password'
+                  value={password}
+                  onChange={onChange}
+                  placeholder='Enter previous password'
+                  className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                />
+              </div>
+              <div>
+                <label>confirm Password</label>
+                <input
+                  type='password'
+                  name='confirmPassword'
+                  value={confirmPassword}
+                  onChange={onChange}
+                  placeholder='Confirm password'
+                  className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                />
+              </div>
+              {user.isSeller && (
+                <>
+                  <h2>Seller</h2>
+                  <div>
+                    <label>Seller Name</label>
+                    <input
+                      type='text'
+                      name='sellerName'
+                      value={sellerName}
+                      placeholder='Enter Seller Name'
+                      onChange={onChange}
+                      className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                    />
+                  </div>
+                  <div>
+                    <label>Seller Logo</label>
+                    <input
+                      type='text'
+                      value={sellerLogo}
+                      name='sellerLogo'
+                      placeholder='Enter Seller Logo'
+                      onChange={onChange}
+                      className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                    />
+                  </div>
+                  <div>
+                    <label>Seller Description</label>
+                    <input
+                      type='text'
+                      value={sellerDescription}
+                      name='sellerDescription'
+                      placeholder='Enter Seller Description'
+                      onChange={onChange}
+                      className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                    />
+                  </div>
+                </>
+              )}
+              <div>
+                <label />
+                <button
+                  className='bg-primary p-3 rounded lg:w-1/2 text-white hover:text-white transition hover:bg-secondary'
+                  type='submit'>
+                  Update
+                </button>
+              </div>
+            </>
+          )}{' '}
         </div>
-        {loading ? (
-          <Spinner />
-        ) : error ? (
-          <Alert variant='danger'>{error}</Alert>
-        ) : (
-          <>
-            {loadingUpdate && <Alert />}
-            {errorUpdate && <Alert variant='danger'>{errorUpdate}</Alert>}
-            {successUpdate && (
-              <Alert variant='success'>Profile Updated Successfully</Alert>
-            )}
-            <div>
-              <label htmlFor='name'>Name</label>
-              <input
-                id='name'
-                type='text'
-                placeholder='Enter name'
-                value={name}
-                onChange={e => setName(e.target.value)}></input>
-            </div>
-            <div>
-              <label htmlFor='email'>Email</label>
-              <input
-                id='email'
-                type='email'
-                placeholder='Enter email'
-                value={email}
-                onChange={e => setEmail(e.target.value)}></input>
-            </div>
-            <div>
-              <label htmlFor='password'>Password</label>
-              <input
-                id='password'
-                type='password'
-                placeholder='Enter password'
-                onChange={e => setPassword(e.target.value)}></input>
-            </div>
-            <div>
-              <label htmlFor='confirmPassword'>confirm Password</label>
-              <input
-                id='confirmPassword'
-                type='password'
-                placeholder='Enter confirm password'
-                onChange={e => setConfirmPassword(e.target.value)}></input>
-            </div>
-            {user.isSeller && (
-              <>
-                <h2>Seller</h2>
-                <div>
-                  <label htmlFor='sellerName'>Seller Name</label>
-                  <input
-                    id='sellerName'
-                    type='text'
-                    placeholder='Enter Seller Name'
-                    value={sellerName}
-                    onChange={e => setSellerName(e.target.value)}></input>
-                </div>
-                <div>
-                  <label htmlFor='sellerLogo'>Seller Logo</label>
-                  <input
-                    id='sellerLogo'
-                    type='text'
-                    placeholder='Enter Seller Logo'
-                    value={sellerLogo}
-                    onChange={e => setSellerLogo(e.target.value)}></input>
-                </div>
-                <div>
-                  <label htmlFor='sellerDescription'>Seller Description</label>
-                  <input
-                    id='sellerDescription'
-                    type='text'
-                    placeholder='Enter Seller Description'
-                    value={sellerDescription}
-                    onChange={e => setSellerDescription(e.target.value)}
-                  />
-                </div>
-              </>
-            )}
-            <div>
-              <label />
-              <button
-                className='bg-primary hover:bg-secondary transition text-light'
-                type='submit'>
-                Update
-              </button>
-            </div>
-          </>
-        )}
       </form>
     </div>
   );

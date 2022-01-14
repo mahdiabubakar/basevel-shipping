@@ -31,7 +31,7 @@ const Home = () => {
   }, [dispatch]);
   return (
     <div>
-      <h2>Top Sellers</h2>
+      <h2 className='text-center py-8'>Top Sellers</h2>
       {loadingSellers ? (
         <Spinner />
       ) : errorSellers ? (
@@ -44,7 +44,7 @@ const Home = () => {
               <div key={seller._id}>
                 <Link to={`/seller/${seller._id}`}>
                   <img src={seller.seller.logo} alt={seller.seller.name} />
-                  <p className='legend'>{seller.seller.name}</p>
+                  <p className='legend capitalize'>{seller.seller.name}</p>
                 </Link>
               </div>
             ))}

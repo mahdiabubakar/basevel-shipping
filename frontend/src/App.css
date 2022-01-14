@@ -196,7 +196,7 @@ img.small {
   width: 100%;
 }
 img.medium {
-  max-width: 29rem;
+  max-width: 25rem;
   width: 100%;
 }
 img.large {
@@ -208,7 +208,7 @@ img.large {
   border: 0.1rem var(--secondary-color) solid;
   background-color: #f8f8f8;
   border-radius: 0.5rem;
-  margin: 1rem;
+  /* margin: 1rem; */
 }
 .card-body {
   padding: 1rem;

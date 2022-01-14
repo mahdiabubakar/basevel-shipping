@@ -13,6 +13,7 @@ module.exports = {
       success: '#60be87',
       danger: '#d66969',
       rating: '#ff9529',
+      gray: '#9ca3af',
     },
     extend: {},
   },
