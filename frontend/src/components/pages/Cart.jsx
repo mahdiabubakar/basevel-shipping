@@ -56,7 +56,8 @@ const Cart = () => {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className='small'></img>
+                      className='w-full md:max-w-sm'
+                    />
                   </div>
                   <div className='min-30'>
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
@@ -64,6 +65,7 @@ const Cart = () => {
                   <div>
                     <select
                       value={item.qty}
+                      className='border-1 shadow appearance-none border rounded w-full py-5 leading-tight focus:outline-none focus:shadow-outline focus:border-primary px-10'
                       onChange={e =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value)),
@@ -80,6 +82,7 @@ const Cart = () => {
                   <div>
                     <button
                       type='button'
+                      className='bg-secondary text-light hover:outline-0 w-fit hover:bg-danger'
                       onClick={() => removeFromCartHandler(item.product)}>
                       Delete
                     </button>
@@ -105,7 +108,7 @@ const Cart = () => {
               <button
                 type='button'
                 onClick={checkoutHandler}
-                className='primary block'
+                className='bg-primary text-light hover:bg-secondary transition block'
                 disabled={cartItems.length === 0}>
                 Proceed to Checkout
               </button>
