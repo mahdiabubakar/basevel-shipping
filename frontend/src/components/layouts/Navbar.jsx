@@ -7,7 +7,7 @@ import { logout } from '../../actionsReducers/auth/authActions';
 import { listProductCategories } from '../../actionsReducers/product/productActions';
 
 // Components
-import SearchBox from './SearchBox';
+// import SearchBox from './SearchBox';
 import Spinner from './Spinner';
 import Alert from './Alert';
 import { Fragment } from 'react';
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   // Actions
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  console.log(sidebarIsOpen);
+
   const { cartItems } = cart;
 
   const userLogin = useSelector(state => state.userLogin);
