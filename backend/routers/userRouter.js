@@ -55,15 +55,20 @@ userRouter.post(
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8),
     });
-    const createdUser = await user.save();
-    res.send({
-      _id: createdUser._id,
-      name: createdUser.name,
-      email: createdUser.email,
-      isAdmin: createdUser.isAdmin,
-      isSeller: user.isSeller,
-      token: generateToken(createdUser),
-    });
+
+    try {
+      const createdUser = await user.save();
+      res.send({
+        _id: createdUser._id,
+        name: createdUser.name,
+        email: createdUser.email,
+        isAdmin: createdUser.isAdmin,
+        isSeller: user.isSeller,
+        token: generateToken(createdUser),
+      });
+    } catch (error) {
+      res.status(401).send({ message: 'User exist' });
+    }
   }),
 );
 

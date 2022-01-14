@@ -55,7 +55,11 @@ const Login = () => {
             <h1>Log In</h1>
           </div>
           {loading && <Spinner />}
-          {error && <Alert variant='danger'>{error}</Alert>}
+          {error && (
+            <div className='lg:w-1/2'>
+              <Alert variant='danger'>{error}</Alert>
+            </div>
+          )}
           <div>
             <label>Email address</label>
             <input

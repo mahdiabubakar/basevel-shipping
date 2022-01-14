@@ -54,14 +54,21 @@ const Profile = () => {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
       dispatch(detailsUser(userInfo._id));
     } else {
-      setUserProfile({ ...userProfile, name: user.name, email: user.email });
+      setUserProfile({
+        ...userProfile,
+        name: user.name,
+        email: user.email,
+        sellerName: user.seller.name,
+        sellerLogo: user.seller.logo,
+        sellerDescription: user.seller.description,
+      });
       if (user.seller) {
-        setUserProfile({
-          ...userProfile,
-          sellerName: user.seller.name,
-          sellerLogo: user.seller.logo,
-          sellerDescription: user.seller.description,
-        });
+        // setUserProfile({
+        //   ...userProfile,
+        //   sellerName: user.seller.name,
+        //   sellerLogo: user.seller.logo,
+        //   sellerDescription: user.seller.description,
+        // });
       }
     }
     // eslint-disable-next-line

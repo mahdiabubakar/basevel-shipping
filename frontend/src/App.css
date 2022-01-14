@@ -206,7 +206,7 @@ img.large {
 /* Card */
 .card {
   border: 0.1rem var(--secondary-color) solid;
-  background-color: #f8f8f8;
+  background-color: var(--light-color);
   border-radius: 0.5rem;
   /* margin: 1rem; */
 }

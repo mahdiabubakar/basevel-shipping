@@ -63,7 +63,23 @@ const Register = () => {
             <h1>Create Account</h1>
           </div>
           {loading && <Spinner />}
-          {error && <Alert variant='danger'>{error}</Alert>}
+          {error && (
+            <div className='lg:w-1/2'>
+              <Alert variant='danger'>
+                {error === 'User exist' && (
+                  <p>
+                    User already exist,{' '}
+                    <Link
+                      to={`/login?redirect=${redirect}`}
+                      className='text-primary border-primary'>
+                      Login
+                    </Link>{' '}
+                    to continue
+                  </p>
+                )}
+              </Alert>
+            </div>
+          )}
           <div>
             <label>Name</label>
             <input
