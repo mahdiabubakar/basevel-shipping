@@ -138,7 +138,7 @@ const PlaceOrder = () => {
                 <button
                   type='button'
                   onClick={placeOrderHandler}
-                  className='block bg-primary text-light transform hover:bg-secondary'
+                  className='block bg-primary text-light hover:bg-secondary'
                   disabled={cart.cartItems.length === 0}>
                   Place Order
                 </button>
