@@ -49,7 +49,9 @@ const Login = () => {
       <div className='text-red-400 hidden lg:block lg:w-full'>
         <img src={loginSvg} className='lg:w-1/2 m-auto' alt='Login' />
       </div>
-      <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
+      <form
+        className='form w-full md:w-1/2 lg:w-full form sm:w-1/4 overflow-auto h-full'
+        onSubmit={onSubmit}>
         <div className='w-full m-auto'>
           <div className='-mb-5'>
             <h1>Log In</h1>
