@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function CheckoutSteps(props) {
   return (
-    <div className='row checkout-steps mt-10 w-full'>
+    <div className='checkout-steps mt-10 w-full flex'>
       <div className={props.step1 ? 'active' : ''}>
         <Link to='/login' className='hover:text-secondary'>
           Log In
