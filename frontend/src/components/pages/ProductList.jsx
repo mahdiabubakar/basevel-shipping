@@ -77,7 +77,10 @@ const ProductList = () => {
     <div>
       <div className='row'>
         <h1>Products</h1>
-        <button type='button' className='primary' onClick={createHandler}>
+        <button
+          type='button'
+          className='bg-primary hover:bg-secondary text-light transition'
+          onClick={createHandler}>
           Create Product
         </button>
       </div>
@@ -115,13 +118,13 @@ const ProductList = () => {
                   <td>
                     <button
                       type='button'
-                      className='small'
+                      className='small small bg-light hover:bg-secondary text-black hover:text-light transition'
                       onClick={() => navigate(`/product/${product._id}/edit`)}>
                       Edit
                     </button>
                     <button
                       type='button'
-                      className='small'
+                      className='small bg-primary hover:bg-danger text-light transition'
                       onClick={() => deleteHandler(product)}>
                       Delete
                     </button>
@@ -130,10 +133,14 @@ const ProductList = () => {
               ))}
             </tbody>
           </table>
-          <div className='row center pagination'>
+          <div className='flex content-center justify-center center pagination'>
             {[...Array(pages).keys()].map(x => (
               <Link
-                className={x + 1 === page ? 'active' : ''}
+                className={
+                  x + 1 === page
+                    ? 'active bg-primary text-light hover:bg-secondary hover:text-light'
+                    : 'bg-primary text-light hover:bg-secondary hover:text-light'
+                }
                 key={x + 1}
                 to={`/productlist/pageNumber/${x + 1}`}>
                 {x + 1}

@@ -97,7 +97,7 @@ const Navbar = () => {
                   className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
                   {userInfo.name} <i className='fa fa-caret-down' />
                 </Link>
-                <ul className='dropdown-content bg-secondary'>
+                <ul className='dropdown-content bg-secondary sm:bg-primary'>
                   <li>
                     <Link
                       to='/profile'

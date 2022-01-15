@@ -258,11 +258,7 @@ img.large {
   color: #20a020;
   background-color: #eeffe0;
 }
-/* Form */
-.form {
-  /* max-width: 60rem; */
-  /* margin: 0 auto; */
-}
+
 .form > div > div {
   display: flex;
   flex-direction: column;
@@ -287,9 +283,13 @@ img.large {
   margin-top: 0.4rem;
   border-radius: 0.5rem;
   width: 100px;
+  transform: translateX(-30rem);
+  transition: all 1s ease;
 }
 .dropdown:hover .dropdown-content {
   display: block;
+  transform: translateX(5.6rem);
+  transition: all 1s ease;
 }
 
 /* Checkout Steps */

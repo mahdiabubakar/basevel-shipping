@@ -20,7 +20,7 @@ const Footer = () => {
           src='/images/pathway-logo.svg'
           alt='Basevel logo'
         /> */}
-            <h1>Basevel</h1>
+            <h1>Basevell</h1>
           </div>
           <div className='grid grid-cols-8 md:grid-cols-9 lg:grid-cols-8 divide-light divide-y-2 md:divide-x-2 md:divide-y-0 md:-mx-8'>
             <div className='col-span-8 md:col-span-3 lg:col-span-2 md:px-8 py-4 md:py-0'>

@@ -31,17 +31,17 @@ const Home = () => {
   }, [dispatch]);
   return (
     <div>
-      <h2 className='text-center py-8'>Top Sellers</h2>
+      <h2 className='text-center py-8 hidden'>Top Sellers</h2>
       {loadingSellers ? (
         <Spinner />
       ) : errorSellers ? (
-        <Alert variant='danger'>{errorSellers}</Alert>
+        <Alert variant='danger hidden'>{errorSellers}</Alert>
       ) : (
         <>
           {sellers.length === 0 && <Alert>No Seller Found</Alert>}
           <Carousel showArrows autoPlay showThumbs={false}>
             {sellers.map(seller => (
-              <div key={seller._id}>
+              <div key={seller._id} className='hidden'>
                 <Link to={`/seller/${seller._id}`}>
                   <img src={seller.seller.logo} alt={seller.seller.name} />
                   <p className='legend capitalize'>{seller.seller.name}</p>

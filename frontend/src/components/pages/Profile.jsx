@@ -62,14 +62,6 @@ const Profile = () => {
         sellerLogo: user.seller.logo,
         sellerDescription: user.seller.description,
       });
-      if (user.seller) {
-        // setUserProfile({
-        //   ...userProfile,
-        //   sellerName: user.seller.name,
-        //   sellerLogo: user.seller.logo,
-        //   sellerDescription: user.seller.description,
-        // });
-      }
     }
     // eslint-disable-next-line
   }, [dispatch, userInfo._id, user]);
@@ -174,13 +166,22 @@ const Profile = () => {
                   </div>
                   <div>
                     <label>Seller Logo</label>
-                    <input
+                    {/* <input
                       type='text'
                       value={sellerLogo}
                       name='sellerLogo'
                       placeholder='Enter Seller Logo'
                       onChange={onChange}
                       className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                    /> */}
+                    <input
+                      type='file'
+                      name='sellerLogo'
+                      value={sellerLogo}
+                      placeholder='Enter Seller Logo'
+                      onChange={onChange}
+                      className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                      accept='image/*'
                     />
                   </div>
                   <div>
