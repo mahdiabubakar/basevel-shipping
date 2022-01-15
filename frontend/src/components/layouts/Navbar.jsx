@@ -45,121 +45,6 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      {/* <div>
-        <header className='row p-4 bg-pink-400'>
-          <div>
-            <button
-              type='button'
-              className='open-sidebar'
-              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
-              <i className='fa fa-bars' />
-            </button>
-            <Link className='brand capitalize' to='/'>
-              basevel
-            </Link>
-          </div>
-          <div>
-            <SearchBox />
-          </div>
-          <div>
-            <Link to='/cart'>
-              Cart
-              {cartItems.length > 0 && (
-                <span className='badge'>{cartItems.length}</span>
-              )}
-            </Link>
-            {userInfo ? (
-              <div className='dropdown'>
-                <Link to='#'>
-                  {userInfo.name} <i className='fa fa-caret-down' />{' '}
-                </Link>
-                <ul className='dropdown-content'>
-                  <li>
-                    <Link to='/profile'>User Profile</Link>
-                  </li>
-                  <li>
-                    <Link to='/orderhistory'>Order History</Link>
-                  </li>
-                  <li>
-                    <Link to='#signout' onClick={onClick}>
-                      Log out
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link to='/login'>Sign In</Link>
-            )}
-            {userInfo && userInfo.isSeller && (
-              <div className='dropdown'>
-                <Link to='#admin'>
-                  Seller <i className='fa fa-caret-down' />
-                </Link>
-                <ul className='dropdown-content'>
-                  <li>
-                    <Link to='/productlist/seller'>Products</Link>
-                  </li>
-                  <li>
-                    <Link to='/orderlist/seller'>Orders</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-            {userInfo && userInfo.isAdmin && (
-              <div className='dropdown'>
-                <Link to='#admin'>
-                  Admin <i className='fa fa-caret-down' />
-                </Link>
-                <ul className='dropdown-content'>
-                  <li>
-                    <Link to='/dashboard'>Dashboard</Link>
-                  </li>
-                  <li>
-                    <Link to='/productlist'>Products</Link>
-                  </li>
-                  <li>
-                    <Link to='/orderlist'>Orders</Link>
-                  </li>
-                  <li>
-                    <Link to='/userlist'>Users</Link>
-                  </li>
-                  <li>
-                    <Link to='/support'>Support</Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        </header>
-        <aside className={sidebarIsOpen ? 'open' : ''}>
-          <ul className='categories'>
-            <li>
-              <strong>Categories</strong>
-              <button
-                onClick={() => setSidebarIsOpen(false)}
-                className='close-sidebar'
-                type='button'>
-                <i className='fa fa-close' />
-              </button>
-            </li>
-            {loadingCategories ? (
-              <Spinner />
-            ) : errorCategories ? (
-              <Alert variant='danger'>{errorCategories}</Alert>
-            ) : (
-              categories.map(category => (
-                <li key={category}>
-                  <Link
-                    to={`/search/category/${category}`}
-                    onClick={() => setSidebarIsOpen(false)}>
-                    {category}
-                  </Link>
-                </li>
-              ))
-            )}
-          </ul>
-        </aside>
-      </div> */}
       <header className='flex flex-wrap items-center justify-between px-4 bg-secondary h-24 fixed top-0 right-0 left-0'>
         <div className='flex flex-no-shrink items-center mr-6 py-3 text-light'>
           <span className='mr-2'>
@@ -172,7 +57,7 @@ const Navbar = () => {
           </span>
           <Link to='/' className='flex content-center justify-center'>
             <span className='font-semibold tracking-tight text-light capitalize hover:text-white transition md:text-xl'>
-              Basevel
+              Basevell
             </span>
           </Link>
         </div>
@@ -210,7 +95,7 @@ const Navbar = () => {
                 <Link
                   to='#'
                   className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
-                  {userInfo.name} <i className='fa fa-caret-down' />{' '}
+                  {userInfo.name} <i className='fa fa-caret-down' />
                 </Link>
                 <ul className='dropdown-content bg-secondary'>
                   <li>
@@ -249,12 +134,20 @@ const Navbar = () => {
                   className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
                   Seller <i className='fa fa-caret-down' />
                 </Link>
-                <ul className='dropdown-content'>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/productlist/seller'>Products</Link>
+                <ul className='dropdown-content bg-secondary'>
+                  <li>
+                    <Link
+                      to='/productlist/seller'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Products
+                    </Link>
                   </li>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/orderlist/seller'>Orders</Link>
+                  <li>
+                    <Link
+                      to='/orderlist/seller'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Orders
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -268,21 +161,41 @@ const Navbar = () => {
                   className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
                   Admin <i className='fa fa-caret-down' />
                 </Link>
-                <ul className='dropdown-content'>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/dashboard'>Dashboard</Link>
+                <ul className='dropdown-content bg-secondary'>
+                  <li>
+                    <Link
+                      to='/dashboard'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Dashboard
+                    </Link>
                   </li>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/productlist'>Products</Link>
+                  <li>
+                    <Link
+                      to='/productlist'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Products
+                    </Link>
                   </li>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/orderlist'>Orders</Link>
+                  <li>
+                    <Link
+                      to='/orderlist'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Orders
+                    </Link>
                   </li>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/userlist'>Users</Link>
+                  <li>
+                    <Link
+                      to='/userlist'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Users
+                    </Link>
                   </li>
-                  <li className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                    <Link to='/support'>Support</Link>
+                  <li>
+                    <Link
+                      to='/support'
+                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                      Support
+                    </Link>
                   </li>
                 </ul>
               </div>
