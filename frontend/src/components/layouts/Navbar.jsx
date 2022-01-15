@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <header className='flex flex-wrap items-center justify-between px-4 bg-secondary h-24 fixed top-0 right-0 left-0'>
+      <header className='flex flex-wrap items-center justify-between z-50 px-4 bg-secondary h-24 fixed top-0 right-0 left-0'>
         <div className='flex flex-no-shrink items-center mr-6 py-3 text-light'>
           <span className='mr-2'>
             <Link
