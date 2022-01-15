@@ -12,6 +12,7 @@ import Product from './Product';
 import Rating from './Rating';
 
 import { prices, ratings } from '../../utils';
+import formatter from '../../utils/formatter';
 
 const Search = () => {
   const navigate = useNavigate();
@@ -68,10 +69,11 @@ const Search = () => {
         ) : (
           <div>{products.length} Results</div>
         )}
-        <div>
-          Sort by{' '}
+        <div className='my-2'>
+          <label className='text-secondary inline-block'>Sort by</label>
           <select
             value={order}
+            className='border-1 shadow appearance-none border rounded w-full py-5 leading-tight focus:outline-none focus:shadow-outline focus:border-primary px-10 inline'
             onChange={e => {
               navigate(getFilterUrl({ order: e.target.value }));
             }}>
@@ -83,7 +85,7 @@ const Search = () => {
         </div>
       </div>
       <div className='row top'>
-        <div className='col-1'>
+        <div className='col-1 hidden lg:block'>
           <h3>Department</h3>
           <div>
             {loadingCategories ? (
@@ -121,7 +123,7 @@ const Search = () => {
                     className={
                       `${p.min}-${p.max}` === `${min}-${max}` ? 'active' : ''
                     }>
-                    {p.name}
+                    {formatter.format(p.min)} - {formatter.format(p.max)}
                   </Link>
                 </li>
               ))}
@@ -149,7 +151,11 @@ const Search = () => {
             <Alert variant='danger'>{error}</Alert>
           ) : (
             <>
-              {products.length === 0 && <Alert>No Product Found</Alert>}
+              {products.length === 0 && (
+                <div className='w-full lg:w-1/2 xl:w-1/4'>
+                  <Alert>No Product Found</Alert>
+                </div>
+              )}
               <div className='row center'>
                 {products.map(product => (
                   <Product key={product._id} product={product}></Product>
