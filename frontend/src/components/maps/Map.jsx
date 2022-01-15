@@ -27,7 +27,7 @@ const Map = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const { data } = await Axios('/api/config/google');
+      const { data } = await Axios('/config/google');
       setGoogleApiKey(data);
       getUserCurrentLocation();
     };

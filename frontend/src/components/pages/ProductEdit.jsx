@@ -81,7 +81,7 @@ const ProductEdit = () => {
     bodyFormData.append('image', file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('/api/uploads', bodyFormData, {
+      const { data } = await Axios.post('/uploads', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,

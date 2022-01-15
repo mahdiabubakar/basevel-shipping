@@ -18,14 +18,16 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(
   process.env.MONGODB_URL || 'mongodb://localhost/basevel-shipping',
 );
-app.use('/api/uploads', uploadRouter);
+
+// Routes Defines
+app.use('/uploads', uploadRouter);
 app.use('/users', userRouter);
 app.use('/products', productRouter);
 app.use('/orders', orderRouter);
 app.get('/config/paypal', (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
-app.get('/api/config/google', (req, res) => {
+app.get('/config/google', (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || '');
 });
 const __dirname = path.resolve();
