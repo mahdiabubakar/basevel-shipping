@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 // Components
 import Spinner from '../layouts/Spinner';
 import Alert from '../layouts/Alert';
+import SearchBox from '../layouts/SearchBox';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const Home = () => {
           </Carousel>
         </>
       )}
+      <SearchBox />
       <h2>Featured Products</h2>
       {loading ? (
         <Spinner />

@@ -61,8 +61,6 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div>{/* <SearchBox /> */}</div>
-
         <input className='menu-btn hidden' type='checkbox' id='menu-btn' />
         <label
           className='menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none'
