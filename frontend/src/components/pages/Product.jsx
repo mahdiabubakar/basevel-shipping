@@ -72,10 +72,7 @@ const Product = () => {
           <Link to='/'>Back to result</Link>
           <div className='row top'>
             <div className='col-2'>
-              <img
-                className='large'
-                src={product.image}
-                alt={product.name}></img>
+              <img className='large' src={product.image} alt={product.name} />
             </div>
             <div className='col-1'>
               <ul>
@@ -181,7 +178,7 @@ const Product = () => {
                     </div>
                     <div className='lg:flex'>
                       <div className='lg:w-1/2'>
-                        <label htmlFor='rating'>Rating</label>
+                        <label>Rating</label>
                         <select
                           id='rating'
                           value={rating}
@@ -196,7 +193,7 @@ const Product = () => {
                         </select>
                       </div>
                       <div className='lg:w-1/2'>
-                        <label htmlFor='comment'>Comment</label>
+                        <label>Comment</label>
                         <textarea
                           id='comment'
                           value={comment}

@@ -64,7 +64,7 @@ const Navbar = () => {
         <input className='menu-btn hidden' type='checkbox' id='menu-btn' />
         <label
           className='menu-icon block cursor-pointer md:hidden px-2 py-4 relative select-none'
-          for='menu-btn'>
+          htmlFor='menu-btn'>
           <span className='navicon bg-light flex items-center relative'></span>
         </label>
 
@@ -95,7 +95,7 @@ const Navbar = () => {
                   className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
                   {userInfo.name} <i className='fa fa-caret-down' />
                 </Link>
-                <ul className='dropdown-content bg-secondary sm:bg-primary'>
+                <ul className='dropdown-content bg-secondary'>
                   <li>
                     <Link
                       to='/profile'
