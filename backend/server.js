@@ -32,15 +32,6 @@ app.get('/config/google', (req, res) => {
   res.send(process.env.GOOGLE_API_KEY || '');
 });
 
-// Make sure you are production
-if (process.env.NODE_ENV === 'production') {
-  // Set Static Folder
-  app.use(express.static('../frontend/build'));
-
-  app.get('*', (req, res) =>
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')),
-  );
-}
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 app.use(express.static(path.join(__dirname, '/frontend/build')));
@@ -51,6 +42,16 @@ app.get('*', (req, res) =>
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
+
+// Make sure you are production
+if (process.env.NODE_ENV === 'production') {
+  // Set Static Folder
+  app.use(express.static('../frontend/build'));
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')),
+  );
+}
 
 const port = process.env.PORT || 3566;
 
