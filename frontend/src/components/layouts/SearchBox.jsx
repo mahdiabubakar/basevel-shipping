@@ -20,7 +20,7 @@ const SearchBox = () => {
           onChange={e => setName(e.target.value)}
         />
         <button
-          className='bg-primary text-light border-none rounded-l-none'
+          className='bg-primary text-light border-none rounded-l-none hover:bg-secondary transition-all'
           type='submit'>
           <i className='fa fa-search' />{' '}
           <span className='hidden md:inline-block'>Search Item</span>
