@@ -39,7 +39,6 @@ const PlaceOrder = () => {
   return (
     <Fragment>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-
       <div className='row top'>
         <div className='col-1 mr-2 mb-1'>
           <ul>

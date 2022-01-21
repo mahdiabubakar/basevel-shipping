@@ -50,7 +50,7 @@ const Login = () => {
         <img src={loginSvg} className='lg:w-1/2 m-auto' alt='Login' />
       </div>
       <form
-        className='form w-full md:w-1/2 lg:w-full form sm:w-1/4 overflow-auto h-full'
+        className='form flex w-full md:w-1/2 lg:w-full sm:w-1/4 overflow-auto h-full'
         onSubmit={onSubmit}>
         <div className='w-full m-auto'>
           <div className='-mb-5'>

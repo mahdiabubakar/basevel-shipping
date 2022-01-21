@@ -57,7 +57,7 @@ const Register = () => {
           alt='Register User'
         />
       </div>
-      <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
+      <form className='form flex w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
         <div className='w-full m-auto'>
           <div>
             <h1>Create Account</h1>

@@ -283,12 +283,10 @@ img.large {
   margin-top: 0.4rem;
   border-radius: 0.5rem;
   width: 100px;
-  transform: translateX(-30rem);
   transition: all 1s ease;
 }
 .dropdown:hover .dropdown-content {
   display: block;
-  transform: translateX(5.6rem);
   transition: all 1s ease;
 }
 
@@ -380,7 +378,6 @@ img.large {
 }
 
 /* Dashboard */
-
 .summary > li {
   border: 0.1rem #c0c0c0 solid;
   margin: 2rem;
@@ -539,5 +536,12 @@ input[type='radio'] {
   .menu-btn:checked ~ .menu-icon .navicon::before,
   .menu-btn:checked ~ .menu-icon .navicon::after {
     top: 0;
+  }
+
+  .dropdown-content {
+    transform: translateX(-30rem);
+  }
+  .dropdown:hover .dropdown-content {
+    transform: translateX(5.6rem);
   }
 }

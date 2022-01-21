@@ -45,7 +45,7 @@ const PaymentMethod = () => {
           />
         </div>
         <form
-          className='form w-full md:w-1/2 sm:w-1/4 lg:w-full overflow-auto h-full'
+          className='form flex w-full md:w-1/2 sm:w-1/4 lg:w-full overflow-auto h-full'
           onSubmit={onSubmit}>
           <div className='w-full m-auto'>
             <div className='-mb-5'>

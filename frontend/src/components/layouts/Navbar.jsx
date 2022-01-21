@@ -67,7 +67,6 @@ const Navbar = () => {
           htmlFor='menu-btn'>
           <span className='navicon bg-light flex items-center relative'></span>
         </label>
-
         <ul className='menu border-b md:border-none flex justify-end list-reset m-0  w-full md:w-auto'>
           <li className='md:border-none pb-2'>
             <Link
@@ -76,7 +75,6 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-
           <li className='md:border-none'>
             <Link
               to='/cart'
@@ -121,7 +119,11 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              <Link to='/login'>Sign In</Link>
+              <Link
+                to='/login'
+                className='capitalise block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+                Sign In
+              </Link>
             )}
           </li>
           <li>
