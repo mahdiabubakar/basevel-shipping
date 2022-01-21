@@ -283,11 +283,11 @@ img.large {
   margin-top: 0.4rem;
   border-radius: 0.5rem;
   width: 100px;
-  transition: all 1s ease;
+  transition: all 0.7s ease;
 }
 .dropdown:hover .dropdown-content {
   display: block;
-  transition: all 1s ease;
+  transition: all 0.7s ease;
 }
 
 /* Checkout Steps */
@@ -544,4 +544,8 @@ input[type='radio'] {
   .dropdown:hover .dropdown-content {
     transform: translateX(5.6rem);
   }
+}
+
+.side-btn {
+  border-right: 1px solid var(--light-color);
 }

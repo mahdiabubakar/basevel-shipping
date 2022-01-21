@@ -45,9 +45,9 @@ const Navbar = () => {
 
   return (
     <Fragment>
-      <header className='flex flex-wrap items-center justify-between z-50 px-4 bg-secondary h-24 fixed top-0 right-0 left-0'>
+      <header className='flex flex-wrap items-center justify-between z-50 px-4 bg-secondary h-24 fixed top-0 right-0 left-0 shadow-2xl'>
         <div className='flex flex-no-shrink items-center mr-6 py-3 text-light'>
-          <span className='mr-2'>
+          <span className='mr-2 side-btn'>
             <Link
               to='#'
               className='open-sidebar'
@@ -56,7 +56,7 @@ const Navbar = () => {
             </Link>
           </span>
           <Link to='/' className='flex content-center justify-center'>
-            <span className='font-semibold tracking-tight text-light capitalize hover:text-white transition md:text-xl'>
+            <span className='font-semibold tracking-tight text-light capitalize hover:text-white transition md:text-3xl'>
               Basevell
             </span>
           </Link>
