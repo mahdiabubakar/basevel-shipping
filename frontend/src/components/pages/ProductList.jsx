@@ -18,7 +18,7 @@ import {
   PRODUCT_DELETE_RESET,
 } from '../../actionsReducers/types';
 
-const ProductList = () => {
+const ProductList = ({ history }) => {
   const navigate = useNavigate();
   const { pageNumber = 1 } = useParams();
   const { pathname } = useLocation();
@@ -70,7 +70,8 @@ const ProductList = () => {
       dispatch(deleteProduct(product._id));
     }
   };
-  const createHandler = () => {
+  const onClick = () => {
+    // navigate('product/:id/edit');
     dispatch(createProduct());
   };
   return (
@@ -80,7 +81,7 @@ const ProductList = () => {
         <button
           type='button'
           className='bg-primary hover:bg-secondary text-light transition'
-          onClick={createHandler}>
+          onClick={onClick}>
           Create Product
         </button>
       </div>

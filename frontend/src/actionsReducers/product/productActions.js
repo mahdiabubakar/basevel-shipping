@@ -82,7 +82,6 @@ export const detailsProduct = productId => async dispatch => {
 
 // Create Products
 export const createProduct = () => async (dispatch, getState) => {
-  console.log('object');
   dispatch({ type: PRODUCT_CREATE_REQUEST });
   const {
     userLogin: { userInfo },

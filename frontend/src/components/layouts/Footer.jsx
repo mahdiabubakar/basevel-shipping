@@ -154,7 +154,7 @@ const Footer = () => {
           <p className='text-xl text-center md:text-right'>
             &copy; {date} Company. All rights reserved. |{' '}
             <Link to='/' className='text-light hover:text-white'>
-              Basevel
+              Basevell
             </Link>
           </p>
         </div>
