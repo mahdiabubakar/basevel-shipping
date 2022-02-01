@@ -27,9 +27,7 @@ Want some support on the project? Google is the best resource
 
 The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
-
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+You will find all the required assets in the `/img` inside frontend folder. The assets are already optimized.
 
 ## Building your project
 
