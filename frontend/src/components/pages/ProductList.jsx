@@ -18,8 +18,9 @@ import {
   PRODUCT_DELETE_RESET,
 } from '../../actionsReducers/types';
 
-const ProductList = ({ history }) => {
+const ProductList = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { pageNumber = 1 } = useParams();
   const { pathname } = useLocation();
   const sellerMode = pathname.indexOf('/seller') >= 0;
@@ -27,6 +28,7 @@ const ProductList = ({ history }) => {
   const { loading, error, products, page, pages } = productList;
 
   const productCreate = useSelector(state => state.productCreate);
+
   const {
     loading: loadingCreate,
     error: errorCreate,
@@ -42,11 +44,11 @@ const ProductList = ({ history }) => {
   } = productDelete;
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
-  const dispatch = useDispatch();
+
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
-      navigate(`/product/${createdProduct._id}/edit`);
+      navigate(`/product/${createdProduct?._id}/edit`);
     }
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
@@ -71,9 +73,9 @@ const ProductList = ({ history }) => {
     }
   };
   const onClick = () => {
-    // navigate('product/:id/edit');
     dispatch(createProduct());
   };
+  if (!productCreate) return;
   return (
     <div>
       <div className='row'>

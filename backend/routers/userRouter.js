@@ -35,6 +35,7 @@ userRouter.post(
         res.send({
           _id: user._id,
           name: user.name,
+          phone: user.phone,
           email: user.email,
           isAdmin: user.isAdmin,
           isSeller: user.isSeller,
@@ -53,6 +54,7 @@ userRouter.post(
     const user = new User({
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       password: bcrypt.hashSync(req.body.password, 8),
     });
 
@@ -62,6 +64,7 @@ userRouter.post(
         _id: createdUser._id,
         name: createdUser.name,
         email: createdUser.email,
+        phone: createdUser.phone,
         isAdmin: createdUser.isAdmin,
         isSeller: user.isSeller,
         token: generateToken(createdUser),

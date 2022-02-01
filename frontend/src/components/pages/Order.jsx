@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import { PayPalButton } from 'react-paypal-button-v2';
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,13 +12,14 @@ import {
 // components
 import Spinner from '../layouts/Spinner';
 import Alert from '../layouts/Alert';
+import formatter from '../../utils/formatter';
+import PayButton from '../../utils/PayButton';
 
 // types
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../../actionsReducers/types';
-import formatter from '../../utils/formatter';
 
 const Order = () => {
   const params = useParams();
@@ -206,9 +206,11 @@ const Order = () => {
                       {errorPay && <Alert variant='danger'>{errorPay}</Alert>}
                       {loadingPay && <Spinner />}
 
-                      <PayPalButton
-                        amount={order.totalPrice}
-                        onSuccess={successPaymentHandler}></PayPalButton>
+                      <PayButton
+                        order={order}
+                        ocSuccess={successPaymentHandler}
+                        userInfo={userInfo}
+                      />
                     </>
                   )}
                 </li>

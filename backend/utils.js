@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import mg from 'mailgun-js';
 
-export const generateToken = (user) => {
+export const generateToken = user => {
   return jwt.sign(
     {
       _id: user._id,
@@ -13,7 +13,7 @@ export const generateToken = (user) => {
     process.env.JWT_SECRET || 'somethingsecret',
     {
       expiresIn: '30d',
-    }
+    },
   );
 };
 
@@ -31,7 +31,7 @@ export const isAuth = (req, res, next) => {
           req.user = decode;
           next();
         }
-      }
+      },
     );
   } else {
     res.status(401).send({ message: 'No Token' });
@@ -65,7 +65,7 @@ export const mailgun = () =>
     domain: process.env.MAILGUN_DOMIAN,
   });
 
-export const payOrderEmailTemplate = (order) => {
+export const payOrderEmailTemplate = order => {
   return `<h1>Thanks for shopping with us</h1>
   <p>
   Hi ${order.user.name},</p>
@@ -81,13 +81,13 @@ export const payOrderEmailTemplate = (order) => {
   <tbody>
   ${order.orderItems
     .map(
-      (item) => `
+      item => `
     <tr>
     <td>${item.name}</td>
     <td align="center">${item.qty}</td>
     <td align="right"> $${item.price.toFixed(2)}</td>
     </tr>
-  `
+  `,
     )
     .join('\n')}
   </tbody>

@@ -78,7 +78,7 @@ productRouter.get(
 productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
-    // await Product.remove({});
+    await Product.remove({});
     const seller = await User.findOne({ isSeller: true });
     if (seller) {
       const products = data.products.map(product => ({
@@ -88,9 +88,7 @@ productRouter.get(
       const createdProducts = await Product.insertMany(products);
       res.send({ createdProducts });
     } else {
-      res
-        .status(500)
-        .send({ message: 'No seller found. first run /users/seed' });
+      res.status(500).send({ message: 'No seller found. first add seller' });
     }
   }),
 );
@@ -127,8 +125,14 @@ productRouter.post(
       numReviews: 0,
       description: 'sample description',
     });
-    const createdProduct = await product.save();
-    res.send({ message: 'Product Created', product: createdProduct });
+    try {
+      const createdProduct = await product.save();
+      res.send({ message: 'Product Created', product: createdProduct });
+    } catch (err) {
+      res
+        .status(401)
+        .send({ message: 'Something went wrong, contact the support' });
+    }
   }),
 );
 productRouter.put(

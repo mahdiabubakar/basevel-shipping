@@ -16,12 +16,13 @@ const Register = () => {
   const [user, setUser] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
     confirmPassword: '',
   });
 
   // Destructuring
-  const { name, email, password, confirmPassword } = user;
+  const { name, email, phone, password, confirmPassword } = user;
   // On Chenge
   const onChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -40,7 +41,7 @@ const Register = () => {
     if (password !== confirmPassword) {
       alert('Password and confirm password are not match');
     } else {
-      dispatch(register(name, email, password));
+      dispatch(register(name, email, phone, password));
     }
   };
   useEffect(() => {
@@ -81,7 +82,7 @@ const Register = () => {
             </div>
           )}
           <div>
-            <label>Name</label>
+            <label>Full Name</label>
             <input
               type='text'
               name='name'
@@ -100,6 +101,18 @@ const Register = () => {
               value={email}
               placeholder='Email'
               onChange={onChange}
+              className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+              required
+            />
+          </div>
+          <div>
+            <label>Phone Number</label>
+            <input
+              type='number'
+              name='phone'
+              value={phone}
+              onChange={onChange}
+              placeholder='Enter Phone'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
