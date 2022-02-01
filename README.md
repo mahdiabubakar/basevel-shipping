@@ -20,6 +20,7 @@ Your users should be able to:
 - Admin will see all the orders,
 - Add products
 - Add sellers and many more
+- I recommend login with admin@admin.com as email address and 12345 as the password to the admin panel
 
 Want some support on the project? Google is the best resource
 
