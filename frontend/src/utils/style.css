@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap');
+.App {
+  text-align: center;
+  font-family: 'Roboto';
+  letter-spacing: 0.1rem;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 635px;
+  height: 300px;
+}
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.checkout-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.checkout-field label {
+  text-align: left;
+  font-size: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}

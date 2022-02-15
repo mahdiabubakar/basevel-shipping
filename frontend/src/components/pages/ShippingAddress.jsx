@@ -25,7 +25,8 @@ const ShippingAddress = () => {
   }
 
   const [getshipping, setGetShipping] = useState({
-    fullName: shippingAddress.fullName,
+    fullName: userInfo.name,
+    email: userInfo.email,
     address: shippingAddress.address,
     city: shippingAddress.city,
     postalCode: shippingAddress.postalCode,
@@ -33,7 +34,7 @@ const ShippingAddress = () => {
   });
 
   // Destructuring
-  const { fullName, address, city, postalCode, country } = getshipping;
+  const { fullName, email, address, city, postalCode, country } = getshipping;
   // On Chenge
   const onChange = e => {
     setGetShipping({ ...getshipping, [e.target.name]: e.target.value });
@@ -104,6 +105,7 @@ const ShippingAddress = () => {
                 type='text'
                 name='fullName'
                 value={fullName}
+                disabled
                 placeholder='Enter full name'
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
@@ -111,7 +113,20 @@ const ShippingAddress = () => {
               />
             </div>
             <div>
-              <label>Address</label>
+              <label>Email Address</label>
+              <input
+                type='email'
+                name='email'
+                value={email}
+                disabled
+                placeholder='Enter full name'
+                onChange={onChange}
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
+                required
+              />
+            </div>
+            <div>
+              <label>Shipping Address</label>
               <input
                 type='text'
                 placeholder='Enter address'
