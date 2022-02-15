@@ -121,7 +121,7 @@ const ShippingAddress = () => {
                 name='email'
                 value={email}
                 disabled
-                placeholder='Enter full name'
+                placeholder='contact@basevell.com'
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 required
@@ -133,7 +133,7 @@ const ShippingAddress = () => {
                 type='tell'
                 name='phone'
                 value={phone}
-                placeholder='08030477880'
+                placeholder='08108624958'
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 required
@@ -143,7 +143,7 @@ const ShippingAddress = () => {
               <label>Shipping Address</label>
               <input
                 type='text'
-                placeholder='Enter address'
+                placeholder='No: AG12 BUK New Site, Kano'
                 name='address'
                 value={address}
                 onChange={onChange}
@@ -157,7 +157,7 @@ const ShippingAddress = () => {
                 type='text'
                 name='city'
                 value={city}
-                placeholder='Enter city'
+                placeholder='Kano, Nigeria'
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
@@ -167,7 +167,7 @@ const ShippingAddress = () => {
               <label>Postal Code</label>
               <input
                 type='number'
-                placeholder='Enter postal code'
+                placeholder='700241'
                 value={postalCode}
                 name='postalCode'
                 onChange={onChange}
@@ -181,7 +181,8 @@ const ShippingAddress = () => {
                 type='text'
                 name='country'
                 value={country}
-                placeholder='Enter country'
+                placeholder='Nigeria'
+                disabled
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required

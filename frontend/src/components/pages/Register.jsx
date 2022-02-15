@@ -99,7 +99,7 @@ const Register = () => {
               type='email'
               name='email'
               value={email}
-              placeholder='john@doe.com'
+              placeholder='john.doe@mail.com'
               onChange={onChange}
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
@@ -124,7 +124,7 @@ const Register = () => {
               name='password'
               value={password}
               onChange={onChange}
-              placeholder='**********'
+              placeholder='Create password'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
@@ -136,7 +136,7 @@ const Register = () => {
               name='confirmPassword'
               value={confirmPassword}
               onChange={onChange}
-              placeholder='**********'
+              placeholder='Confirm password'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
