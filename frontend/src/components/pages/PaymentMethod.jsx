@@ -14,14 +14,14 @@ const PaymentMethod = () => {
   }
 
   // FORM STATES
-  const [paymentMethodData, setPaymentMethodData] = useState('paypal');
+  const [paymentMethod, setPaymentMethod] = useState('paystack');
 
-  const { paypal, stripe } = paymentMethodData;
+  const { paystack } = paymentMethod;
 
   // On Chenge
   const onChange = e => {
-    setPaymentMethodData({
-      ...paymentMethodData,
+    setPaymentMethod({
+      ...paymentMethod,
       [e.target.name]: e.target.value,
     });
   };
@@ -29,8 +29,8 @@ const PaymentMethod = () => {
   const dispatch = useDispatch();
   const onSubmit = e => {
     e.preventDefault();
-    dispatch(savePaymentMethod(paymentMethodData));
-    console.log(paymentMethodData);
+    dispatch(savePaymentMethod(paymentMethod));
+    console.log(paymentMethod);
     navigate('/placeorder');
   };
   return (
@@ -49,33 +49,20 @@ const PaymentMethod = () => {
           onSubmit={onSubmit}>
           <div className='w-full m-auto'>
             <div className='-mb-5'>
-              <h1>Payment Method</h1>
+              <h1>Select Payment Method</h1>
             </div>
             <div className='flex py-4'>
               <div>
                 <input
                   type='radio'
-                  value={paypal}
-                  name='paypal'
+                  value={paystack}
+                  name='paystack'
                   required
                   checked
                   onChange={onChange}
                 />
-                <label className='px-3 text-secondary cursor-pointer'>
-                  PayPal
-                </label>
-              </div>
-              <div>
-                <input
-                  type='radio'
-                  value={stripe}
-                  name='stripe'
-                  required
-                  disabled
-                  onChange={onChange}
-                />
-                <label className='px-3 text-secondary cursor-pointer'>
-                  Stripe
+                <label className='px-3 text-secondary cursor-pointer capitalize'>
+                  PAYSTACK
                 </label>
               </div>
             </div>

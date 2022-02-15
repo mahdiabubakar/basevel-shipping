@@ -45,11 +45,11 @@ const PlaceOrder = () => {
             <li>
               <div className='card card-body'>
                 <h2>Shipping</h2>
-                <p>
+                <p className='capitalize'>
                   <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                  <strong>Address: </strong> {cart.shippingAddress.address},
+                  <strong>Address: </strong> {cart.shippingAddress.address},{' '}
                   {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
-                  ,{cart.shippingAddress.country}
+                  , {cart.shippingAddress.country}
                 </p>
               </div>
             </li>
@@ -57,7 +57,8 @@ const PlaceOrder = () => {
               <div className='card card-body'>
                 <h2>Payment</h2>
                 <p>
-                  <strong>Method:</strong> {cart.paymentMethod}
+                  <strong>Payment Gateway:</strong>{' '}
+                  <span className='uppercase'>{cart.paymentMethod}</span>
                 </p>
               </div>
             </li>
