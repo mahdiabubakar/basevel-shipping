@@ -52,9 +52,9 @@ userRouter.post(
   '/register',
   expressAsyncHandler(async (req, res) => {
     const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
+      name: req.body.name.toLowerCase(),
+      email: req.body.email.toLowerCase(),
+      phone: req.body.phone.toLowerCase(),
       password: bcrypt.hashSync(req.body.password, 8),
     });
 

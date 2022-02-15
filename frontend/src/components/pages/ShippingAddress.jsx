@@ -27,14 +27,16 @@ const ShippingAddress = () => {
   const [getshipping, setGetShipping] = useState({
     fullName: userInfo.name,
     email: userInfo.email,
+    phone: '0' + userInfo.phone,
     address: shippingAddress.address,
     city: shippingAddress.city,
     postalCode: shippingAddress.postalCode,
-    country: shippingAddress.country,
+    country: 'nigeria',
   });
 
   // Destructuring
-  const { fullName, email, address, city, postalCode, country } = getshipping;
+  const { fullName, email, phone, address, city, postalCode, country } =
+    getshipping;
   // On Chenge
   const onChange = e => {
     setGetShipping({ ...getshipping, [e.target.name]: e.target.value });
@@ -70,20 +72,20 @@ const ShippingAddress = () => {
       navigate('/payment');
     }
   };
-  const chooseOnMap = () => {
-    dispatch(
-      saveShippingAddress({
-        fullName,
-        address,
-        city,
-        postalCode,
-        country,
-        lat,
-        lng,
-      }),
-    );
-    navigate('/map');
-  };
+  // const chooseOnMap = () => {
+  //   dispatch(
+  //     saveShippingAddress({
+  //       fullName,
+  //       address,
+  //       city,
+  //       postalCode,
+  //       country,
+  //       lat,
+  //       lng,
+  //     }),
+  //   );
+  //   navigate('/map');
+  // };
   return (
     <Fragment>
       <CheckoutSteps step1 step2></CheckoutSteps>
@@ -120,6 +122,18 @@ const ShippingAddress = () => {
                 value={email}
                 disabled
                 placeholder='Enter full name'
+                onChange={onChange}
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
+                required
+              />
+            </div>
+            <div>
+              <label>Phone Number</label>
+              <input
+                type='tell'
+                name='phone'
+                value={phone}
+                placeholder='08030477880'
                 onChange={onChange}
                 className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 required
@@ -173,7 +187,7 @@ const ShippingAddress = () => {
                 required
               />
             </div>
-            <div>
+            {/* <div>
               <label>Location</label>
               <button
                 type='button'
@@ -181,7 +195,7 @@ const ShippingAddress = () => {
                 onClick={chooseOnMap}>
                 Choose On Map
               </button>
-            </div>
+            </div> */}
             <div>
               <label />
               <button

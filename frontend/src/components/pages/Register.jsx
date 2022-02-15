@@ -87,7 +87,7 @@ const Register = () => {
               type='text'
               name='name'
               value={name}
-              placeholder='Enter name'
+              placeholder='John Doe'
               onChange={onChange}
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
               required
@@ -99,7 +99,7 @@ const Register = () => {
               type='email'
               name='email'
               value={email}
-              placeholder='Email'
+              placeholder='john@doe.com'
               onChange={onChange}
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
@@ -112,7 +112,7 @@ const Register = () => {
               name='phone'
               value={phone}
               onChange={onChange}
-              placeholder='Enter Phone'
+              placeholder='08108624958'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
@@ -124,7 +124,7 @@ const Register = () => {
               name='password'
               value={password}
               onChange={onChange}
-              placeholder='Enter password'
+              placeholder='**********'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
@@ -136,7 +136,7 @@ const Register = () => {
               name='confirmPassword'
               value={confirmPassword}
               onChange={onChange}
-              placeholder='Confirm password'
+              placeholder='**********'
               className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               required
             />
