@@ -91,7 +91,7 @@ const ShippingAddress = () => {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <div className='flex justify-center items-center w-full h-full'>
         <div className='text-red-400 hidden lg:block lg:w-full'>
-          <img src={shippingSvg} className='lg:w-1/2 m-auto' alt='' />
+          <img src={shippingSvg} className='lg:w-1/2 m-auto' alt='Shipping' />
         </div>
         <form
           className='form flex w-full md:w-1/2 sm:w-1/4 lg:w-full overflow-auto h-full'
@@ -110,8 +110,8 @@ const ShippingAddress = () => {
                 disabled
                 placeholder='Enter full name'
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
               />
             </div>
             <div>
@@ -121,10 +121,10 @@ const ShippingAddress = () => {
                 name='email'
                 value={email}
                 disabled
-                placeholder='contact@basevell.com'
+                placeholder='john.doe@mail.com'
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
               />
             </div>
             <div>
@@ -135,8 +135,8 @@ const ShippingAddress = () => {
                 value={phone}
                 placeholder='08108624958'
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
               />
             </div>
             <div>
@@ -147,8 +147,8 @@ const ShippingAddress = () => {
                 name='address'
                 value={address}
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
               />
             </div>
             <div>
@@ -159,8 +159,8 @@ const ShippingAddress = () => {
                 value={city}
                 placeholder='Kano, Nigeria'
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
               />
             </div>
             <div>
@@ -184,8 +184,8 @@ const ShippingAddress = () => {
                 placeholder='Nigeria'
                 disabled
                 onChange={onChange}
-                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 required
+                className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
               />
             </div>
             {/* <div>
