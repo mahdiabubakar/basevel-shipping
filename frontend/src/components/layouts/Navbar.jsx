@@ -37,6 +37,7 @@ const Navbar = () => {
 
   // Event Handlers
   const onClick = () => {
+    setSidebarIsOpen(!sidebarIsOpen);
     dispatch(logout());
   };
 
@@ -57,7 +58,10 @@ const Navbar = () => {
               <i className='fa fa-bars text-3xl cursor-pointer text-light hover:text-white transition' />
             </Link>
           </span>
-          <Link to='/' className='flex content-center justify-center'>
+          <Link
+            to='/'
+            className='flex content-center justify-center'
+            onClick={() => setSidebarIsOpen(false)}>
             <span className='font-semibold tracking-tight text-light capitalize hover:text-white transition md:text-3xl'>
               Basevell
             </span>
@@ -73,14 +77,16 @@ const Navbar = () => {
           <li className='md:border-none pb-2'>
             <Link
               to='/'
-              className='block md:inline-block px-4 no-underline text-2xl text-light hover:text-white transition font-normal'>
+              className='block md:inline-block px-4 no-underline text-2xl text-light hover:text-white transition font-normal'
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
               Home
             </Link>
           </li>
           <li className='md:border-none'>
             <Link
               to='/cart'
-              className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+              className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'
+              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
               Cart
               {cartItems.length > 0 && (
                 <span className='badge'>{cartItems.length}</span>
@@ -102,14 +108,16 @@ const Navbar = () => {
                     <li>
                       <Link
                         to='/profile'
-                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Profile
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderhistory'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Order History
                       </Link>
                     </li>
@@ -147,14 +155,16 @@ const Navbar = () => {
                     <li>
                       <Link
                         to='/productlist/seller'
-                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Products
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderlist/seller'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Orders
                       </Link>
                     </li>
@@ -178,35 +188,40 @@ const Navbar = () => {
                     <li>
                       <Link
                         to='/dashboard'
-                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Dashboard
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/productlist'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Products
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderlist'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Orders
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/userlist'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Users
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/support'
-                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
                         Support
                       </Link>
                     </li>
