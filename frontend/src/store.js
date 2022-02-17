@@ -35,6 +35,7 @@ import {
   userUpdate,
 } from './actionsReducers/auth/authReducers';
 import { productCategoryList } from './actionsReducers/product/productReducers';
+import { sideReducers } from './actionsReducers/others/otherReducers';
 
 const initialState = {
   userLogin: {
@@ -78,6 +79,7 @@ const reducer = combineReducers({
   productReviewCreate: productReviewCreate,
   userAddressMap: userAddressMap,
   orderSummary: orderSummary,
+  sideReducer: sideReducers,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

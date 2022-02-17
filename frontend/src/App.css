@@ -158,10 +158,11 @@ a.brand {
 /* Aside */
 aside {
   position: fixed;
-  width: 30rem;
+  width: 20rem;
   height: 100%;
   color: var(--light-color);
   z-index: 5;
+  font-size: 1rem;
   transform: translateX(-30rem);
   transition: all 0.3s ease;
 }
