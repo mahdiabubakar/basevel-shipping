@@ -90,13 +90,13 @@ const Navbar = () => {
               <div>
                 <div className='dropdown1 inline-block relative'>
                   <Link
-                    to='!#'
-                    className='block md:inline-block px-4 text-2xl bg-gray-300 rounded items-center border-0 bg-secondary text-light hover:text-white border-none'>
+                    to='#'
+                    className='front block md:inline-block px-4 text-2xl bg-gray-300 rounded items-center bg-secondary no-underline text-light hover:text-white transition font-normal capitalize'>
                     <span className='mb-2'>
                       {userInfo.name} <i className='fa fa-caret-down' />
                     </span>
                   </Link>
-                  <ul class='dropdown-menu bg-secondary w-60 absolute hidden text-gray-700 pt-1'>
+                  <ul class='dropdown-menu w-60 absolute hidden  text-gray-700 pt-1 '>
                     <li>
                       <Link
                         to='/profile'
@@ -132,33 +132,10 @@ const Navbar = () => {
           </li>
           <li>
             {userInfo && userInfo.isSeller && (
-              // <div className='dropdown'>
-              //   <Link
-              //     to='#admin'
-              //     className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-              //     Seller <i className='fa fa-caret-down' />
-              //   </Link>
-              //   <ul className='dropdown-content bg-secondary'>
-              //     <li>
-              //       <Link
-              //         to='/productlist/seller'
-              //         className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-              //         Products
-              //       </Link>
-              //     </li>
-              //     <li>
-              //       <Link
-              //         to='/orderlist/seller'
-              //         className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-              //         Orders
-              //       </Link>
-              //     </li>
-              //   </ul>
-              // </div>
               <div>
                 <div className='dropdown1 inline-block relative'>
                   <Link
-                    to='!#'
+                    to='#'
                     className='block md:inline-block px-4 text-2xl bg-gray-300 rounded items-center border-0 bg-secondary text-light hover:text-white border-none'>
                     <span className='mb-2'>
                       Seller <i className='fa fa-caret-down' />
@@ -186,49 +163,53 @@ const Navbar = () => {
           </li>
           <li>
             {userInfo && userInfo.isAdmin && (
-              <div className='dropdown'>
-                <Link
-                  to='#admin'
-                  className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                  Admin <i className='fa fa-caret-down' />
-                </Link>
-                <ul className='dropdown-content bg-secondary'>
-                  <li>
-                    <Link
-                      to='/dashboard'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Dashboard
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/productlist'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Products
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/orderlist'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Orders
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/userlist'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Users
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/support'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Support
-                    </Link>
-                  </li>
-                </ul>
+              <div>
+                <div className='dropdown1 inline-block relative'>
+                  <Link
+                    to='#'
+                    className='block md:inline-block px-4 text-2xl bg-gray-300 rounded items-center border-0 bg-secondary text-light hover:text-white border-none z-10'>
+                    <span className='mb-2'>
+                      Admin <i className='fa fa-caret-down' />
+                    </span>
+                  </Link>
+                  <ul class='dropdown-menu bg-secondary w-40 move absolute hidden text-gray-700 pt-1'>
+                    <li>
+                      <Link
+                        to='/dashboard'
+                        class='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Dashboard
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='/productlist'
+                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Products
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='/orderlist'
+                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Orders
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='/userlist'
+                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Users
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='/support'
+                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Support
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             )}
           </li>

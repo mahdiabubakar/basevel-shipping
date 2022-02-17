@@ -544,6 +544,10 @@ input[type='radio'] {
   .dropdown:hover .dropdown-content {
     transform: translateX(5.6rem);
   }
+
+  .move {
+    transform: translateX(50px);
+  }
 }
 
 .side-btn {
@@ -552,4 +556,14 @@ input[type='radio'] {
 
 .dropdown1:hover .dropdown-menu {
   display: block;
+  z-index: 1;
+  background: #585481;
+}
+
+.move {
+  transform: translateX(-15px);
+}
+
+.front {
+  z-index: 50 !important;
 }
