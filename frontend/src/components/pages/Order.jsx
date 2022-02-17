@@ -98,10 +98,12 @@ const Order = () => {
                 <h2>Shippring</h2>
                 <p>
                   <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                  <strong>Address: </strong> {order.shippingAddress.address},
+                  <strong>Address: </strong> {order.shippingAddress.address},{' '}
                   {order.shippingAddress.city},{' '}
-                  {order.shippingAddress.postalCode},
-                  {order.shippingAddress.country}
+                  {order.shippingAddress.postalCode},{' '}
+                  <span className='capitalize'>
+                    {order.shippingAddress.country}
+                  </span>
                 </p>
                 {order.isDelivered ? (
                   <Alert variant='success'>
@@ -116,7 +118,8 @@ const Order = () => {
               <div className='card card-body'>
                 <h2>Payment</h2>
                 <p>
-                  <strong>Method:</strong> {order.paymentMethod}
+                  <strong>Payment Gateway:</strong>{' '}
+                  <span className='uppercase'>{order.paymentMethod}</span>
                 </p>
                 {order.isPaid ? (
                   <Alert variant='success'>Paid at {order.paidAt}</Alert>
