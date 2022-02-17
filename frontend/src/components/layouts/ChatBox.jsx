@@ -70,7 +70,7 @@ const ChatBox = props => {
           to='#'
           className='bg-light p-4 text-primary hover:text-light hover:bg-primary transition-all rounded'
           onClick={supportHandler}>
-          <i class='fas fa-question-circle' />
+          <i className='fas fa-question-circle' />
         </Link>
       ) : (
         <div className='card card-body'>

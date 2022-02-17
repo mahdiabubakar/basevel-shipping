@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PaystackButton } from 'react-paystack';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { payOrder } from '../actionsReducers/order/orderActions';
 
 import './style.css';
 
-const PayButton = ({ order, userInfo }) => {
-  const navigate = useNavigate();
+const PayButton = ({ order, userInfo, onSuccess }) => {
+  const dispatch = useDispatch();
   const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
   const amount = order.totalPrice * 100; // Remember, set in kobo!
 
@@ -28,27 +29,15 @@ const PayButton = ({ order, userInfo }) => {
       phone,
     },
     publicKey,
-    text: 'Pay Now',
+    text: 'PAY NOW',
     onSuccess: () => {
       alert('Thanks for doing business with us! Come back soon :)');
-      navigate(redirect);
+      dispatch(payOrder(order));
     },
     onClose: () => {
       alert('Redirecting back to homepage');
-      setTimeout(() => {
-        navigate(redirect);
-      }, 3000);
     },
   };
-
-  // REDIRECTS
-  const { search } = useLocation();
-  const redirectInUrl = new URLSearchParams(search).get('redirect');
-  const redirect = redirectInUrl ? redirectInUrl : '/ordersuccess';
-
-  useEffect(() => {
-    console.log('first');
-  }, [navigate]);
 
   return (
     <div className='App'>
@@ -59,11 +48,12 @@ const PayButton = ({ order, userInfo }) => {
               <label>Name</label>
               <input
                 type='text'
-                placeholder='Enter your fullname'
+                placeholder='John DOe'
                 name='name'
                 value={name}
                 required
-                className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                disabled
+                className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 onChange={onChange}
               />
             </div>
@@ -71,23 +61,27 @@ const PayButton = ({ order, userInfo }) => {
               <label>Email</label>
               <input
                 type='email'
-                placeholder='Enter your email'
+                placeholder='john.doe@mail.com'
                 name='email'
                 value={email}
                 required
-                className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                disabled
+                className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary lowercase'
                 onChange={onChange}
               />
             </div>
             <div className='checkout-field'>
-              <label>Phone</label>
+              <p style={{ color: 'red' }}>
+                We'll use your registered phone number as contact number
+              </p>
+              <label className='hidden'>Phone</label>
               <input
                 type='tel'
-                placeholder='Enter phone number'
+                placeholder='08108624958'
                 name='phone'
                 value={phone}
                 required
-                className='border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                className='border-1 shadow hidden appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 onChange={onChange}
               />
             </div>

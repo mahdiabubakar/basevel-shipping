@@ -73,6 +73,7 @@ export const detailsOrder = orderId => async (dispatch, getState) => {
 
 export const payOrder =
   (order, paymentResult) => async (dispatch, getState) => {
+    console.log('first');
     dispatch({ type: ORDER_PAY_REQUEST, payload: { order, paymentResult } });
     const {
       userLogin: { userInfo },

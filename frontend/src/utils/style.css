@@ -9,7 +9,7 @@
   flex-direction: row;
   margin: auto;
   width: 635px;
-  height: 300px;
+  height: 350px;
 }
 .checkout {
   display: flex;
@@ -25,8 +25,7 @@
 }
 .checkout-field label {
   text-align: left;
-  font-size: 10px;
   margin-bottom: 5px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 0.1rem;
 }

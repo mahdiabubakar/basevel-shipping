@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
@@ -76,7 +76,7 @@ const Order = () => {
     }
   }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
 
-  const successPaymentHandler = paymentResult => {
+  const successPayment = paymentResult => {
     dispatch(payOrder(order, paymentResult));
   };
   const deliverHandler = () => {
@@ -208,7 +208,7 @@ const Order = () => {
 
                       <PayButton
                         order={order}
-                        ocSuccess={successPaymentHandler}
+                        onSuccess={successPayment}
                         userInfo={userInfo}
                       />
                     </>
