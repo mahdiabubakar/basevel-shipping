@@ -96,25 +96,25 @@ const Navbar = () => {
                       {userInfo.name} <i className='fa fa-caret-down' />
                     </span>
                   </Link>
-                  <ul class='dropdown-menu w-60 absolute hidden  text-gray-700 pt-1 '>
+                  <ul className='dropdown-menu w-60 absolute hidden  text-gray-700 pt-1 '>
                     <li>
                       <Link
                         to='/profile'
-                        class='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Profile
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderhistory'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Order History
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='#signout'
-                        class='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        className='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
                         onClick={onClick}>
                         log out
                       </Link>
@@ -141,18 +141,18 @@ const Navbar = () => {
                       Seller <i className='fa fa-caret-down' />
                     </span>
                   </Link>
-                  <ul class='dropdown-menu bg-secondary w-60 absolute hidden text-gray-700 pt-1'>
+                  <ul className='dropdown-menu bg-secondary w-60 absolute hidden text-gray-700 pt-1'>
                     <li>
                       <Link
                         to='/productlist/seller'
-                        class='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Products
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderlist/seller'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Orders
                       </Link>
                     </li>
@@ -172,39 +172,39 @@ const Navbar = () => {
                       Admin <i className='fa fa-caret-down' />
                     </span>
                   </Link>
-                  <ul class='dropdown-menu bg-secondary w-40 move absolute hidden text-gray-700 pt-1'>
+                  <ul className='dropdown-menu bg-secondary w-40 move absolute hidden text-gray-700 pt-1'>
                     <li>
                       <Link
                         to='/dashboard'
-                        class='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Dashboard
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/productlist'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Products
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/orderlist'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Orders
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/userlist'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Users
                       </Link>
                     </li>
                     <li>
                       <Link
                         to='/support'
-                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
                         Support
                       </Link>
                     </li>
