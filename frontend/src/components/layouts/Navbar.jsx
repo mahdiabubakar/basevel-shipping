@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Link } from 'react-router-dom';
 
 // Actions
@@ -41,7 +42,8 @@ const Navbar = () => {
 
   useEffect(() => {
     dispatch(listProductCategories());
-  }, [dispatch]);
+    sidebarIsOpen ? disableBodyScroll(document) : enableBodyScroll(document);
+  }, [dispatch, sidebarIsOpen]);
 
   return (
     <Fragment>
@@ -221,7 +223,7 @@ const Navbar = () => {
             ? 'open bg-secondary text-3xl transition'
             : 'bg-secondary text-3xl'
         }>
-        <ul className='categories '>
+        <ul className='categories'>
           <li>
             <strong>Categories</strong>
             <Link
