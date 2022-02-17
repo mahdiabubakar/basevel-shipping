@@ -93,6 +93,7 @@ userRouter.put(
     const user = await User.findById(req.user._id);
     if (user) {
       user.name = req.body.name || user.name;
+      user.phone = req.body.phone || user.phone;
       user.email = req.body.email || user.email;
       if (user.isSeller) {
         user.seller.name = req.body.sellerName || user.seller.name;
@@ -107,6 +108,7 @@ userRouter.put(
       res.send({
         _id: updatedUser._id,
         name: updatedUser.name,
+        phone: updatedUser.phone,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,
         isSeller: user.isSeller,

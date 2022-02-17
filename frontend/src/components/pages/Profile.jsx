@@ -16,6 +16,7 @@ const Profile = () => {
   const [userProfile, setUserProfile] = useState({
     name: '',
     email: '',
+    phone: '',
     password: '',
     confirmPassword: '',
     sellerName: '',
@@ -26,6 +27,7 @@ const Profile = () => {
   const {
     name,
     email,
+    phone,
     password,
     confirmPassword,
     sellerDescription,
@@ -58,6 +60,7 @@ const Profile = () => {
         ...userProfile,
         name: user.name,
         email: user.email,
+        phone: '0' + user.phone,
         sellerName: user.seller.name,
         sellerLogo: user.seller.logo,
         sellerDescription: user.seller.description,
@@ -77,6 +80,7 @@ const Profile = () => {
           userId: user._id,
           name,
           email,
+          phone,
           password,
           sellerName,
           sellerLogo,
@@ -112,9 +116,21 @@ const Profile = () => {
                   type='text'
                   name='name'
                   value={name}
-                  placeholder='Enter name'
+                  placeholder='John Doe'
                   onChange={onChange}
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
+                />
+              </div>
+              <div>
+                <label>Phone Number</label>
+                <input
+                  type='number'
+                  name='phone'
+                  value={phone}
+                  onChange={onChange}
+                  placeholder='08108624958'
+                  className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
+                  required
                 />
               </div>
               <div>
@@ -123,11 +139,12 @@ const Profile = () => {
                   type='email'
                   name='email'
                   value={email}
-                  placeholder='Enter email'
+                  placeholder='john.doe@mail.com'
                   onChange={onChange}
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 />
               </div>
+
               <div>
                 <label>Password</label>
                 <input
@@ -159,7 +176,7 @@ const Profile = () => {
                       type='text'
                       name='sellerName'
                       value={sellerName}
-                      placeholder='Enter Seller Name'
+                      placeholder='John Doe'
                       onChange={onChange}
                       className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                     />
@@ -190,7 +207,7 @@ const Profile = () => {
                       type='text'
                       value={sellerDescription}
                       name='sellerDescription'
-                      placeholder='Enter Seller Description'
+                      placeholder='I sell snickers and jeweries'
                       onChange={onChange}
                       className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                     />
