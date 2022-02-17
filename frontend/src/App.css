@@ -549,3 +549,7 @@ input[type='radio'] {
 .side-btn {
   border-right: 1px solid var(--light-color);
 }
+
+.dropdown1:hover .dropdown-menu {
+  display: block;
+}

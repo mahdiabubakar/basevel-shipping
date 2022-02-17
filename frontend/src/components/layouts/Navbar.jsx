@@ -87,36 +87,71 @@ const Navbar = () => {
           </li>
           <li className='md:border-none'>
             {userInfo ? (
-              <div className='dropdown'>
-                <Link
-                  to='#'
-                  className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
-                  {userInfo.name} <i className='fa fa-caret-down' />
-                </Link>
-                <ul className='dropdown-content bg-secondary'>
-                  <li>
-                    <Link
-                      to='/profile'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      User Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='/orderhistory'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
-                      Order History
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to='#signout'
-                      className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'
-                      onClick={onClick}>
-                      Log out
-                    </Link>
-                  </li>
-                </ul>
+              // <div className='dropdown'>
+              //   <Link
+              //     to='#'
+              //     className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal capitalize'>
+              //     {userInfo.name} <i className='fa fa-caret-down' />
+              //   </Link>
+              //   <ul className='dropdown-content bg-secondary'>
+              //     <li>
+              //       <Link
+              //         to='/profile'
+              //         className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+              //         User Profile
+              //       </Link>
+              //     </li>
+              //     <li>
+              //       <Link
+              //         to='/orderhistory'
+              //         className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'>
+              //         Order History
+              //       </Link>
+              //     </li>
+              //     <li>
+              //       <Link
+              //         to='#signout'
+              //         className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'
+              //         onClick={onClick}>
+              //         Log out
+              //       </Link>
+              //     </li>
+              //   </ul>
+              // </div>
+              <div>
+                <div className='dropdown1 inline-block relative'>
+                  <Link
+                    to='!#'
+                    className='block md:inline-block px-4 text-2xl bg-gray-300 rounded items-center border-0 bg-secondary text-light hover:text-white border-none'>
+                    <span className='mb-2'>
+                      {userInfo.name} <i className='fa fa-caret-down' />
+                    </span>
+                  </Link>
+                  <ul class='dropdown-menu bg-secondary w-60 absolute hidden text-gray-700 pt-1'>
+                    <li>
+                      <Link
+                        to='/profile'
+                        class='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='/orderhistory'
+                        class='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'>
+                        Order History
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to='#signout'
+                        class='rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
+                        onClick={onClick}>
+                        log out
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             ) : (
               <Link
