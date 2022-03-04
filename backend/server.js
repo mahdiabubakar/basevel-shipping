@@ -11,14 +11,14 @@ import uploadRouter from './routers/uploadRouter.js';
 
 dotenv.config();
 
+// Init Middleware
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Image upload middleware
+app.use('/uploads', express.static('uploads'));
 
-mongoose.connect(
-  process.env.MONGODB_URL ||
-    'mongodb+srv://mahdiaa1:mahdiaa1@basevellshipping.t8vxv.mongodb.net/eCommerce?retryWrites=true&w=majority',
-);
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017');
 
 // Routes Defines
 app.use('/uploads', uploadRouter);

@@ -78,7 +78,7 @@ const Navbar = () => {
             <Link
               to='/'
               className='block md:inline-block px-4 no-underline text-2xl text-light hover:text-white transition font-normal'
-              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              onClick={() => setSidebarIsOpen(false)}>
               Home
             </Link>
           </li>
@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link
               to='/cart'
               className='block md:inline-block px-4 no-underline text-2xl  text-light hover:text-white transition font-normal'
-              onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+              onClick={() => setSidebarIsOpen(false)}>
               Cart
               {cartItems.length > 0 && (
                 <span className='badge'>{cartItems.length}</span>
@@ -109,7 +109,7 @@ const Navbar = () => {
                       <Link
                         to='/profile'
                         className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Profile
                       </Link>
                     </li>
@@ -117,7 +117,7 @@ const Navbar = () => {
                       <Link
                         to='/orderhistory'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Order History
                       </Link>
                     </li>
@@ -156,7 +156,7 @@ const Navbar = () => {
                       <Link
                         to='/productlist/seller'
                         className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Products
                       </Link>
                     </li>
@@ -164,7 +164,7 @@ const Navbar = () => {
                       <Link
                         to='/orderlist/seller'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Orders
                       </Link>
                     </li>
@@ -189,7 +189,7 @@ const Navbar = () => {
                       <Link
                         to='/dashboard'
                         className='rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Dashboard
                       </Link>
                     </li>
@@ -197,7 +197,7 @@ const Navbar = () => {
                       <Link
                         to='/productlist'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Products
                       </Link>
                     </li>
@@ -205,7 +205,7 @@ const Navbar = () => {
                       <Link
                         to='/orderlist'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Orders
                       </Link>
                     </li>
@@ -213,7 +213,7 @@ const Navbar = () => {
                       <Link
                         to='/userlist'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Users
                       </Link>
                     </li>
@@ -221,7 +221,7 @@ const Navbar = () => {
                       <Link
                         to='/support'
                         className='bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap text-light hover:text-white transition font-normal capitalize'
-                        onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+                        onClick={() => setSidebarIsOpen(false)}>
                         Support
                       </Link>
                     </li>

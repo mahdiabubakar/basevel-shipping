@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 const productSchema = new mongoose.Schema(
   {
@@ -25,7 +25,7 @@ const productSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 const Product = mongoose.model('Product', productSchema);
 
