@@ -81,32 +81,38 @@ export const detailsProduct = productId => async dispatch => {
 };
 
 // Create Products
-export const createProduct = () => async (dispatch, getState) => {
-  dispatch({ type: PRODUCT_CREATE_REQUEST });
+export const createProduct =
+  (name, price, image, category, brand, countInStock, description) =>
+  async (dispatch, getState) => {
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
-  const {
-    userLogin: { userInfo },
-  } = getState();
-  try {
-    const { data } = await Axios.post(
-      '/products',
-      {},
-      {
-        headers: { Authorization: `Bearer ${userInfo.token}` },
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
       },
-    );
-    dispatch({
-      type: PRODUCT_CREATE_SUCCESS,
-      payload: data.product,
-    });
-  } catch (error) {
-    const message =
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message;
-    dispatch({ type: PRODUCT_CREATE_FAIL, payload: message });
-  }
-};
+    };
+    dispatch({ type: PRODUCT_CREATE_REQUEST });
+
+    try {
+      const { data } = await Axios.post(
+        '/products',
+        { name, price, image, category, brand, countInStock, description },
+        config,
+      );
+      dispatch({
+        type: PRODUCT_CREATE_SUCCESS,
+        payload: data.product,
+      });
+    } catch (error) {
+      const message =
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message;
+      dispatch({ type: PRODUCT_CREATE_FAIL, payload: message });
+    }
+  };
 
 // Update products
 export const updateProduct = product => async (dispatch, getState) => {

@@ -78,7 +78,7 @@ export const productDetails = (state = { loading: true }, action) => {
 export const productCreate = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
-      return { loading: true };
+      return { loading: true, success: false };
     case PRODUCT_CREATE_SUCCESS:
       return {
         loading: false,

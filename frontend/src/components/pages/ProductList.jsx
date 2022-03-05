@@ -48,7 +48,7 @@ const ProductList = () => {
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
-      navigate(`/product/${createdProduct?._id}/edit`);
+      // navigate(`/product/${createdProduct?._id}/edit`);
     }
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });

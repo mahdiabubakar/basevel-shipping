@@ -72,7 +72,9 @@ const SellerScreen = () => {
           <Alert variant='danger'>{errorProducts}</Alert>
         ) : (
           <>
-            {products.length === 0 && <Alert>No Product Found</Alert>}
+            {products.length === 0 && (
+              <Alert>No Product Found, Please add One</Alert>
+            )}
             <div className='row center'>
               {products.map(product => (
                 <Product key={product._id} product={product}></Product>

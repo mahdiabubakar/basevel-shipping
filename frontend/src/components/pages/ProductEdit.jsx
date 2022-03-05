@@ -41,14 +41,10 @@ const ProductEdit = () => {
   };
 
   const productDetails = useSelector(state => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const { error, product } = productDetails;
 
-  const productUpdate = useSelector(state => state.productUpdate);
-  const {
-    loading: loadingUpdate,
-    error: errorUpdate,
-    success: successUpdate,
-  } = productUpdate;
+  const productCreate = useSelector(state => state.productCreate);
+  const { error: errorUpdate, success: successUpdate } = productCreate;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -87,18 +83,18 @@ const ProductEdit = () => {
         description,
       ),
     );
-    dispatch(
-      updateProduct({
-        // _id: productId,
-        name,
-        price,
-        image,
-        category,
-        brand,
-        countInStock,
-        description,
-      }),
-    );
+    // dispatch(
+    //   updateProduct({
+    //     // _id: productId,
+    //     name,
+    //     price,
+    //     image,
+    //     category,
+    //     brand,
+    //     countInStock,
+    //     description,
+    //   }),
+    // );
   };
   const [loadingUpload, setLoadingUpload] = useState(false);
 

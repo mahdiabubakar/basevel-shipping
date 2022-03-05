@@ -153,7 +153,7 @@ const Search = () => {
             <>
               {products.length === 0 && (
                 <div className='w-full lg:w-1/2 xl:w-1/4'>
-                  <Alert>No Product Found</Alert>
+                  <Alert>No Product Found, Please add one</Alert>
                 </div>
               )}
               <div className='row center'>
