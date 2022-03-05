@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 
 import {
-  createProduct,
+  // createProduct,
   deleteProduct,
   listProducts,
 } from '../../actionsReducers/product/productActions';

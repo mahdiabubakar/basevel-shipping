@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import productSvg from '../../img/product-svg.svg';
 
 // Actions
 import {
   createProduct,
-  detailsProduct,
-  updateProduct,
+  // detailsProduct,
+  // updateProduct,
 } from '../../actionsReducers/product/productActions';
 
 // components
-import Spinner from '../layouts/Spinner';
+// import Spinner from '../layouts/Spinner';
 import Alert from '../layouts/Alert';
-import { PRODUCT_UPDATE_RESET } from '../../actionsReducers/types';
+// import { PRODUCT_UPDATE_RESET } from '../../actionsReducers/types';
 
 const ProductEdit = () => {
   const navigate = useNavigate();
-  const params = useParams();
+  // const params = useParams();
   // const { id: productId } = params;
 
   const [productItem, setProductItem] = useState({
@@ -96,7 +96,7 @@ const ProductEdit = () => {
     //   }),
     // );
   };
-  const [loadingUpload, setLoadingUpload] = useState(false);
+  // const [loadingUpload, setLoadingUpload] = useState(false);
 
   const [errorUpload, setErrorUpload] = useState('');
 
@@ -107,7 +107,7 @@ const ProductEdit = () => {
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append('image', file);
-    setLoadingUpload(true);
+    // setLoadingUpload(true);
     try {
       const { data } = await Axios.post('/uploads', formData, {
         headers: {
@@ -116,10 +116,10 @@ const ProductEdit = () => {
         },
       });
       setProductItem({ ...productItem, image: data });
-      setLoadingUpload(false);
+      // setLoadingUpload(false);
     } catch (error) {
       setErrorUpload(error.message);
-      setLoadingUpload(false);
+      // setLoadingUpload(false);
     }
   };
 
