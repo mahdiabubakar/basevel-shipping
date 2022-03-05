@@ -11,9 +11,12 @@ const reviewSchema = new mongoose.Schema(
 );
 const productSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, unique: true },
-    seller: { type: mongoose.Schema.Types.ObjectID, ref: 'User' },
-    image: { type: String, required: true },
+    name: { type: String, required: true },
+    seller: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'User',
+    },
+    image: { type: String },
     brand: { type: String, required: true },
     category: { type: String, required: true },
     description: { type: String, required: true },

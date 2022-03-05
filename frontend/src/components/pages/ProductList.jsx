@@ -73,7 +73,7 @@ const ProductList = () => {
     }
   };
   const onClick = () => {
-    dispatch(createProduct());
+    navigate('/productedit');
   };
   if (!productCreate) return;
   return (

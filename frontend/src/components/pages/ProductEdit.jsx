@@ -7,6 +7,7 @@ import productSvg from '../../img/product-svg.svg';
 
 // Actions
 import {
+  createProduct,
   detailsProduct,
   updateProduct,
 } from '../../actionsReducers/product/productActions';
@@ -19,10 +20,10 @@ import { PRODUCT_UPDATE_RESET } from '../../actionsReducers/types';
 const ProductEdit = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const { id: productId } = params;
+  // const { id: productId } = params;
 
   const [productItem, setProductItem] = useState({
-    id: productId,
+    // id: productId,
     name: '',
     price: '',
     image: '',
@@ -54,30 +55,41 @@ const ProductEdit = () => {
     if (successUpdate) {
       navigate('/productlist');
     }
-    if (!product || product._id !== productId || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET });
-      dispatch(detailsProduct(productId));
-    } else {
-      setProductItem({
-        ...productItem,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        category: product.category,
-        brand: product.brand,
-        countInStock: product.countInStock,
-        description: product.description,
-      });
-    }
+    // if (!product || product._id !== productId || successUpdate) {
+    //   dispatch({ type: PRODUCT_UPDATE_RESET });
+    //   dispatch(detailsProduct(productId));
+    // } else {
+    setProductItem({
+      ...productItem,
+      name: name,
+      price: price,
+      image: image,
+      category: category,
+      brand: brand,
+      countInStock: countInStock,
+      description: description,
+    });
+    // }
 
     // eslint-disable-next-line
-  }, [dispatch, navigate, product, productId, successUpdate]);
+  }, [dispatch, navigate, product, successUpdate]);
   const onSubmit = e => {
     e.preventDefault();
     // TODO: dispatch update product
     dispatch(
+      createProduct(
+        name,
+        price,
+        image,
+        category,
+        brand,
+        countInStock,
+        description,
+      ),
+    );
+    dispatch(
       updateProduct({
-        _id: productId,
+        // _id: productId,
         name,
         price,
         image,
@@ -97,11 +109,11 @@ const ProductEdit = () => {
 
   const upLoadFile = async e => {
     const file = e.target.files[0];
-    const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
+    const formData = new FormData();
+    formData.append('image', file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('/uploads', bodyFormData, {
+      const { data } = await Axios.post('/uploads', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
@@ -122,43 +134,39 @@ const ProductEdit = () => {
       </div>
       <form className='form w-full md:w-1/2 lg:w-full' onSubmit={onSubmit}>
         <div className='w-full m-auto'>
-          <div>
-            <h1>Product ID: {productId}</h1>
-          </div>
-          {loadingUpdate && <Spinner />}
+          <div>{/* <h1>Product ID: {productId}</h1> */}</div>
+          {/* {loadingUpdate && <Spinner />} */}
           {errorUpdate && <Alert variant='danger'>{errorUpdate}</Alert>}
-          {loading ? (
-            <Spinner />
-          ) : error ? (
+          {error ? (
             <Alert variant='danger'>{error}</Alert>
           ) : (
             <>
               <div>
-                <label>Name</label>
+                <label>Item name</label>
                 <input
                   type='text'
                   name='name'
                   value={name}
-                  placeholder='Enter name'
+                  placeholder='Infinix S4'
                   onChange={onChange}
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                   required
                 />
               </div>
               <div>
-                <label>Price</label>
+                <label>Item price (Naira)</label>
                 <input
                   type='number'
                   name='price'
                   value={price}
-                  placeholder='Enter price'
+                  placeholder='38,900.89'
                   onChange={onChange}
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                   required
                 />
               </div>
               <div>
-                <label htmlFor='imageFile'>Image File</label>
+                <label htmlFor='imageFile'>Image file</label>
                 <input
                   type='file'
                   id='imageFile'
@@ -167,52 +175,52 @@ const ProductEdit = () => {
                   accept='image/*'
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 />
-                {loadingUpload && <Spinner />}
+                {/* {loadingUpload && <Spinner />} */}
                 {errorUpload && <Alert variant='danger'>{errorUpload}</Alert>}
               </div>
               <div>
-                <label>Category</label>
+                <label>Item category</label>
                 <input
                   type='text'
                   name='category'
                   value={category}
-                  placeholder='Enter category'
+                  placeholder='Smart Phones'
                   onChange={onChange}
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 />
               </div>
               <div>
-                <label>Brand</label>
+                <label>Item brand</label>
                 <input
                   type='text'
                   name='brand'
                   value={brand}
-                  placeholder='Enter brand'
+                  placeholder='Infinix Mobile'
                   onChange={onChange}
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 />
               </div>
               <div>
-                <label htmlFor='countInStock'>Count In Stock</label>
+                <label htmlFor='countInStock'>Amount in Store</label>
                 <input
                   type='number'
                   name='countInStock'
                   value={countInStock}
-                  placeholder='Enter countInStock'
+                  placeholder='120'
                   onChange={onChange}
                   className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 />
               </div>
               <div>
-                <label>Description</label>
+                <label>Item description</label>
                 <textarea
                   type='text'
                   name='description'
                   value={description}
-                  placeholder='Enter description'
-                  rows='3'
+                  placeholder='6GBRAM, 64GB Storage, 2.0GHz*8, 4000mah, 720*1520 screen wide/height, Android 9 dark blue'
+                  rows='8'
                   onChange={onChange}
-                  className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'></textarea>
+                  className='lg:w-2/3 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'></textarea>
               </div>
               <div>
                 <label />

@@ -137,14 +137,13 @@ productRouter.get(
 
 productRouter.post(
   '/',
-  upload.single('image'),
   isAuth,
   isSellerOrAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name: 'sample name ' + Date.now(),
       seller: req.user._id,
-      image: req.file.path,
+      image: req.body.image,
       price: 0,
       category: 'sample category',
       brand: 'sample brand',
