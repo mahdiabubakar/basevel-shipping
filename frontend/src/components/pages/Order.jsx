@@ -28,6 +28,7 @@ const Order = () => {
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;
+
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -43,6 +44,7 @@ const Order = () => {
     error: errorDeliver,
     success: successDeliver,
   } = orderDeliver;
+
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
@@ -182,12 +184,12 @@ const Order = () => {
                   <div>{formatter.format(order.shippingPrice.toFixed(2))}</div>
                 </div>
               </li>
-              <li>
+              {/* <li>
                 <div className='row'>
                   <div>Tax</div>
                   <div>{formatter.format(order.taxPrice.toFixed(2))}</div>
                 </div>
-              </li>
+              </li> */}
               <li>
                 <div className='row'>
                   <div>
@@ -208,7 +210,6 @@ const Order = () => {
                     <>
                       {errorPay && <Alert variant='danger'>{errorPay}</Alert>}
                       {loadingPay && <Spinner />}
-
                       <PayButton
                         order={order}
                         onSuccess={successPayment}
