@@ -118,6 +118,7 @@ const Profile = () => {
                   value={name}
                   placeholder='John Doe'
                   onChange={onChange}
+                  required
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary capitalize'
                 />
               </div>
@@ -141,6 +142,7 @@ const Profile = () => {
                   value={email}
                   placeholder='john.doe@mail.com'
                   onChange={onChange}
+                  required
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 />
               </div>
@@ -152,6 +154,7 @@ const Profile = () => {
                   name='password'
                   value={password}
                   onChange={onChange}
+                  required
                   placeholder='Enter previous password'
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 />
@@ -163,6 +166,7 @@ const Profile = () => {
                   name='confirmPassword'
                   value={confirmPassword}
                   onChange={onChange}
+                  required
                   placeholder='Confirm password'
                   className='lg:w-1/2 border-1 shadow appearance-none border rounded w-full py-5 px-3 leading-tight focus:outline-none focus:shadow-outline focus:border-primary'
                 />
