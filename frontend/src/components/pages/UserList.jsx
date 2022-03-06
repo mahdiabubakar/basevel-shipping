@@ -48,8 +48,8 @@ const UserList = () => {
         <table className='table'>
           <thead>
             <tr>
-              <th>ID</th>
               <th>NAME</th>
+              <th>PHONE</th>
               <th>EMAIL</th>
               <th>IS SELLER</th>
               <th>IS ADMIN</th>
@@ -59,21 +59,21 @@ const UserList = () => {
           <tbody>
             {users.map(user => (
               <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
+                <td className='capitalize'>{user.name}</td>
+                <td>0{user.phone}</td>
                 <td>{user.email}</td>
                 <td>{user.isSeller ? 'YES' : ' NO'}</td>
                 <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
                   <button
                     type='button'
-                    className='small'
+                    className='small bg-light hover:bg-secondary text-black hover:text-light transition'
                     onClick={() => navigate(`/user/${user._id}/edit`)}>
                     Edit
                   </button>
                   <button
                     type='button'
-                    className='small'
+                    className='small bg-primary hover:bg-danger text-light transition'
                     onClick={() => deleteHandler(user)}>
                     Delete
                   </button>

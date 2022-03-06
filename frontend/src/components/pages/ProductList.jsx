@@ -121,7 +121,7 @@ const ProductList = () => {
                   <td>
                     <button
                       type='button'
-                      className='small small bg-light hover:bg-secondary text-black hover:text-light transition'
+                      className='small bg-light hover:bg-secondary text-black hover:text-light transition'
                       onClick={() => navigate(`/product/${product._id}/edit`)}>
                       Edit
                     </button>
